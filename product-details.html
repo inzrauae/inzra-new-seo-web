@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | Inzra</title>
+    <meta name="description" content="Product details and purchase page for Inzra listings.">
+    <style>
+        :root {
+            --ink-900: #111827;
+            --ink-700: #374151;
+            --ink-500: #6b7280;
+            --line: rgba(17, 24, 39, 0.08);
+            --card: rgba(255, 255, 255, 0.82);
+            --gold: #d4a017;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: var(--ink-900);
+            background:
+                radial-gradient(circle at 12% 10%, rgba(212, 160, 23, 0.14), transparent 30%),
+                radial-gradient(circle at 84% 8%, rgba(245, 201, 75, 0.12), transparent 28%),
+                linear-gradient(150deg, #fbfbfa 0%, #f6f3eb 48%, #eff5f8 100%);
+        }
+
+        .wrap {
+            width: min(980px, calc(100% - 2rem));
+            margin-inline: auto;
+        }
+
+        .topbar {
+            margin-top: 14px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 12px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            background: var(--card);
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--ink-900);
+            font-weight: 800;
+        }
+
+        .brand-mark {
+            height: 36px;
+            aspect-ratio: 733 / 161;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: #fff;
+            padding: 0;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            flex: 0 0 auto;
+        }
+
+        .brand-mark img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--ink-700);
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover { color: var(--ink-900); }
+
+        .product {
+            margin-top: 20px;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: var(--card);
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+        }
+
+        .product-head {
+            padding: 18px;
+            border-bottom: 1px solid var(--line);
+            background: linear-gradient(130deg, rgba(212, 160, 23, 0.1), rgba(255, 255, 255, 0));
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(1.4rem, 3vw, 2.2rem);
+            line-height: 1.3;
+        }
+
+        .meta {
+            margin-top: 8px;
+            color: var(--ink-500);
+            font-size: 0.9rem;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .product-body {
+            padding: 18px;
+            display: grid;
+            gap: 14px;
+        }
+
+        .price {
+            font-size: 2rem;
+            letter-spacing: -0.03em;
+            color: var(--ink-900);
+            font-weight: 700;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .stat {
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            text-align: center;
+            color: var(--ink-500);
+            font-size: 0.82rem;
+        }
+
+        .stat strong {
+            display: block;
+            color: var(--ink-900);
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .btn {
+            border: 0;
+            border-radius: 999px;
+            padding: 10px 14px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn.primary {
+            color: #fff;
+            background: linear-gradient(130deg, #8a6200, var(--gold));
+        }
+
+        .btn.soft {
+            color: var(--ink-900);
+            background: #fff;
+            border: 1px solid var(--line);
+        }
+
+        .note {
+            color: var(--ink-500);
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .error {
+            margin-top: 24px;
+            border: 1px dashed var(--line);
+            border-radius: 12px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.75);
+            color: var(--ink-500);
+            text-align: center;
+        }
+
+        @media (max-width: 700px) {
+            .stats { grid-template-columns: 1fr; }
+            .topbar { border-radius: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap topbar">
+        <a href="products.html" class="brand" aria-label="Inzra products">
+            <span class="brand-mark"><img src="logos/inzra%20logo.png" alt="Inzra logo"></span>
+            Inzra Products
+        </a>
+        <a href="products.html" class="back-link">Back to products</a>
+    </div>
+
+    <main class="wrap" id="app"></main>
+
+    <script>
+        const app = document.getElementById('app');
+
+        function usd(v) {
+            return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(v || 0);
+        }
+
+        function safeText(value) {
+            return String(value || '').replace(/[&<>"']/g, (char) => {
+                const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+                return map[char];
+            });
+        }
+
+        function getItemId() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('item');
+        }
+
+        function renderError(message) {
+            app.innerHTML = `<div class="error">${safeText(message)}</div>`;
+        }
+
+        function renderProduct(item) {
+            document.title = `${item.title} | Inzra`;
+            app.innerHTML = `
+                <section class="product">
+                    <div class="product-head">
+                        <h1>${safeText(item.title)}</h1>
+                        <div class="meta">
+                            <span>Item: ${safeText(item.itemNumber)}</span>
+                            <span>${safeText(item.category || 'General')}</span>
+                            <span>${safeText(item.listingType || 'FIXED_PRICE')}</span>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <div class="price">${usd(item.price)}</div>
+                        <p class="note">${safeText(item.description || 'Professional digital service from Inzra with reliable delivery.')}</p>
+                        <div class="stats">
+                            <div class="stat"><strong>${item.sold}</strong>Sold</div>
+                            <div class="stat"><strong>${Number(item.rating || 4.9).toFixed(1)} (${item.reviews || 0})</strong>Reviews</div>
+                        </div>
+                        <div class="actions">
+                            <a class="btn primary" href="checkout.html?item=${encodeURIComponent(item.itemNumber)}">Buy Now</a>
+                            <a class="btn soft" href="products.html">Browse More Products</a>
+                        </div>
+                        <p class="note">This page is generated from your active catalog data. Price and stock may change as your catalog updates.</p>
+                    </div>
+                </section>
+            `;
+        }
+
+        async function init() {
+            const itemId = getItemId();
+            if (!itemId) {
+                renderError('No item specified. Open this page from the products catalog.');
+                return;
+            }
+
+            try {
+                const res = await fetch('products-data.json');
+                if (!res.ok) throw new Error('Could not load product data');
+                const products = await res.json();
+                const item = products.find((p) => String(p.itemNumber) === String(itemId));
+
+                if (!item) {
+                    renderError('Product not found. It may have been removed or not synced yet.');
+                    return;
+                }
+
+                renderProduct(item);
+            } catch (error) {
+                renderError('Failed to load product details. Please try again.');
+            }
+        }
+
+        init();
+    </script>
+</body>
+</html>

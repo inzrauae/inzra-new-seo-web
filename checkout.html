@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | Inzra</title>
+  <meta name="description" content="Secure direct checkout for Inzra products.">
+  <meta name="robots" content="index, follow">
+  <style>
+    :root {
+      --ink: #111827;
+      --muted: #64748b;
+      --line: rgba(17, 24, 39, 0.1);
+      --gold: #d4a017;
+      --bg1: #fbfbfa;
+      --bg2: #f4efe3;
+      --bg3: #edf4f8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Segoe UI, Arial, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(145deg, var(--bg1), var(--bg2) 52%, var(--bg3));
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+    }
+    .wrap {
+      width: min(760px, 100%);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.1);
+      overflow: hidden;
+    }
+    .head {
+      padding: 1.1rem 1.2rem;
+      background: linear-gradient(130deg, rgba(212, 160, 23, 0.18), rgba(255, 255, 255, 0));
+      border-bottom: 1px solid var(--line);
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(1.35rem, 3vw, 1.95rem);
+      line-height: 1.2;
+    }
+    .body {
+      padding: 1.2rem;
+      display: grid;
+      gap: 1rem;
+    }
+    .item {
+      border: 1px dashed var(--line);
+      border-radius: 12px;
+      padding: 0.85rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      background: #fff;
+    }
+    .item strong { color: var(--ink); }
+    .summary {
+      display: grid;
+      gap: 0.55rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0.85rem;
+      background: #fff;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.7rem;
+      align-items: baseline;
+    }
+    .row strong {
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+    .total {
+      margin-top: 0.3rem;
+      padding-top: 0.55rem;
+      border-top: 1px solid var(--line);
+      font-size: 1rem;
+    }
+    .total strong {
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .notice {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .status {
+      margin: 0;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      padding: 0.7rem 0.8rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      background: #fff;
+    }
+    .status.success {
+      color: #065f46;
+      border-color: rgba(6, 95, 70, 0.2);
+      background: rgba(236, 253, 245, 0.9);
+    }
+    .status.error {
+      color: #991b1b;
+      border-color: rgba(153, 27, 27, 0.2);
+      background: rgba(254, 242, 242, 0.9);
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      text-decoration: none;
+      padding: 0.62rem 0.95rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    .btn.primary {
+      color: #fff;
+      background: linear-gradient(130deg, #845d00, var(--gold));
+    }
+    .btn.soft {
+      color: var(--ink);
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="head">
+      <h1>Checkout Ready</h1>
+    </header>
+    <section class="body">
+      <div class="item">Product ID: <strong id="itemId">Not selected</strong></div>
+      <div class="item">Product: <strong id="itemTitle">Loading...</strong></div>
+      <div class="summary">
+        <div class="row">
+          <span>Subtotal</span>
+          <strong id="subtotal">$0.00</strong>
+        </div>
+        <div class="row">
+          <span>Processing fee</span>
+          <strong>$0.00</strong>
+        </div>
+        <div class="row total">
+          <span>Total</span>
+          <strong id="total">$0.00</strong>
+        </div>
+      </div>
+      <p class="notice">Pay securely with PayPal. This checkout uses your product catalog price and item ID.</p>
+      <p id="status" class="status">Preparing checkout...</p>
+      <div id="paypal-button-container"></div>
+      <div class="actions">
+        <a class="btn primary" href="products.html">Back to Products</a>
+        <a class="btn soft" href="index.html">Home</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const PAYPAL_LIVE_CLIENT_ID = "AePSuKx2iKcL2eEaoRJHiq1MSxUH3ZphAeE3dM4OaJJAc";
+    const PAYPAL_SANDBOX_CLIENT_ID = "sb";
+
+    const itemIdEl = document.getElementById("itemId");
+    const itemTitleEl = document.getElementById("itemTitle");
+    const subtotalEl = document.getElementById("subtotal");
+    const totalEl = document.getElementById("total");
+    const statusEl = document.getElementById("status");
+
+    const itemId = new URLSearchParams(window.location.search).get("item");
+    const envParam = new URLSearchParams(window.location.search).get("env");
+    let paypalEnv = envParam === "sandbox" ? "sandbox" : "live";
+    let currentProduct = null;
+
+    function getClientId() {
+      return paypalEnv === "sandbox" ? PAYPAL_SANDBOX_CLIENT_ID : PAYPAL_LIVE_CLIENT_ID;
+    }
+
+    function formatUsd(value) {
+      return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(Number(value || 0));
+    }
+
+    function setStatus(message, type) {
+      statusEl.textContent = message;
+      statusEl.className = "status";
+      if (type) statusEl.classList.add(type);
+    }
+
+    async function loadProduct() {
+      if (!itemId) {
+        setStatus("Missing item id. Please open checkout from a product page.", "error");
+        itemTitleEl.textContent = "Not selected";
+        return false;
+      }
+
+      itemIdEl.textContent = itemId;
+      document.title = `Checkout ${itemId} | Inzra`;
+
+      try {
+        const response = await fetch("products-data.json");
+        if (!response.ok) throw new Error("Could not load products-data.json");
+        const products = await response.json();
+        currentProduct = products.find((p) => String(p.itemNumber) === String(itemId));
+
+        if (!currentProduct) {
+          setStatus("Product not found. It may have been removed from your catalog.", "error");
+          itemTitleEl.textContent = "Not found";
+          return false;
+        }
+
+        itemTitleEl.textContent = currentProduct.title || "Inzra Product";
+        subtotalEl.textContent = formatUsd(currentProduct.price);
+        totalEl.textContent = formatUsd(currentProduct.price);
+        return true;
+      } catch (error) {
+        setStatus("Failed to load product details for checkout.", "error");
+        itemTitleEl.textContent = "Unavailable";
+        return false;
+      }
+    }
+
+    function loadPayPalSdk(clientId) {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = `https://www.paypal.com/sdk/js?client-id=${encodeURIComponent(clientId)}&currency=USD&intent=capture`;
+        script.onload = resolve;
+        script.onerror = () => reject(new Error(`Failed to load PayPal SDK from ${script.src}`));
+        document.head.appendChild(script);
+      });
+    }
+
+    function renderPayPalButtons() {
+      if (!window.paypal || !currentProduct) return;
+
+      paypal.Buttons({
+        style: {
+          layout: "vertical",
+          shape: "rect",
+          label: "pay"
+        },
+        createOrder: function (_data, actions) {
+          return actions.order.create({
+            purchase_units: [
+              {
+                description: `${currentProduct.title} (Item ${currentProduct.itemNumber})`,
+                amount: {
+                  currency_code: "USD",
+                  value: Number(currentProduct.price || 0).toFixed(2)
+                }
+              }
+            ]
+          });
+        },
+        onApprove: function (_data, actions) {
+          return actions.order.capture().then(function (details) {
+            const payer = details && details.payer && details.payer.name ? details.payer.name.given_name : "Customer";
+            setStatus(`Payment completed successfully. Thank you, ${payer}.`, "success");
+          });
+        },
+        onError: function () {
+          setStatus("PayPal checkout failed. Please try again.", "error");
+        }
+      }).render("#paypal-button-container");
+
+      setStatus("Checkout ready. Complete your payment using PayPal.");
+    }
+
+    async function initCheckout() {
+      const loaded = await loadProduct();
+      if (!loaded) return;
+
+      let clientId = getClientId();
+
+      if (!clientId || clientId === "REPLACE_WITH_PAYPAL_CLIENT_ID") {
+        setStatus("Add your PayPal Client ID in checkout.html to enable checkout buttons.", "error");
+        return;
+      }
+
+      try {
+        await loadPayPalSdk(clientId);
+        renderPayPalButtons();
+      } catch (error) {
+        if (paypalEnv === "live") {
+          try {
+            paypalEnv = "sandbox";
+            clientId = getClientId();
+            await loadPayPalSdk(clientId);
+            renderPayPalButtons();
+            setStatus("Live PayPal key failed to load. Switched to Sandbox mode for testing. Use ?env=sandbox explicitly while you update live credentials.", "error");
+            return;
+          } catch (fallbackError) {
+            setStatus(`Could not load PayPal SDK in live or sandbox mode. ${fallbackError.message}`, "error");
+            return;
+          }
+        }
+
+        setStatus(`Could not load PayPal SDK (${paypalEnv}). ${error.message}`, "error");
+      }
+    }
+
+    initCheckout();
+  </script>
+</body>
+</html>

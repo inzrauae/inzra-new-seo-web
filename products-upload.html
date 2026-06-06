@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products Bulk Upload Parser</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --ink: #0f172a;
+      --muted: #64748b;
+      --line: #dbe3ee;
+      --gold: #d4a017;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Segoe UI, Arial, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(140deg, #f8fafc, #f6f3ea);
+    }
+    .wrap {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 24px auto 40px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 1.55rem;
+    }
+    p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    textarea {
+      width: 100%;
+      min-height: 220px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px;
+      font: 14px/1.5 Consolas, monospace;
+      resize: vertical;
+    }
+    .actions {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    button {
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .primary {
+      background: linear-gradient(130deg, #8a6200, var(--gold));
+      color: white;
+    }
+    .soft {
+      background: #eef2f7;
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+    .meta {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 0.92rem;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #f8fafc;
+    }
+    .section { margin-top: 16px; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Bulk Product Upload Parser</h1>
+      <p>Paste your raw listings text, click Parse, then export CSV for upload/import. This handles noisy text blocks like the one you shared.</p>
+      <textarea id="rawInput" placeholder="Paste all product listing text here..."></textarea>
+      <div class="actions">
+        <button class="primary" id="parseBtn">Parse Listings</button>
+        <button class="soft" id="downloadBtn">Download CSV</button>
+        <button class="soft" id="clearBtn">Clear</button>
+      </div>
+      <div class="meta" id="meta">Parsed products: 0</div>
+    </div>
+
+    <div class="card section hidden" id="resultsCard">
+      <h2 style="margin:0 0 10px; font-size:1.2rem;">Parsed Products</h2>
+      <table id="resultTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const rawInput = document.getElementById('rawInput');
+    const parseBtn = document.getElementById('parseBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const resultTableBody = document.querySelector('#resultTable tbody');
+    const resultsCard = document.getElementById('resultsCard');
+    const meta = document.getElementById('meta');
+
+    let parsed = [];
+
+    function normalize(str) {
+      return str
+        .replace(/&amp;|&amp;amp;/gi, '&')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function extractProducts(text) {
+      const lines = text.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
+      const products = [];
+
+      for (let i = 0; i < lines.length; i += 1) {
+        const line = lines[i];
+
+        const hasDollar = /\$\d/.test(line);
+        const looksLikeTitle = /[A-Za-z]/.test(line) && line.length > 12;
+
+        if (!looksLikeTitle) continue;
+
+        let title = normalize(line.replace(/^Listing\s+/i, ''));
+        let price = '';
+        let type = 'Buy It Now';
+
+        const sameLinePrice = line.match(/\$\d+(?:\.\d+)?(?:\s*to\s*\$\d+(?:\.\d+)?)?/);
+        if (sameLinePrice) {
+          price = sameLinePrice[0];
+        } else {
+          const window = lines.slice(i + 1, i + 5).join(' ');
+          const nearPrice = window.match(/\$\d+(?:\.\d+)?(?:\s*to\s*\$\d+(?:\.\d+)?)?/);
+          if (nearPrice) price = nearPrice[0];
+        }
+
+        if (!price && !hasDollar) continue;
+
+        if (/best offer/i.test(lines.slice(i, i + 4).join(' '))) {
+          type = 'Buy It Now / Best Offer';
+        }
+
+        if (title.length < 8) continue;
+
+        products.push({ title, price: price || 'N/A', type });
+      }
+
+      // Remove near-duplicates
+      const map = new Map();
+      for (const p of products) {
+        const key = p.title.toLowerCase();
+        if (!map.has(key)) map.set(key, p);
+      }
+      return Array.from(map.values());
+    }
+
+    function renderTable(rows) {
+      resultTableBody.innerHTML = '';
+      rows.forEach((row, idx) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${idx + 1}</td>
+          <td>${row.title}</td>
+          <td>${row.price}</td>
+          <td>${row.type}</td>
+        `;
+        resultTableBody.appendChild(tr);
+      });
+      resultsCard.classList.toggle('hidden', rows.length === 0);
+      meta.textContent = `Parsed products: ${rows.length}`;
+    }
+
+    function toCsv(rows) {
+      const esc = (v) => `"${String(v).replace(/"/g, '""')}"`;
+      const header = ['title', 'price', 'type'];
+      const body = rows.map((r) => [esc(r.title), esc(r.price), esc(r.type)].join(','));
+      return [header.join(','), ...body].join('\n');
+    }
+
+    parseBtn.addEventListener('click', () => {
+      parsed = extractProducts(rawInput.value);
+      renderTable(parsed);
+    });
+
+    downloadBtn.addEventListener('click', () => {
+      if (!parsed.length) {
+        alert('Parse listings first.');
+        return;
+      }
+      const csv = toCsv(parsed);
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'products-upload.csv';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    clearBtn.addEventListener('click', () => {
+      rawInput.value = '';
+      parsed = [];
+      renderTable(parsed);
+    });
+  </script>
+</body>
+</html>

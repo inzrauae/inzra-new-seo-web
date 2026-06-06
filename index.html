@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuthorityStack | SEO Agency, SEO Services, Local SEO Company</title>
+    <meta name="description" content="AuthorityStack is a modern SEO agency and SEO company delivering SEO services, local SEO services, and advanced SEO strategy with measurable SEO optimization.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="keywords" content="seo agency, seo services, seo company, local seo, local seo services, seo consultant, local seo agency, local seo company, seo optimization, seo strategy">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AuthorityStack | SEO Agency and Local SEO Services">
+    <meta property="og:description" content="SEO company and SEO consultant team delivering local SEO, SEO strategy, and SEO optimization for growth brands.">
+    <meta property="og:url" content="https://authoritystack.io/">
+    <meta property="og:site_name" content="AuthorityStack">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="AuthorityStack | SEO Agency and SEO Services">
+    <meta property="twitter:description" content="Local SEO agency and SEO consultant team focused on ranking growth and SEO optimization.">
+    <link rel="canonical" href="https://authoritystack.io/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink-900: #111827;
+            --ink-700: #374151;
+            --ink-500: #6b7280;
+            --paper: #f8fafc;
+            --card: rgba(255, 255, 255, 0.78);
+            --line: rgba(17, 24, 39, 0.08);
+            --teal: #0f766e;
+            --teal-soft: #14b8a6;
+            --orange: #ea580c;
+            --orange-soft: #fb923c;
+            --gold: #f59e0b;
+            --shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+            --radius-lg: 28px;
+            --radius-md: 18px;
+            --radius-sm: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink-900);
+            font-family: "Sora", sans-serif;
+            background:
+                radial-gradient(circle at 10% 8%, rgba(245, 158, 11, 0.14), transparent 32%),
+                radial-gradient(circle at 90% 12%, rgba(251, 191, 36, 0.12), transparent 30%),
+                radial-gradient(circle at 30% 90%, rgba(245, 158, 11, 0.08), transparent 32%),
+                linear-gradient(150deg, #fbfbfa 0%, #f7f4ed 48%, #f1f5f9 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .spotlight {
+            position: fixed;
+            width: 280px;
+            height: 280px;
+            left: 0;
+            top: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            pointer-events: none;
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.22) 0%, rgba(20, 184, 166, 0) 70%);
+            filter: blur(4px);
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(rgba(17, 24, 39, 0.06) 1px, transparent 1px);
+            background-size: 18px 18px;
+            pointer-events: none;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .wrap {
+            width: min(1120px, calc(100% - 2.4rem));
+            margin-inline: auto;
+        }
+
+        .mono {
+            font-family: "IBM Plex Mono", monospace;
+            letter-spacing: 0.04em;
+        }
+
+        .glass {
+            background: var(--card);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 16px;
+            border-radius: 0;
+            width: 100%;
+            border-left: 0;
+            border-right: 0;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            text-decoration: none;
+            color: var(--ink-900);
+            font-weight: 700;
+        }
+
+        .brand-mark {
+            height: 36px;
+            aspect-ratio: 733 / 161;
+            border-radius: 999px;
+            display: grid;
+            place-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid var(--line);
+            box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+            overflow: hidden;
+            padding: 0;
+            flex: 0 0 auto;
+        }
+
+        .brand-mark img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .menu a {
+            color: var(--ink-700);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .menu a:hover {
+            color: var(--teal);
+        }
+
+        .btn {
+            border: 0;
+            border-radius: 999px;
+            padding: 11px 18px;
+            font-family: inherit;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn.primary {
+            color: #fff;
+            background: linear-gradient(130deg, var(--teal) 0%, var(--orange) 100%);
+            box-shadow: 0 12px 28px rgba(14, 116, 144, 0.35);
+        }
+
+        .btn.soft {
+            color: var(--ink-900);
+            background: #ffffff;
+            border: 1px solid var(--line);
+        }
+
+        .menu-toggle {
+            display: none;
+            border: 0;
+            background: transparent;
+            font-size: 1.45rem;
+            color: var(--ink-900);
+        }
+
+        .hero {
+            padding: 80px 0 42px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 34px;
+            align-items: center;
+            position: relative;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(2px);
+            z-index: -1;
+            animation: drift 12s ease-in-out infinite;
+        }
+
+        .orb.one {
+            width: 120px;
+            height: 120px;
+            right: 44%;
+            top: 10px;
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.35), rgba(20, 184, 166, 0));
+        }
+
+        .orb.two {
+            width: 150px;
+            height: 150px;
+            right: -20px;
+            bottom: 20px;
+            background: radial-gradient(circle, rgba(251, 146, 60, 0.35), rgba(251, 146, 60, 0));
+            animation-delay: 2.4s;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-14px) translateX(8px); }
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(15, 118, 110, 0.25);
+            border: 1px solid rgba(212, 160, 23, 0.24);
+            color: #8a6200;
+            background: rgba(212, 160, 23, 0.08);
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .pulse {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--gold);
+            animation: pulse 1.6s ease infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.55; }
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.1rem, 4vw, 4.2rem);
+            line-height: 1.04;
+            letter-spacing: -0.02em;
+        }
+
+        .gradient-text {
+            background: linear-gradient(130deg, #8a6200 15%, #d4a017 55%, #f5c94b 90%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.03rem;
+            color: var(--ink-700);
+            line-height: 1.75;
+            max-width: 56ch;
+            margin: 20px 0 28px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .hero-note {
+            margin-top: 16px;
+            color: var(--ink-500);
+            font-size: 0.83rem;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .hero-badges span {
+            padding: 7px 11px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--ink-700);
+            font-size: 0.74rem;
+        }
+
+        .trust-strip {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .trust-item {
+            border-radius: 14px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 12px 13px;
+        }
+
+        .trust-item strong {
+            display: block;
+            font-size: 0.88rem;
+            margin-bottom: 2px;
+        }
+
+        .trust-item span {
+            color: var(--ink-500);
+            font-size: 0.76rem;
+        }
+
+        .dashboard {
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: transform 0.35s ease;
+        }
+
+        .dashboard::after {
+            content: "";
+            position: absolute;
+            inset: -30% -18% auto;
+            height: 60%;
+            background: linear-gradient(125deg, rgba(212, 160, 23, 0.18), rgba(245, 158, 11, 0.16));
+            filter: blur(28px);
+            pointer-events: none;
+        }
+
+        .dashboard::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(105deg, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0) 44%);
+            transform: translateX(-120%);
+            transition: transform 0.9s ease;
+            pointer-events: none;
+        }
+
+        .dashboard:hover::before {
+            transform: translateX(120%);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .stat {
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            padding: 14px;
+            position: relative;
+        }
+
+        .stat::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 3px;
+            border-radius: 999px 999px 0 0;
+            background: linear-gradient(90deg, #d4a017, #f5c94b);
+        }
+
+        .stat small {
+            font-size: 0.72rem;
+            color: var(--ink-500);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .stat strong {
+            font-size: 1.3rem;
+            letter-spacing: -0.03em;
+        }
+
+        .trend {
+            color: #8a6200;
+            font-size: 0.76rem;
+            font-weight: 600;
+            margin-left: 6px;
+        }
+
+        .chart {
+            margin-top: 16px;
+            height: 178px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--line);
+            background: linear-gradient(to top, rgba(212, 160, 23, 0.08), rgba(245, 201, 75, 0.04));
+            padding: 14px;
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+        }
+
+        .bar {
+            flex: 1;
+            border-radius: 12px 12px 0 0;
+            background: linear-gradient(to top, #8a6200, #d4a017, #f5c94b);
+            animation: grow 1.2s ease both;
+            transform-origin: bottom;
+        }
+
+        @keyframes grow {
+            from { transform: scaleY(0.15); opacity: 0.25; }
+            to { transform: scaleY(1); opacity: 1; }
+        }
+
+        .bar:nth-child(1) { height: 28%; animation-delay: 0.1s; }
+        .bar:nth-child(2) { height: 34%; animation-delay: 0.2s; }
+        .bar:nth-child(3) { height: 46%; animation-delay: 0.3s; }
+        .bar:nth-child(4) { height: 56%; animation-delay: 0.4s; }
+        .bar:nth-child(5) { height: 62%; animation-delay: 0.5s; }
+        .bar:nth-child(6) { height: 72%; animation-delay: 0.6s; }
+        .bar:nth-child(7) { height: 84%; animation-delay: 0.7s; }
+        .bar:nth-child(8) { height: 98%; animation-delay: 0.8s; }
+
+        .ticker {
+            margin: 24px 0;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.45);
+        }
+
+        .ticker-track {
+            display: flex;
+            gap: 28px;
+            padding: 13px 0;
+            width: max-content;
+            animation: ticker 18s linear infinite;
+        }
+
+        .ticker span {
+            font-size: 0.82rem;
+            color: var(--ink-700);
+            white-space: nowrap;
+        }
+
+        @keyframes ticker {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        section {
+            padding: 58px 0;
+        }
+
+        .section-head {
+            max-width: 700px;
+            margin-bottom: 24px;
+        }
+
+        .section-head h2 {
+            margin: 0;
+            font-size: clamp(1.7rem, 2.7vw, 2.8rem);
+            letter-spacing: -0.02em;
+        }
+
+        .section-head p {
+            color: var(--ink-700);
+            line-height: 1.7;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .card {
+            border-radius: var(--radius-md);
+            padding: 22px;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid var(--line);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 35px rgba(15, 23, 42, 0.13);
+        }
+
+        .card::after {
+            content: "";
+            position: absolute;
+            inset: auto -32% -58% auto;
+            width: 160px;
+            height: 160px;
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.2), rgba(20, 184, 166, 0));
+            transition: opacity 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .card:hover::after {
+            opacity: 1;
+        }
+
+        .chip {
+            display: inline-flex;
+            padding: 5px 10px;
+            border-radius: 999px;
+            font-size: 0.68rem;
+            color: #8a6200;
+            border: 1px solid rgba(212, 160, 23, 0.22);
+            background: rgba(212, 160, 23, 0.08);
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            margin: 0 0 8px;
+            font-size: 1.12rem;
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--ink-700);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        .process {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .matrix-card {
+            border-radius: var(--radius-md);
+            border: 1px solid var(--line);
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.76);
+        }
+
+        .matrix-card h4 {
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .matrix-card p {
+            margin: 0;
+            color: var(--ink-700);
+            line-height: 1.68;
+            font-size: 0.9rem;
+        }
+
+        .geo-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 14px;
+        }
+
+        .geo-panel {
+            border-radius: var(--radius-md);
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.74);
+            padding: 22px;
+        }
+
+        .geo-panel h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .geo-panel p {
+            margin-top: 0;
+            color: var(--ink-700);
+            line-height: 1.72;
+        }
+
+        .signal-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .signal {
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.82);
+            padding: 10px;
+            font-size: 0.86rem;
+            color: var(--ink-700);
+        }
+
+        .score-card {
+            border-radius: var(--radius-md);
+            border: 1px solid var(--line);
+            background: linear-gradient(135deg, rgba(212, 160, 23, 0.14), rgba(245, 201, 75, 0.14));
+            padding: 18px;
+        }
+
+        .score {
+            font-size: 2.3rem;
+            line-height: 1;
+            margin: 12px 0 10px;
+            letter-spacing: -0.04em;
+        }
+
+        .score-bars {
+            display: grid;
+            gap: 8px;
+        }
+
+        .score-bars div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--ink-700);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.72);
+            padding: 8px 10px;
+        }
+
+        .faq {
+            display: grid;
+            gap: 10px;
+        }
+
+        .faq details {
+            border-radius: 12px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.72);
+            padding: 12px 14px;
+        }
+
+        .faq summary {
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .faq p {
+            margin-bottom: 0;
+            color: var(--ink-700);
+            line-height: 1.68;
+            font-size: 0.92rem;
+        }
+
+        .step {
+            border-radius: var(--radius-md);
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid var(--line);
+            position: relative;
+        }
+
+        .step-index {
+            font-size: 0.74rem;
+            color: var(--orange);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .step h4 {
+            margin: 0 0 8px;
+        }
+
+        .step p {
+            margin: 0;
+            color: var(--ink-700);
+            font-size: 0.89rem;
+            line-height: 1.55;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .case {
+            border-radius: var(--radius-md);
+            border: 1px solid var(--line);
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.74);
+        }
+
+        .case-top {
+            padding: 18px 20px;
+            background: linear-gradient(135deg, rgba(212, 160, 23, 0.16), rgba(245, 201, 75, 0.14));
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 14px;
+        }
+
+        .case-top h4 {
+            margin: 4px 0 0;
+            font-size: 1.12rem;
+        }
+
+        .case-top p,
+        .case-body p {
+            margin: 0;
+            color: var(--ink-700);
+            font-size: 0.9rem;
+            line-height: 1.65;
+        }
+
+        .case-metric {
+            text-align: right;
+            font-size: 1.45rem;
+            color: #8a6200;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            white-space: nowrap;
+        }
+
+        .case-body {
+            padding: 18px 20px 20px;
+        }
+
+        .mini-metrics {
+            margin-top: 13px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .mini-metrics div {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .mini-metrics small {
+            display: block;
+            color: var(--ink-500);
+            font-size: 0.67rem;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .mini-metrics strong {
+            font-size: 0.98rem;
+        }
+
+        .cta {
+            border-radius: var(--radius-lg);
+            padding: 26px;
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 22px;
+            align-items: center;
+        }
+
+        .cta h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.7rem;
+            letter-spacing: -0.02em;
+        }
+
+        .cta p {
+            margin: 0;
+            color: var(--ink-700);
+            line-height: 1.75;
+            max-width: 42ch;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .shop-toolbar {
+            display: grid;
+            grid-template-columns: 1.3fr 0.8fr;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .shop-field {
+            width: 100%;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 11px 12px;
+            font: inherit;
+            color: var(--ink-900);
+        }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .shop-card {
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.82);
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.07);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .shop-card-top {
+            padding: 13px;
+            border-bottom: 1px solid var(--line);
+            background: linear-gradient(120deg, rgba(212, 160, 23, 0.1), rgba(255, 255, 255, 0));
+        }
+
+        .shop-title {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.45;
+            min-height: 62px;
+        }
+
+        .shop-meta {
+            margin-top: 8px;
+            color: var(--ink-500);
+            font-size: 0.74rem;
+        }
+
+        .shop-body {
+            padding: 13px;
+            display: grid;
+            gap: 9px;
+            flex: 1;
+        }
+
+        .shop-price {
+            font-size: 1.35rem;
+            letter-spacing: -0.03em;
+            color: var(--ink-900);
+            font-weight: 700;
+        }
+
+        .shop-note {
+            margin: 0;
+            color: var(--ink-700);
+            font-size: 0.78rem;
+            line-height: 1.55;
+            min-height: 52px;
+        }
+
+        .shop-signals {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            color: var(--ink-500);
+            font-size: 0.73rem;
+        }
+
+        .shop-signals strong {
+            color: var(--ink-900);
+        }
+
+        .shop-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .shop-btn {
+            border: 0;
+            border-radius: 999px;
+            padding: 9px 10px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .shop-btn.primary {
+            color: #fff;
+            background: linear-gradient(130deg, #8a6200, #d4a017);
+        }
+
+        .shop-btn.soft {
+            color: var(--ink-900);
+            background: #fff;
+            border: 1px solid var(--line);
+        }
+
+        .shop-empty {
+            border: 1px dashed var(--line);
+            border-radius: 14px;
+            padding: 20px;
+            text-align: center;
+            color: var(--ink-500);
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .field {
+            width: 100%;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 11px 12px;
+            font: inherit;
+            color: var(--ink-900);
+        }
+
+        .field:focus {
+            outline: 2px solid rgba(20, 184, 166, 0.36);
+            border-color: rgba(20, 184, 166, 0.45);
+        }
+
+        .span-2 {
+            grid-column: span 2;
+        }
+
+        footer {
+            padding: 0 0 40px;
+            color: var(--ink-500);
+            font-size: 0.84rem;
+            margin-top: 46px;
+        }
+
+        .footer-shell {
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.78);
+            box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+            overflow: hidden;
+        }
+
+        .footer-top {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 16px;
+            border-bottom: 1px solid var(--line);
+            background: linear-gradient(120deg, rgba(212, 160, 23, 0.08), rgba(255, 255, 255, 0));
+        }
+
+        .footer-title {
+            margin: 0 0 7px;
+            color: var(--ink-900);
+            font-size: 1.06rem;
+            letter-spacing: -0.01em;
+        }
+
+        .footer-desc {
+            margin: 0;
+            color: var(--ink-700);
+            line-height: 1.65;
+            font-size: 0.9rem;
+        }
+
+        .trust-logo-row {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            align-items: center;
+        }
+
+        .trust-logo {
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.86);
+            min-height: 64px;
+        }
+
+        .trust-logo img {
+            max-width: 100%;
+            max-height: 42px;
+            object-fit: contain;
+            filter: saturate(0.9) contrast(1.02);
+        }
+
+        .foot {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            padding: 16px 20px;
+        }
+
+        .foot-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .foot-links a {
+            color: var(--ink-700);
+            text-decoration: none;
+        }
+
+        .foot-links a:hover {
+            color: #8a6200;
+        }
+
+        @media (max-width: 980px) {
+            .hero,
+            .cta {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-strip {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .shop-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .process {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .matrix-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .geo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .topbar {
+                top: 10px;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .menu-toggle {
+                display: inline-block;
+            }
+
+            .menu {
+                position: absolute;
+                top: calc(100% + 10px);
+                left: 0;
+                right: 0;
+                border-radius: 22px;
+                padding: 12px;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+
+            .menu.open {
+                display: flex;
+            }
+
+            .menu a,
+            .menu .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav {
+                position: relative;
+                border-radius: 20px;
+            }
+
+            .stats-grid,
+            .cards,
+            .case-grid,
+            .process,
+            .signal-list,
+            .trust-strip,
+            .form-grid,
+            .shop-grid,
+            .shop-toolbar {
+                grid-template-columns: 1fr;
+            }
+
+            .span-2 {
+                grid-column: auto;
+            }
+
+            .hero {
+                padding-top: 54px;
+            }
+
+            section {
+                padding: 44px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="spotlight" id="spotlight" aria-hidden="true"></div>
+    <div class="topbar reveal">
+        <nav class="nav glass">
+            <a href="#top" class="brand" aria-label="Inzra home">
+                <span class="brand-mark"><img src="logos/inzra%20logo.png" alt="Inzra logo"></span>
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+            <div class="menu" id="menu">
+                <a href="#services">Services</a>
+                <a href="#geo">GEO Layer</a>
+                <a href="#process">Process</a>
+                <a href="products.html">Buy Services</a>
+                <a href="products-upload.html">Product Upload</a>
+                <a href="#results">Results</a>
+                <a href="#audit" class="btn soft">Client Login</a>
+                <a href="#audit" class="btn primary">Get Free Audit</a>
+            </div>
+        </nav>
+    </div>
+
+    <main id="top" class="wrap">
+        <section class="hero">
+            <span class="orb one" aria-hidden="true"></span>
+            <span class="orb two" aria-hidden="true"></span>
+            <div class="reveal">
+                <div class="eyebrow mono">
+                    <span class="pulse"></span>
+                    Live SEO + GEO Intelligence Layer
+                </div>
+                <h1>
+                    A modern <span class="gradient-text">SEO agency</span> for brands that want to rank and get cited by AI.
+                </h1>
+                <p>
+                    We are an SEO company and SEO consultant team combining technical SEO, digital PR, and GEO execution to deliver strong SEO services, practical SEO strategy, and measurable SEO optimization.
+                </p>
+                <div class="hero-actions">
+                    <a href="#audit" class="btn primary">Run Instant Site Audit</a>
+                    <a href="#results" class="btn soft">See Client Outcomes</a>
+                </div>
+                <div class="hero-badges mono">
+                    <span>Entity SEO Engine</span>
+                    <span>LLM Citation Loops</span>
+                    <span>Answer Box Domination</span>
+                </div>
+                <div class="trust-strip">
+                    <div class="trust-item">
+                        <strong>Trusted process</strong>
+                        <span>Clear deliverables, weekly updates, no hidden steps.</span>
+                    </div>
+                    <div class="trust-item">
+                        <strong>Gold-standard brand</strong>
+                        <span>Premium identity with a gold logo and refined palette.</span>
+                    </div>
+                    <div class="trust-item">
+                        <strong>Evidence first</strong>
+                        <span>Structured case studies and measurable campaign outcomes.</span>
+                    </div>
+                    <div class="trust-item">
+                        <strong>Human support</strong>
+                        <span>SEO strategist guidance instead of automated churn.</span>
+                    </div>
+                </div>
+                <div class="hero-note mono">Zero spam tactics. Full transparency. Performance reviewed weekly.</div>
+            </div>
+
+            <aside class="dashboard glass reveal" aria-label="SEO dashboard preview">
+                <div class="mono" style="font-size:0.72rem; color:var(--ink-500); text-transform:uppercase;">Performance Snapshot</div>
+                <div class="stats-grid">
+                    <div class="stat">
+                        <small>Organic Sessions</small>
+                        <strong>412.8K</strong><span class="trend">+142%</span>
+                    </div>
+                    <div class="stat">
+                        <small>Domain Authority</small>
+                        <strong>78</strong><span class="trend">+34%</span>
+                    </div>
+                    <div class="stat">
+                        <small>Top 3 Keywords</small>
+                        <strong>1,842</strong><span class="trend">+210</span>
+                    </div>
+                    <div class="stat">
+                        <small>Indexation Rate</small>
+                        <strong>99.4%</strong><span class="trend">Stable</span>
+                    </div>
+                </div>
+                <div class="chart" role="img" aria-label="Growth trend chart">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <div class="ticker reveal" aria-hidden="true">
+        <div class="ticker-track mono">
+            <span>Trusted by growth teams at VECTA AI</span>
+            <span>CAPITAL X</span>
+            <span>KINETIC CLOUD</span>
+            <span>NORTHWAVE SYSTEMS</span>
+            <span>Trusted by growth teams at VECTA AI</span>
+            <span>CAPITAL X</span>
+            <span>KINETIC CLOUD</span>
+            <span>NORTHWAVE SYSTEMS</span>
+        </div>
+    </div>
+
+    <section id="services" class="wrap">
+        <div class="section-head reveal">
+            <h2>SEO services built for modern search behavior</h2>
+            <p>From local SEO services to enterprise campaigns, every SEO strategy is built around intent, relevance, and conversion-focused SEO optimization.</p>
+        </div>
+        <div class="cards">
+            <article class="card reveal">
+                <span class="chip mono">Digital PR</span>
+                <h3>Authority Placements</h3>
+                <p>Editorial placements on high-trust publications that strengthen entity signals and brand credibility.</p>
+            </article>
+            <article class="card reveal">
+                <span class="chip mono">Context Layer</span>
+                <h3>Smart Niche Edits</h3>
+                <p>Contextual dofollow integrations in existing pages already trusted by search engines and users.</p>
+            </article>
+            <article class="card reveal">
+                <span class="chip mono">Intelligence</span>
+                <h3>Competitor Gap Modeling</h3>
+                <p>Data-backed roadmap showing where competitors win and exactly what to build to overtake them.</p>
+            </article>
+            <article class="card reveal">
+                <span class="chip mono">On-Page</span>
+                <h3>Keyword Cluster Mapping</h3>
+                <p>Semantic content architecture that expands coverage and captures transactional intent faster.</p>
+            </article>
+            <article class="card reveal">
+                <span class="chip mono">Local SEO</span>
+                <h3>Local SEO Services</h3>
+                <p>As a local SEO agency and local SEO company, we optimize maps, location pages, and local authority signals.</p>
+            </article>
+            <article class="card reveal">
+                <span class="chip mono">Reporting</span>
+                <h3>Live Tracking Portal</h3>
+                <p>Transparent campaign dashboard with links, index status, traffic impact, and progress milestones.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="geo" class="wrap">
+        <div class="section-head reveal">
+            <h2>Generative Engine Optimization Layer</h2>
+            <p>Beyond rankings, we structure content to become quotable by large language models. This is where GEO converts visibility into brand mentions inside AI answers.</p>
+        </div>
+        <div class="geo-grid">
+            <article class="geo-panel reveal">
+                <span class="chip mono">GEO Core</span>
+                <h3>Answer-Engine Content Architecture</h3>
+                <p>We produce entity-first pages, citation-ready facts, and clean semantic markup so AI systems can understand, trust, and reference your expertise in generated responses.</p>
+                <div class="signal-list">
+                    <div class="signal"><strong>Entity graph:</strong> company, product, founder, category</div>
+                    <div class="signal"><strong>Citation blocks:</strong> concise claims with verifiable source context</div>
+                    <div class="signal"><strong>Prompt alignment:</strong> content mapped to real user question intent</div>
+                    <div class="signal"><strong>Retrieval clarity:</strong> headings and summaries optimized for chunking</div>
+                </div>
+            </article>
+            <aside class="score-card reveal" aria-label="GEO readiness score">
+                <div class="mono" style="font-size:0.72rem; text-transform:uppercase; color:var(--ink-700);">Model Visibility Potential</div>
+                <div class="score">92/100</div>
+                <p style="margin:0 0 12px; color:var(--ink-700); line-height:1.65;">Current client average after implementation across B2B and SaaS campaigns.</p>
+                <div class="score-bars mono">
+                    <div><span>Citation Readiness</span><span>94%</span></div>
+                    <div><span>Entity Coverage</span><span>91%</span></div>
+                    <div><span>Answer Snippet Fit</span><span>90%</span></div>
+                    <div><span>Topical Trust Signals</span><span>93%</span></div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <section id="matrix" class="wrap">
+        <div class="section-head reveal">
+            <h2>Neural visibility matrix</h2>
+            <p>A modern search program needs coordinated signals across traditional ranking systems and AI retrieval layers.</p>
+        </div>
+        <div class="matrix-grid">
+            <article class="matrix-card reveal">
+                <span class="chip mono">Layer A</span>
+                <h4>Crawl and index quality</h4>
+                <p>Clean architecture, internal linking, canonical hygiene, and fast rendering to maximize discoverability.</p>
+            </article>
+            <article class="matrix-card reveal">
+                <span class="chip mono">Layer B</span>
+                <h4>Entity and trust strength</h4>
+                <p>Schema-backed profiles, authority citations, and high-trust mentions that reinforce brand confidence.</p>
+            </article>
+            <article class="matrix-card reveal">
+                <span class="chip mono">Layer C</span>
+                <h4>Answer-engine fit</h4>
+                <p>Question-led formatting, concise evidence blocks, and semantic chunking for superior model retrieval.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="process" class="wrap">
+        <div class="section-head reveal">
+            <h2>Execution pipeline</h2>
+            <p>Fast feedback loops keep momentum high while preserving quality at every stage.</p>
+        </div>
+        <div class="process">
+            <article class="step reveal">
+                <div class="step-index mono">Step 01</div>
+                <h4>Authority Audit</h4>
+                <p>Baseline review of current backlinks, topical authority, and technical constraints.</p>
+            </article>
+            <article class="step reveal">
+                <div class="step-index mono">Step 02</div>
+                <h4>Gap Blueprint</h4>
+                <p>Competitor-led model for required link velocity, anchor strategy, and target pages.</p>
+            </article>
+            <article class="step reveal">
+                <div class="step-index mono">Step 03</div>
+                <h4>Campaign Launch</h4>
+                <p>Outreach and digital PR deployment with weekly quality validation checkpoints.</p>
+            </article>
+            <article class="step reveal">
+                <div class="step-index mono">Step 04</div>
+                <h4>Scale and Iterate</h4>
+                <p>Continuous optimization using live ranking signals and conversion-informed priorities.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="results" class="wrap">
+        <div class="section-head reveal">
+            <h2>Proof from active campaigns</h2>
+            <p>Clear outcomes from B2B growth engagements in competitive markets.</p>
+        </div>
+        <div class="case-grid">
+            <article class="case reveal">
+                <div class="case-top">
+                    <div>
+                        <p class="mono" style="font-size:0.7rem; text-transform:uppercase;">Fintech SaaS</p>
+                        <h4>ScaleX Digital</h4>
+                    </div>
+                    <div class="case-metric">+310%</div>
+                </div>
+                <div class="case-body">
+                    <p>Expanded from low-authority pages to a full topical cluster with strategic placements in 90 days.</p>
+                    <div class="mini-metrics">
+                        <div><small>Before</small><strong>DR 24</strong></div>
+                        <div><small>After</small><strong>DR 68</strong></div>
+                        <div><small>Time</small><strong>90 days</strong></div>
+                    </div>
+                </div>
+            </article>
+            <article class="case reveal">
+                <div class="case-top">
+                    <div>
+                        <p class="mono" style="font-size:0.7rem; text-transform:uppercase;">Cybersecurity</p>
+                        <h4>VaultFlow Inc.</h4>
+                    </div>
+                    <div class="case-metric">$1.2M</div>
+                </div>
+                <div class="case-body">
+                    <p>Digital PR and authority pages generated enterprise lead growth and stronger pipeline contribution.</p>
+                    <div class="mini-metrics">
+                        <div><small>Before</small><strong>DR 41</strong></div>
+                        <div><small>After</small><strong>DR 79</strong></div>
+                        <div><small>Time</small><strong>5 months</strong></div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="products" class="wrap">
+        <div class="section-head reveal">
+            <h2>Buy Services Here</h2>
+            <p>These products are loaded from your active listings so anyone can purchase directly from this page.</p>
+        </div>
+        <div class="shop-toolbar reveal">
+            <input id="shopSearch" class="shop-field" type="text" placeholder="Search products, e.g. backlinks, web design, hosting...">
+            <select id="shopCategory" class="shop-field">
+                <option value="all">All categories</option>
+            </select>
+        </div>
+        <div id="shopMeta" class="reveal" style="margin-bottom:10px; color:var(--ink-500); font-size:0.9rem;"></div>
+        <div id="shopGrid" class="shop-grid"></div>
+        <div id="shopEmpty" class="shop-empty" style="display:none;">No products match your search.</div>
+    </section>
+
+    <section id="audit" class="wrap">
+        <div class="cta glass reveal">
+            <div>
+                <h3>Get your free authority audit</h3>
+                <p>Share your site and target competitor. We will return a custom roadmap with quick wins, authority gaps, and a practical growth plan built on transparent reporting and trusted execution.</p>
+                <div class="trust-strip" style="grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 18px;">
+                    <div class="trust-item"><strong>No-pressure review</strong><span>We audit first, then recommend.</span></div>
+                    <div class="trust-item"><strong>Clear scope</strong><span>Deliverables defined before launch.</span></div>
+                </div>
+            </div>
+            <form onsubmit="event.preventDefault(); alert('Audit request submitted. Our strategist will reach out shortly.');" class="form-grid" aria-label="Audit request form">
+                <input class="field" type="url" placeholder="Website URL" required>
+                <input class="field" type="url" placeholder="Competitor URL" required>
+                <input class="field" type="email" placeholder="Work Email" required>
+                <select class="field" required>
+                    <option value="">Monthly Budget</option>
+                    <option>$1,500 - $3,500</option>
+                    <option>$3,500 - $7,500</option>
+                    <option>$7,500+</option>
+                </select>
+                <button class="btn primary span-2" type="submit">Request Strategic Audit</button>
+            </form>
+            <div class="mono" style="grid-column: 1 / -1; margin-top: -4px; color: var(--ink-500); font-size: 0.76rem;">
+                Trusted by decision-makers who want a calm, credible partner not a noisy agency.
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="wrap">
+        <div class="section-head reveal">
+            <h2>SEO and GEO FAQs</h2>
+            <p>Quick answers from an SEO agency for teams evaluating local SEO, full-service SEO, and AI-era growth.</p>
+        </div>
+        <div class="faq reveal">
+            <details>
+                <summary>Do you provide local SEO services for multi-location brands?</summary>
+                <p>Yes. Our local SEO services cover local landing pages, map visibility, citation quality, and review signal optimization across regions.</p>
+            </details>
+            <details>
+                <summary>What makes your SEO consultant approach different?</summary>
+                <p>Each SEO consultant is execution-focused, combining technical fixes, authority building, and content structure to improve rankings and revenue impact.</p>
+            </details>
+            <details>
+                <summary>What is generative engine optimization (GEO)?</summary>
+                <p>GEO is the practice of optimizing content so AI answer engines can retrieve, understand, and cite your brand when users ask questions in natural language.</p>
+            </details>
+            <details>
+                <summary>How is GEO different from traditional SEO?</summary>
+                <p>Traditional SEO focuses on ranking web pages. GEO focuses on citation probability inside generated responses, using entity clarity, semantic structure, and trustworthy source signals.</p>
+            </details>
+            <details>
+                <summary>Can one strategy support Google and AI answer engines together?</summary>
+                <p>Yes. A unified strategy improves crawlability, authority, and structured semantics, helping both classic search rankings and answer-engine visibility.</p>
+            </details>
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrap footer-shell reveal">
+            <div class="footer-top">
+                <div>
+                    <h3 class="footer-title">Built for trust-first SEO partnerships</h3>
+                    <p class="footer-desc">Transparent reporting, clear scope, and measurable outcomes. We combine search performance with strong brand credibility.</p>
+                </div>
+                <div class="trust-logo-row" aria-label="Trust logos">
+                    <div class="trust-logo"><img src="logos/Untitled-design-21.png" alt="Trust partner logo 1"></div>
+                    <div class="trust-logo"><img src="logos/Untitled-design-22.png" alt="Trust partner logo 2"></div>
+                    <div class="trust-logo"><img src="logos/Untitled-design-23.png" alt="Trust partner logo 3"></div>
+                </div>
+            </div>
+            <div class="foot">
+                <div>© 2026 Inzra. Search growth architecture for ambitious brands.</div>
+                <nav class="foot-links" aria-label="Footer links">
+                    <a href="#services">Services</a>
+                    <a href="#geo">GEO Layer</a>
+                    <a href="products.html">Buy Services</a>
+                    <a href="#results">Case Studies</a>
+                    <a href="#audit">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "AuthorityStack",
+            "url": "https://authoritystack.io/",
+            "description": "AuthorityStack is an SEO agency and SEO company providing SEO services, local SEO services, SEO strategy, and SEO optimization.",
+            "serviceType": ["SEO Services", "Local SEO Services", "SEO Strategy", "SEO Optimization", "Generative Engine Optimization"]
+        }
+    </script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What is generative engine optimization (GEO)?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "GEO is the practice of optimizing content so AI answer engines can retrieve, understand, and cite your brand when users ask questions in natural language."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How is GEO different from traditional SEO?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Traditional SEO focuses on ranking web pages. GEO focuses on citation probability inside generated responses, using entity clarity, semantic structure, and trustworthy source signals."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can one strategy support Google and AI answer engines together?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. A unified strategy improves crawlability, authority, and structured semantics, helping both classic search rankings and answer-engine visibility."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const menu = document.getElementById("menu");
+        const spotlight = document.getElementById("spotlight");
+        const dashboard = document.querySelector(".dashboard");
+        const shopSearch = document.getElementById("shopSearch");
+        const shopCategory = document.getElementById("shopCategory");
+        const shopGrid = document.getElementById("shopGrid");
+        const shopMeta = document.getElementById("shopMeta");
+        const shopEmpty = document.getElementById("shopEmpty");
+        let shopProducts = [];
+
+        menuToggle.addEventListener("click", () => {
+            const expanded = menu.classList.toggle("open");
+            menuToggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+        });
+
+        menu.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                menu.classList.remove("open");
+                menuToggle.setAttribute("aria-expanded", "false");
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.18 });
+
+        document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+        document.addEventListener("pointermove", (event) => {
+            spotlight.style.left = `${event.clientX}px`;
+            spotlight.style.top = `${event.clientY}px`;
+        });
+
+        dashboard.addEventListener("pointermove", (event) => {
+            const rect = dashboard.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            const rotateY = ((x / rect.width) - 0.5) * 10;
+            const rotateX = (0.5 - (y / rect.height)) * 8;
+            dashboard.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        dashboard.addEventListener("pointerleave", () => {
+            dashboard.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg)";
+        });
+
+        function shopCurrency(value) {
+            return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(value || 0);
+        }
+
+        function safeShopText(value) {
+            return String(value || "").replace(/[&<>"']/g, (ch) => ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#39;"
+            }[ch]));
+        }
+
+        function renderShop(items) {
+            shopGrid.innerHTML = "";
+            shopMeta.textContent = `${items.length} products ready to purchase`;
+
+            if (!items.length) {
+                shopEmpty.style.display = "block";
+                return;
+            }
+
+            shopEmpty.style.display = "none";
+
+            items.slice(0, 24).forEach((item) => {
+                const card = document.createElement("article");
+                card.className = "shop-card reveal";
+                card.innerHTML = `
+                    <div class="shop-card-top">
+                        <h3 class="shop-title">${safeShopText(item.title)}</h3>
+                        <div class="shop-meta">${safeShopText(item.category || "General")} | Item ${safeShopText(item.itemNumber)}</div>
+                    </div>
+                    <div class="shop-body">
+                        <div class="shop-price">${shopCurrency(item.price)}</div>
+                        <p class="shop-note">${safeShopText(item.description || "Professional digital service from Inzra with reliable delivery.")}</p>
+                        <div class="shop-signals">
+                            <span><strong>${safeShopText(item.sold)}</strong> sold</span>
+                            <span><strong>${safeShopText(Number(item.rating || 4.9).toFixed(1))}</strong> rating (${safeShopText(item.reviews || 0)} reviews)</span>
+                        </div>
+                        <div class="shop-actions">
+                            <a class="shop-btn primary" href="checkout.html?item=${encodeURIComponent(item.itemNumber)}">Buy Now</a>
+                            <a class="shop-btn soft" href="products/${encodeURIComponent(item.itemNumber)}.html">View</a>
+                        </div>
+                    </div>
+                `;
+                shopGrid.appendChild(card);
+                observer.observe(card);
+            });
+        }
+
+        function filterShop() {
+            const term = shopSearch.value.trim().toLowerCase();
+            const category = shopCategory.value;
+            const filtered = shopProducts
+                .filter((item) => {
+                    const matchTerm = !term || item.title.toLowerCase().includes(term) || (item.category || "").toLowerCase().includes(term);
+                    const matchCategory = category === "all" || item.category === category;
+                    return matchTerm && matchCategory;
+                })
+                .sort((a, b) => (b.sold + (b.reviews || 0)) - (a.sold + (a.reviews || 0)));
+
+            renderShop(filtered);
+        }
+
+        async function initShop() {
+            try {
+                const response = await fetch("products-data.json");
+                if (!response.ok) throw new Error("Failed to load products");
+                shopProducts = await response.json();
+
+                const categories = Array.from(new Set(shopProducts.map((item) => item.category || "Other"))).sort((a, b) => a.localeCompare(b));
+                categories.forEach((cat) => {
+                    const option = document.createElement("option");
+                    option.value = cat;
+                    option.textContent = cat;
+                    shopCategory.appendChild(option);
+                });
+
+                filterShop();
+            } catch (error) {
+                shopMeta.textContent = "Could not load products-data.json";
+                shopEmpty.style.display = "block";
+                shopEmpty.textContent = "Product data is not available.";
+            }
+        }
+
+        shopSearch.addEventListener("input", filterShop);
+        shopCategory.addEventListener("change", filterShop);
+        initShop();
+    </script>
+</body>
+</html>
