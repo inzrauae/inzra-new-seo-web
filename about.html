@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Inzra SEO Agency</title>
+    <meta name="description" content="Learn about Inzra — a trust-first SEO agency built around transparent strategy, technical execution, and measurable growth for ambitious brands.">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="seo agency, about inzra, seo company, trust-first seo, seo consultant, technical seo agency, link building agency, local seo company, seo services, geo optimization">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About Us | Inzra SEO Agency">
+    <meta property="og:description" content="Who we are, what we believe, and how we deliver SEO results that compound over time.">
+    <meta property="og:url" content="https://inzra.com/about.html">
+    <meta property="og:site_name" content="Inzra">
+    <link rel="canonical" href="https://inzra.com/about.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink-900: #111827;
+            --ink-700: #374151;
+            --ink-500: #6b7280;
+            --card: rgba(255, 255, 255, 0.78);
+            --line: rgba(17, 24, 39, 0.08);
+            --teal-soft: #14b8a6;
+            --gold: #d4a017;
+            --gold-2: #f5c94b;
+            --gold-dark: #8a6200;
+            --shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+            --radius-lg: 28px;
+            --radius-md: 18px;
+            --radius-sm: 12px;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            color: var(--ink-900);
+            font-family: "Sora", sans-serif;
+            background:
+                radial-gradient(circle at 10% 8%, rgba(212,160,23,0.13), transparent 32%),
+                radial-gradient(circle at 90% 12%, rgba(245,201,75,0.10), transparent 30%),
+                radial-gradient(circle at 30% 90%, rgba(15,118,110,0.07), transparent 32%),
+                linear-gradient(150deg, #fcfbf7 0%, #f7f4ed 48%, #f1f5f9 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(rgba(17,24,39,0.055) 1px, transparent 1px);
+            background-size: 18px 18px;
+            pointer-events: none;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .wrap { width: min(1120px, calc(100% - 2.4rem)); margin-inline: auto; }
+        .mono { font-family: "IBM Plex Mono", monospace; letter-spacing: 0.04em; }
+
+        .glass {
+            background: var(--card);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+        }
+
+        .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.68s ease, transform 0.68s ease; }
+        .reveal.show { opacity: 1; transform: translateY(0); }
+
+        /* NAV */
+        .topbar { position: sticky; top: 0; z-index: 100; width: 100%; }
+        .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-radius: 0; border-left: 0; border-right: 0; }
+        .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink-900); font-weight: 700; }
+        .brand-mark { height: 36px; aspect-ratio: 733/161; border-radius: 999px; display: grid; place-items: center; background: rgba(255,255,255,0.95); border: 1px solid var(--line); box-shadow: 0 8px 18px rgba(15,23,42,0.12); overflow: hidden; padding: 0; flex: 0 0 auto; }
+        .brand-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
+        .menu { display: flex; align-items: center; gap: 20px; }
+        .menu a { color: var(--ink-700); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .menu a:hover, .menu a.active { color: var(--gold-dark); }
+        .btn { border: 0; border-radius: 999px; padding: 11px 20px; font-family: inherit; font-size: 0.88rem; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: transform 0.22s ease, box-shadow 0.22s ease; }
+        .btn:hover { transform: translateY(-1px); }
+        .btn.primary { color: #fff; background: linear-gradient(130deg, var(--gold-dark) 0%, var(--gold) 55%, var(--gold-2) 100%); box-shadow: 0 12px 28px rgba(212,160,23,0.3); }
+        .btn.soft { color: var(--ink-900); background: #fff; border: 1px solid var(--line); }
+        .menu-toggle { display: none; background: transparent; border: 0; font-size: 1.45rem; color: var(--ink-900); cursor: pointer; }
+
+        /* PAGE HERO */
+        .page-hero {
+            padding: 72px 0 52px;
+            text-align: center;
+            max-width: 760px;
+            margin-inline: auto;
+        }
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(212,160,23,0.26);
+            color: var(--gold-dark);
+            background: rgba(212,160,23,0.08);
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); animation: pulse 1.6s ease infinite; }
+        @keyframes pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.55; } }
+
+        h1 { margin: 0; font-size: clamp(2.2rem, 4vw, 3.8rem); line-height: 1.08; letter-spacing: -0.025em; }
+        h2 { margin: 0; font-size: clamp(1.65rem, 2.6vw, 2.4rem); letter-spacing: -0.02em; }
+
+        .gradient-text {
+            background: linear-gradient(130deg, var(--gold-dark) 15%, var(--gold) 55%, var(--gold-2) 90%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .lead { font-size: 1.08rem; color: var(--ink-700); line-height: 1.8; margin: 18px 0 0; max-width: 60ch; margin-inline: auto; }
+
+        /* SECTIONS */
+        section { padding: 56px 0; }
+        .section-head { max-width: 640px; margin-bottom: 26px; }
+        .section-head h2 { margin: 0; }
+        .section-head p { color: var(--ink-700); line-height: 1.72; margin: 12px 0 0; }
+
+        /* CHIP */
+        .chip { display: inline-flex; padding: 5px 10px; border-radius: 999px; font-size: 0.68rem; color: var(--gold-dark); border: 1px solid rgba(212,160,23,0.24); background: rgba(212,160,23,0.08); margin-bottom: 10px; }
+
+        /* MISSION / STORY */
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            align-items: start;
+        }
+        .story-panel {
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            background: rgba(255,255,255,0.76);
+            border: 1px solid var(--line);
+        }
+        .story-panel h3 { margin: 0 0 12px; font-size: 1.3rem; }
+        .story-panel p { margin: 0; color: var(--ink-700); line-height: 1.78; font-size: 0.97rem; }
+        .story-panel p + p { margin-top: 12px; }
+
+        /* VALUES */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0,1fr));
+            gap: 14px;
+        }
+        .value-card {
+            border-radius: var(--radius-md);
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,0.75);
+            padding: 22px;
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+        }
+        .value-card:hover { transform: translateY(-4px); box-shadow: 0 18px 35px rgba(15,23,42,0.11); }
+        .value-icon { font-size: 1.8rem; margin-bottom: 12px; display: block; }
+        .value-card h3 { margin: 0 0 8px; font-size: 1.08rem; }
+        .value-card p { margin: 0; color: var(--ink-700); font-size: 0.91rem; line-height: 1.7; }
+
+        /* STATS */
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0,1fr));
+            gap: 14px;
+        }
+        .about-stat {
+            border-radius: var(--radius-md);
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,0.78);
+            padding: 20px 18px;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-stat::before {
+            content: "";
+            position: absolute;
+            inset: 0 auto auto 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-2));
+            border-radius: 999px 999px 0 0;
+        }
+        .about-stat strong { display: block; font-size: 2rem; letter-spacing: -0.04em; }
+        .about-stat em { color: var(--gold-dark); font-size: 0.75rem; font-weight: 700; font-style: normal; margin-left: 4px; }
+        .about-stat small { display: block; color: var(--ink-500); font-size: 0.76rem; margin-top: 5px; }
+
+        /* TEAM */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0,1fr));
+            gap: 14px;
+        }
+        .team-card {
+            border-radius: var(--radius-md);
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,0.76);
+            padding: 22px;
+        }
+        .team-avatar {
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 1.4rem;
+            background: linear-gradient(135deg, rgba(212,160,23,0.15), rgba(245,201,75,0.12));
+            border: 1px solid rgba(212,160,23,0.22);
+            margin-bottom: 14px;
+        }
+        .team-card h3 { margin: 0 0 4px; font-size: 1.05rem; }
+        .team-card .role { color: var(--gold-dark); font-size: 0.78rem; font-weight: 700; display: block; margin-bottom: 10px; }
+        .team-card p { margin: 0; color: var(--ink-700); font-size: 0.88rem; line-height: 1.68; }
+
+        /* CTA BAND */
+        .cta-band {
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(212,160,23,0.14), rgba(245,201,75,0.10));
+            border: 1px solid rgba(212,160,23,0.22);
+        }
+        .cta-band h2 { margin: 0 0 12px; }
+        .cta-band p { margin: 0 0 22px; color: var(--ink-700); line-height: 1.72; max-width: 52ch; margin-inline: auto; margin-bottom: 22px; }
+        .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+        /* FOOTER */
+        footer { padding: 0 0 40px; color: var(--ink-500); font-size: 0.84rem; margin-top: 48px; }
+        .footer-shell { border: 1px solid var(--line); border-radius: 22px; background: #0a0a0a; box-shadow: 0 14px 34px rgba(15,23,42,0.08); overflow: hidden; }
+        .footer-top { padding: 22px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 18px; border-bottom: 1px solid rgba(255,255,255,0.12); background: linear-gradient(120deg, rgba(212,160,23,0.2), rgba(10,10,10,0)); }
+        .footer-title { margin: 0 0 7px; color: #f8fafc; font-size: 1.06rem; letter-spacing: -0.01em; }
+        .footer-desc { margin: 0; color: rgba(248,250,252,0.8); line-height: 1.65; font-size: 0.9rem; }
+        .trust-logo-row { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; align-items: center; }
+        .trust-logo { display: grid; place-items: center; border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 8px; background: #000; min-height: 64px; }
+        .trust-logo img { max-width: 100%; max-height: 42px; object-fit: contain; }
+        .foot { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 16px 22px; }
+        .foot-links { display: flex; gap: 16px; flex-wrap: wrap; }
+        .foot-links a { color: rgba(248,250,252,0.86); text-decoration: none; }
+        .foot-links a:hover { color: var(--gold-2); }
+
+        /* RESPONSIVE */
+        @media (max-width: 980px) {
+            .story-grid { grid-template-columns: 1fr; }
+            .values-grid, .team-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+            .about-stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
+            .footer-top { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 760px) {
+            .menu-toggle { display: inline-block; }
+            .menu { position: absolute; top: calc(100% + 8px); left: 0; right: 0; border-radius: 20px; padding: 12px; display: none; flex-direction: column; align-items: stretch; gap: 8px; }
+            .menu.open { display: flex; }
+            .menu a, .menu .btn { width: 100%; justify-content: center; }
+            .nav { position: relative; border-radius: 18px; }
+            .values-grid, .team-grid, .about-stats { grid-template-columns: 1fr; }
+            section { padding: 44px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <div class="topbar reveal">
+        <nav class="nav glass wrap">
+            <a href="index.html" class="brand" aria-label="Inzra home">
+                <span class="brand-mark"><img src="logos/inzra%20logo.png" alt="Inzra logo"></span>
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+            <div class="menu" id="menu">
+                <a href="index.html#services">Services</a>
+                <a href="about.html" class="active">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="seo-sri-lanka.html">SEO Sri Lanka</a>
+                <a href="index.html#products">Products</a>
+                <a href="contact.html" class="btn primary">Get Free Audit</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- PAGE HERO -->
+    <div class="wrap">
+        <div class="page-hero reveal">
+            <div class="eyebrow mono"><span class="pulse"></span> Who We Are</div>
+            <h1>A <span class="gradient-text">trust-first</span> SEO agency built on evidence.</h1>
+            <p class="lead">Inzra was founded on a simple belief: SEO should be transparent, measurable, and built around real business outcomes — not vanity metrics or vague promises.</p>
+        </div>
+    </div>
+
+    <!-- MISSION + STORY -->
+    <section class="wrap">
+        <div class="story-grid">
+            <div class="story-panel reveal">
+                <span class="chip mono">Our Mission</span>
+                <h3>Search growth that compounds.</h3>
+                <p>We exist to help ambitious brands build real authority on the web — the kind that earns rankings in Google, citations in AI responses, and genuine trust from their audience.</p>
+                <p>We don't sell rankings. We build the foundation that makes rankings inevitable: strong technical structure, credible links, and content that answers real questions.</p>
+            </div>
+            <div class="story-panel reveal">
+                <span class="chip mono">Our Story</span>
+                <h3>Started with frustration, built on discipline.</h3>
+                <p>Inzra grew out of a frustration with agencies that overpromised and under-delivered. We saw brands burned by black-hat tactics, opaque reporting, and cookie-cutter strategies that ignored their actual goals.</p>
+                <p>So we built something different: a calm, credible SEO partner that treats every client like a long-term relationship — not a contract to fill.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="wrap">
+        <div class="about-stats">
+            <div class="about-stat reveal"><strong>142<em>%</em></strong><small>Average organic traffic growth in 6 months</small></div>
+            <div class="about-stat reveal"><strong>850<em>+</em></strong><small>Authority placements delivered in 2024–25</small></div>
+            <div class="about-stat reveal"><strong>120<em>+</em></strong><small>Growth brands served across B2B and SaaS</small></div>
+            <div class="about-stat reveal"><strong>92<em>/100</em></strong><small>Average GEO readiness score post-campaign</small></div>
+        </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="wrap">
+        <div class="section-head reveal">
+            <h2>What we stand for</h2>
+            <p>Six principles that shape how we work, communicate, and deliver results.</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-card reveal">
+                <span class="value-icon">&#128270;</span>
+                <h3>Full Transparency</h3>
+                <p>Weekly reports, live dashboards, and clear scope — you always know exactly what's being done and why.</p>
+            </div>
+            <div class="value-card reveal">
+                <span class="value-icon">&#128200;</span>
+                <h3>Evidence First</h3>
+                <p>Every strategy is grounded in data. We audit before we recommend and measure everything we do.</p>
+            </div>
+            <div class="value-card reveal">
+                <span class="value-icon">&#9889;</span>
+                <h3>Execution Speed</h3>
+                <p>Fast feedback loops, weekly deliverables, and no waiting months before seeing meaningful progress.</p>
+            </div>
+            <div class="value-card reveal">
+                <span class="value-icon">&#128170;</span>
+                <h3>Long-Term Thinking</h3>
+                <p>We build authority that compounds — no quick-win shortcuts that unravel in the next algorithm update.</p>
+            </div>
+            <div class="value-card reveal">
+                <span class="value-icon">&#128101;</span>
+                <h3>Human Support</h3>
+                <p>Direct access to your strategist — not a support ticket queue or an account manager with 80 clients.</p>
+            </div>
+            <div class="value-card reveal">
+                <span class="value-icon">&#127758;</span>
+                <h3>Global Reach</h3>
+                <p>We work with brands across APAC, Europe, and North America, including a specialist Sri Lanka SEO practice.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="wrap">
+        <div class="section-head reveal">
+            <h2>The team behind the strategy</h2>
+            <p>Small by design. Every engagement is handled by senior practitioners, not junior account staff.</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-card reveal">
+                <div class="team-avatar">&#128104;&#8205;&#128187;</div>
+                <h3>Technical SEO Lead</h3>
+                <span class="role mono">Core Web Vitals · Schema · Crawl Architecture</span>
+                <p>10+ years in enterprise technical SEO. Specializes in crawl efficiency, structured data, and JavaScript rendering.</p>
+            </div>
+            <div class="team-card reveal">
+                <div class="team-avatar">&#128279;</div>
+                <h3>Link Strategy Director</h3>
+                <span class="role mono">Digital PR · Outreach · Authority Building</span>
+                <p>Led link programs for SaaS and fintech brands. Focused on high-trust placements that move domain authority fast.</p>
+            </div>
+            <div class="team-card reveal">
+                <div class="team-avatar">&#129504;</div>
+                <h3>GEO &amp; Content Strategist</h3>
+                <span class="role mono">Generative Engine Optimization · Entity SEO</span>
+                <p>Builds content architectures designed for both classic search rankings and AI answer engine citation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BAND -->
+    <section class="wrap">
+        <div class="cta-band reveal">
+            <h2>Ready to work together?</h2>
+            <p>Start with a free audit. We'll review your site, identify gaps, and share a practical roadmap — no commitment required.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn primary">Get Free Audit</a>
+                <a href="index.html#services" class="btn soft">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="wrap footer-shell reveal">
+            <div class="footer-top">
+                <div>
+                    <h3 class="footer-title">Built for trust-first SEO partnerships</h3>
+                    <p class="footer-desc">Transparent reporting, clear scope, and measurable outcomes. We combine search performance with strong brand credibility for lasting growth.</p>
+                </div>
+                <div class="trust-logo-row" aria-label="Trust partner logos">
+                    <div class="trust-logo"><img src="logos/Untitled-design-21.png" alt="Trust partner 1"></div>
+                    <div class="trust-logo"><img src="logos/Untitled-design-22.png" alt="Trust partner 2"></div>
+                    <div class="trust-logo"><img src="logos/Untitled-design-23.png" alt="Trust partner 3"></div>
+                </div>
+            </div>
+            <div class="foot">
+                <div style="color:rgba(248,250,252,0.7);">&copy; 2026 Inzra. Search growth architecture for ambitious brands.</div>
+                <nav class="foot-links" aria-label="Footer navigation">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="seo-sri-lanka.html">SEO Sri Lanka</a>
+                    <a href="products.html">Products</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About Inzra",
+        "url": "https://inzra.com/about.html",
+        "description": "Inzra is a trust-first SEO agency delivering technical SEO, link building, local SEO, and GEO optimization.",
+        "publisher": { "@type": "Organization", "name": "Inzra", "url": "https://inzra.com/" }
+    }
+    </script>
+
+    <script>
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); observer.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        const toggle = document.getElementById('menuToggle');
+        const menu   = document.getElementById('menu');
+        toggle.addEventListener('click', () => {
+            const open = menu.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', String(open));
+        });
+        document.querySelectorAll('#menu a').forEach(a => {
+            a.addEventListener('click', () => { menu.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); });
+        });
+    </script>
+</body>
+</html>

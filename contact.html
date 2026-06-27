@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Inzra SEO Agency</title>
+    <meta name="description" content="Get in touch with Inzra. Request a free SEO audit, ask about services, or start a conversation about your growth goals.">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="contact seo agency, free seo audit, seo consultant contact, hire seo agency, seo services enquiry, inzra contact, seo audit request, local seo services, link building services">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contact Us | Inzra SEO Agency">
+    <meta property="og:description" content="Request a free SEO audit or get in touch with our strategist team. No pressure, no hidden fees.">
+    <meta property="og:url" content="https://inzra.com/contact.html">
+    <meta property="og:site_name" content="Inzra">
+    <link rel="canonical" href="https://inzra.com/contact.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink-900: #111827;
+            --ink-700: #374151;
+            --ink-500: #6b7280;
+            --card: rgba(255, 255, 255, 0.78);
+            --line: rgba(17, 24, 39, 0.08);
+            --teal-soft: #14b8a6;
+            --gold: #d4a017;
+            --gold-2: #f5c94b;
+            --gold-dark: #8a6200;
+            --shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+            --radius-lg: 28px;
+            --radius-md: 18px;
+            --radius-sm: 12px;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            color: var(--ink-900);
+            font-family: "Sora", sans-serif;
+            background:
+                radial-gradient(circle at 10% 8%, rgba(212,160,23,0.13), transparent 32%),
+                radial-gradient(circle at 90% 12%, rgba(245,201,75,0.10), transparent 30%),
+                radial-gradient(circle at 30% 90%, rgba(15,118,110,0.07), transparent 32%),
+                linear-gradient(150deg, #fcfbf7 0%, #f7f4ed 48%, #f1f5f9 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(rgba(17,24,39,0.055) 1px, transparent 1px);
+            background-size: 18px 18px;
+            pointer-events: none;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .wrap { width: min(1120px, calc(100% - 2.4rem)); margin-inline: auto; }
+        .mono { font-family: "IBM Plex Mono", monospace; letter-spacing: 0.04em; }
+
+        .glass { background: var(--card); backdrop-filter: blur(10px); border: 1px solid var(--line); box-shadow: var(--shadow); }
+        .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.68s ease, transform 0.68s ease; }
+        .reveal.show { opacity: 1; transform: translateY(0); }
+
+        /* NAV */
+        .topbar { position: sticky; top: 0; z-index: 100; width: 100%; }
+        .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-radius: 0; border-left: 0; border-right: 0; }
+        .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink-900); font-weight: 700; }
+        .brand-mark { height: 36px; aspect-ratio: 733/161; border-radius: 999px; display: grid; place-items: center; background: rgba(255,255,255,0.95); border: 1px solid var(--line); box-shadow: 0 8px 18px rgba(15,23,42,0.12); overflow: hidden; padding: 0; flex: 0 0 auto; }
+        .brand-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
+        .menu { display: flex; align-items: center; gap: 20px; }
+        .menu a { color: var(--ink-700); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .menu a:hover, .menu a.active { color: var(--gold-dark); }
+        .btn { border: 0; border-radius: 999px; padding: 11px 20px; font-family: inherit; font-size: 0.88rem; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: transform 0.22s ease, box-shadow 0.22s ease; }
+        .btn:hover { transform: translateY(-1px); }
+        .btn.primary { color: #fff; background: linear-gradient(130deg, var(--gold-dark) 0%, var(--gold) 55%, var(--gold-2) 100%); box-shadow: 0 12px 28px rgba(212,160,23,0.3); }
+        .btn.soft { color: var(--ink-900); background: #fff; border: 1px solid var(--line); }
+        .menu-toggle { display: none; background: transparent; border: 0; font-size: 1.45rem; color: var(--ink-900); cursor: pointer; }
+
+        /* PAGE HERO */
+        .page-hero { padding: 72px 0 52px; text-align: center; max-width: 680px; margin-inline: auto; }
+        .eyebrow { display: inline-flex; align-items: center; gap: 9px; padding: 9px 14px; border-radius: 999px; border: 1px solid rgba(212,160,23,0.26); color: var(--gold-dark); background: rgba(212,160,23,0.08); font-size: 0.74rem; text-transform: uppercase; font-weight: 700; margin-bottom: 20px; }
+        .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); animation: pulse 1.6s ease infinite; }
+        @keyframes pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.55; } }
+        h1 { margin: 0; font-size: clamp(2.2rem, 4vw, 3.6rem); line-height: 1.08; letter-spacing: -0.025em; }
+        .gradient-text { background: linear-gradient(130deg, var(--gold-dark) 15%, var(--gold) 55%, var(--gold-2) 90%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .lead { font-size: 1.05rem; color: var(--ink-700); line-height: 1.8; margin: 18px auto 0; max-width: 56ch; }
+
+        /* CHIP */
+        .chip { display: inline-flex; padding: 5px 10px; border-radius: 999px; font-size: 0.68rem; color: var(--gold-dark); border: 1px solid rgba(212,160,23,0.24); background: rgba(212,160,23,0.08); margin-bottom: 10px; }
+
+        /* CONTACT LAYOUT */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 20px;
+            align-items: start;
+            padding-bottom: 60px;
+        }
+
+        /* INFO PANEL */
+        .info-panel {
+            display: grid;
+            gap: 14px;
+        }
+
+        .info-card {
+            border-radius: var(--radius-md);
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,0.76);
+            padding: 20px 22px;
+        }
+        .info-card h3 { margin: 0 0 6px; font-size: 1.02rem; }
+        .info-card p { margin: 0; color: var(--ink-700); font-size: 0.9rem; line-height: 1.7; }
+        .info-card a { color: var(--gold-dark); text-decoration: none; font-weight: 600; }
+        .info-card a:hover { text-decoration: underline; }
+
+        .trust-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+        .trust-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--ink-700);
+            line-height: 1.55;
+        }
+        .trust-list li::before {
+            content: "✓";
+            color: var(--gold-dark);
+            font-weight: 700;
+            font-size: 0.88rem;
+            margin-top: 1px;
+            flex-shrink: 0;
+        }
+
+        /* FORM */
+        .form-panel {
+            border-radius: var(--radius-lg);
+            padding: 28px;
+        }
+        .form-panel h2 { margin: 0 0 6px; font-size: 1.5rem; letter-spacing: -0.02em; }
+        .form-panel .sub { color: var(--ink-500); font-size: 0.88rem; margin-bottom: 20px; display: block; }
+
+        .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
+        .field { width: 100%; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,255,255,0.9); padding: 12px 14px; font: inherit; font-size: 0.92rem; color: var(--ink-900); transition: border-color 0.2s, outline 0.2s; }
+        .field:focus { outline: 2px solid rgba(212,160,23,0.3); border-color: rgba(212,160,23,0.44); }
+        .span-2 { grid-column: span 2; }
+        textarea.field { resize: vertical; min-height: 110px; }
+
+        .radio-group { grid-column: span 2; }
+        .radio-group label { display: block; font-size: 0.84rem; color: var(--ink-700); margin-bottom: 8px; font-weight: 600; }
+        .radio-options { display: flex; flex-wrap: wrap; gap: 8px; }
+        .radio-options input[type="radio"] { display: none; }
+        .radio-options label {
+            padding: 8px 13px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,0.88);
+            font-size: 0.82rem;
+            color: var(--ink-700);
+            cursor: pointer;
+            transition: border-color 0.18s, background 0.18s, color 0.18s;
+        }
+        .radio-options input[type="radio"]:checked + label {
+            border-color: rgba(212,160,23,0.5);
+            background: rgba(212,160,23,0.1);
+            color: var(--gold-dark);
+            font-weight: 700;
+        }
+
+        .submit-row { grid-column: span 2; display: flex; flex-direction: column; gap: 10px; }
+        .form-note { color: var(--ink-500); font-size: 0.76rem; }
+
+        /* SUCCESS MESSAGE */
+        .success-msg {
+            display: none;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(212,160,23,0.3);
+            background: rgba(212,160,23,0.08);
+            padding: 20px 22px;
+            text-align: center;
+            grid-column: span 2;
+        }
+        .success-msg strong { display: block; font-size: 1.1rem; margin-bottom: 6px; }
+        .success-msg p { margin: 0; color: var(--ink-700); font-size: 0.9rem; }
+
+        /* FAQ MINI */
+        .faq-mini { display: grid; gap: 10px; }
+        .faq-mini details { border-radius: 12px; border: 1px solid var(--line); background: rgba(255,255,255,0.72); padding: 13px 15px; }
+        .faq-mini summary { cursor: pointer; font-weight: 600; font-size: 0.95rem; }
+        .faq-mini p { margin: 10px 0 0; color: var(--ink-700); line-height: 1.68; font-size: 0.91rem; }
+
+        /* FOOTER */
+        footer { padding: 0 0 40px; color: var(--ink-500); font-size: 0.84rem; margin-top: 48px; }
+        .footer-shell { border: 1px solid var(--line); border-radius: 22px; background: #0a0a0a; box-shadow: 0 14px 34px rgba(15,23,42,0.08); overflow: hidden; }
+        .footer-top { padding: 22px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 18px; border-bottom: 1px solid rgba(255,255,255,0.12); background: linear-gradient(120deg, rgba(212,160,23,0.2), rgba(10,10,10,0)); }
+        .footer-title { margin: 0 0 7px; color: #f8fafc; font-size: 1.06rem; letter-spacing: -0.01em; }
+        .footer-desc { margin: 0; color: rgba(248,250,252,0.8); line-height: 1.65; font-size: 0.9rem; }
+        .trust-logo-row { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; align-items: center; }
+        .trust-logo { display: grid; place-items: center; border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 8px; background: #000; min-height: 64px; }
+        .trust-logo img { max-width: 100%; max-height: 42px; object-fit: contain; }
+        .foot { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 16px 22px; }
+        .foot-links { display: flex; gap: 16px; flex-wrap: wrap; }
+        .foot-links a { color: rgba(248,250,252,0.86); text-decoration: none; }
+        .foot-links a:hover { color: var(--gold-2); }
+
+        /* RESPONSIVE */
+        @media (max-width: 860px) {
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 760px) {
+            .menu-toggle { display: inline-block; }
+            .menu { position: absolute; top: calc(100% + 8px); left: 0; right: 0; border-radius: 20px; padding: 12px; display: none; flex-direction: column; align-items: stretch; gap: 8px; }
+            .menu.open { display: flex; }
+            .menu a, .menu .btn { width: 100%; justify-content: center; }
+            .nav { position: relative; border-radius: 18px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .span-2, .radio-group, .submit-row, .success-msg { grid-column: auto; }
+            .footer-top { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <div class="topbar reveal">
+        <nav class="nav glass wrap">
+            <a href="index.html" class="brand" aria-label="Inzra home">
+                <span class="brand-mark"><img src="logos/inzra%20logo.png" alt="Inzra logo"></span>
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+            <div class="menu" id="menu">
+                <a href="index.html#services">Services</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" class="active">Contact</a>
+                <a href="seo-sri-lanka.html">SEO Sri Lanka</a>
+                <a href="index.html#products">Products</a>
+                <a href="contact.html" class="btn primary">Get Free Audit</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- PAGE HERO -->
+    <div class="wrap">
+        <div class="page-hero reveal">
+            <div class="eyebrow mono"><span class="pulse"></span> Get In Touch</div>
+            <h1>Let's talk about your <span class="gradient-text">SEO growth.</span></h1>
+            <p class="lead">Tell us about your site and goals. We'll come back with a free audit, clear recommendations, and no pressure to commit.</p>
+        </div>
+    </div>
+
+    <!-- CONTACT LAYOUT -->
+    <div class="wrap contact-grid">
+
+        <!-- INFO SIDE -->
+        <aside>
+            <div class="info-panel">
+                <div class="info-card reveal">
+                    <span class="chip mono">Response Time</span>
+                    <h3>We reply within 24 hours</h3>
+                    <p>All enquiries are reviewed by a senior strategist — not an automated bot or a junior account manager.</p>
+                </div>
+
+                <div class="info-card reveal">
+                    <span class="chip mono">What to Expect</span>
+                    <h3>Your free audit includes:</h3>
+                    <ul class="trust-list">
+                        <li>Technical SEO health check</li>
+                        <li>Backlink profile review</li>
+                        <li>Competitor gap analysis</li>
+                        <li>Top 3 quick-win opportunities</li>
+                        <li>A growth roadmap tailored to your goals</li>
+                    </ul>
+                </div>
+
+                <div class="info-card reveal">
+                    <span class="chip mono">Also Available</span>
+                    <h3>Other ways to reach us</h3>
+                    <p>For Sri Lanka-specific enquiries, visit our <a href="seo-sri-lanka.html">SEO Sri Lanka page</a> for local packages and pricing in LKR.</p>
+                    <p style="margin-top:10px;">For product purchases, head to the <a href="index.html#products">Products section</a> on the homepage.</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- FORM SIDE -->
+        <div class="form-panel glass reveal">
+            <h2>Request your free audit</h2>
+            <span class="sub mono">Takes 2 minutes. No commitment required.</span>
+            <form id="contactForm" novalidate>
+                <div class="form-grid">
+                    <input class="field" type="text" name="name" placeholder="Your name" required autocomplete="name" aria-label="Your name">
+                    <input class="field" type="email" name="email" placeholder="Work email" required autocomplete="email" aria-label="Work email">
+                    <input class="field span-2" type="url" name="website" placeholder="Your website URL" required aria-label="Website URL">
+                    <input class="field" type="url" name="competitor" placeholder="Top competitor URL" aria-label="Competitor URL">
+                    <input class="field" type="text" name="company" placeholder="Company name (optional)" autocomplete="organization" aria-label="Company name">
+
+                    <div class="radio-group">
+                        <label>I'm most interested in:</label>
+                        <div class="radio-options">
+                            <input type="radio" name="interest" id="r1" value="Full SEO Campaign">
+                            <label for="r1">Full SEO Campaign</label>
+                            <input type="radio" name="interest" id="r2" value="Link Building">
+                            <label for="r2">Link Building</label>
+                            <input type="radio" name="interest" id="r3" value="Technical SEO">
+                            <label for="r3">Technical SEO</label>
+                            <input type="radio" name="interest" id="r4" value="Local SEO">
+                            <label for="r4">Local SEO</label>
+                            <input type="radio" name="interest" id="r5" value="GEO / AI Visibility">
+                            <label for="r5">GEO / AI Visibility</label>
+                            <input type="radio" name="interest" id="r6" value="SEO Audit Only">
+                            <label for="r6">SEO Audit Only</label>
+                        </div>
+                    </div>
+
+                    <select class="field" name="budget" aria-label="Monthly budget">
+                        <option value="">Monthly budget (optional)</option>
+                        <option>Under $250</option>
+                        <option>$250 – $500</option>
+                        <option>$500 – $1,000</option>
+                        <option>$1,000 – $2,500</option>
+                        <option>$2,500+</option>
+                    </select>
+                    <select class="field" name="timeline" aria-label="Timeline">
+                        <option value="">Timeline (optional)</option>
+                        <option>ASAP</option>
+                        <option>Within 1 month</option>
+                        <option>1–3 months</option>
+                        <option>Just exploring</option>
+                    </select>
+
+                    <textarea class="field span-2" name="message" rows="4" placeholder="Anything else you'd like us to know? Goals, challenges, context..." aria-label="Message"></textarea>
+
+                    <div class="submit-row">
+                        <button class="btn primary" type="submit">Send My Audit Request</button>
+                        <span class="form-note mono">We will never share your details. No spam, ever.</span>
+                    </div>
+
+                    <div class="success-msg" id="successMsg">
+                        <strong>&#127881; Audit request received!</strong>
+                        <p>A senior strategist will review your site and be in touch within 24 hours.</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <section class="wrap">
+        <div style="max-width:640px; margin-bottom:24px;" class="reveal">
+            <h2 style="margin:0 0 10px; font-size:clamp(1.5rem,2.4vw,2.2rem); letter-spacing:-0.02em;">Common questions</h2>
+            <p style="margin:0; color:var(--ink-700); line-height:1.72;">Quick answers before you reach out.</p>
+        </div>
+        <div class="faq-mini reveal">
+            <details>
+                <summary>Is the audit really free?</summary>
+                <p>Yes. We review your site, backlink profile, and main competitor, then send you a practical summary with quick wins and a growth roadmap — no invoice attached.</p>
+            </details>
+            <details>
+                <summary>How quickly will I hear back?</summary>
+                <p>We aim to respond within 24 hours on weekdays. Audit reports typically follow within 2–3 business days depending on site complexity.</p>
+            </details>
+            <details>
+                <summary>Do I need a big budget to work with you?</summary>
+                <p>We work with brands at different stages. Our entry-level campaigns start from $250/month. The audit will help us recommend what actually makes sense for your goals.</p>
+            </details>
+            <details>
+                <summary>Do you work with Sri Lanka-based businesses?</summary>
+                <p>Yes. We have a dedicated Sri Lanka SEO practice with LKR pricing. Visit the <a href="seo-sri-lanka.html" style="color:var(--gold-dark); font-weight:600;">SEO Sri Lanka page</a> for details.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="wrap footer-shell reveal">
+            <div class="footer-top">
+                <div>
+                    <h3 class="footer-title">Built for trust-first SEO partnerships</h3>
+                    <p class="footer-desc">Transparent reporting, clear scope, and measurable outcomes. We combine search performance with strong brand credibility for lasting growth.</p>
+                </div>
+                <div class="trust-logo-row" aria-label="Trust partner logos">
+                    <div class="trust-logo"><img src="logos/Untitled-design-21.png" alt="Trust partner 1"></div>
+                    <div class="trust-logo"><img src="logos/Untitled-design-22.png" alt="Trust partner 2"></div>
+                    <div class="trust-logo"><img src="logos/Untitled-design-23.png" alt="Trust partner 3"></div>
+                </div>
+            </div>
+            <div class="foot">
+                <div style="color:rgba(248,250,252,0.7);">&copy; 2026 Inzra. Search growth architecture for ambitious brands.</div>
+                <nav class="foot-links" aria-label="Footer navigation">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="seo-sri-lanka.html">SEO Sri Lanka</a>
+                    <a href="products.html">Products</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Contact Inzra",
+        "url": "https://inzra.com/contact.html",
+        "description": "Contact Inzra to request a free SEO audit or learn more about our SEO services.",
+        "publisher": { "@type": "Organization", "name": "Inzra", "url": "https://inzra.com/" }
+    }
+    </script>
+
+    <script>
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); observer.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        const toggle = document.getElementById('menuToggle');
+        const menu   = document.getElementById('menu');
+        toggle.addEventListener('click', () => {
+            const open = menu.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', String(open));
+        });
+        document.querySelectorAll('#menu a').forEach(a => {
+            a.addEventListener('click', () => { menu.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); });
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const btn  = form.querySelector('button[type="submit"]');
+            const success = document.getElementById('successMsg');
+
+            // Basic validation
+            const required = form.querySelectorAll('[required]');
+            let valid = true;
+            required.forEach(f => { if (!f.value.trim()) { f.style.borderColor = 'rgba(239,68,68,0.5)'; valid = false; } else { f.style.borderColor = ''; } });
+            if (!valid) return;
+
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+
+            // Simulate submission (replace with real endpoint if needed)
+            setTimeout(() => {
+                form.querySelectorAll('.field, .btn').forEach(el => el.style.display = 'none');
+                form.querySelectorAll('.radio-group, .submit-row').forEach(el => el.style.display = 'none');
+                success.style.display = 'block';
+            }, 800);
+        });
+    </script>
+</body>
+</html>

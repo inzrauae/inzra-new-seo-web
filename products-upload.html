@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -24,6 +24,24 @@
       width: min(1120px, calc(100% - 2rem));
       margin: 24px auto 40px;
     }
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.9);
+      margin-bottom: 14px;
+    }
+    .site-nav a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    .site-nav a:hover { color: #8a6200; }
     .card {
       background: var(--card);
       border: 1px solid var(--line);
@@ -93,10 +111,31 @@
     }
     .section { margin-top: 16px; }
     .hidden { display: none; }
+    .site-foot {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .site-foot a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-right: 10px;
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
+    <nav class="site-nav" aria-label="Main menu">
+      <a href="index.html">Home</a>
+      <a href="seo-sri-lanka.html">Blog</a>
+      <a href="index.html#services">About</a>
+      <a href="index.html#audit">Contact</a>
+      <a href="products.html">Products</a>
+    </nav>
     <div class="card">
       <h1>Bulk Product Upload Parser</h1>
       <p>Paste your raw listings text, click Parse, then export CSV for upload/import. This handles noisy text blocks like the one you shared.</p>
@@ -123,6 +162,13 @@
         <tbody></tbody>
       </table>
     </div>
+
+    <footer class="site-foot">
+      <span>Parser utility for internal catalog operations.</span>
+      <nav aria-label="Footer links">
+        <a href="checkout.html?env=sandbox">Checkout</a>
+      </nav>
+    </footer>
   </div>
 
   <script>

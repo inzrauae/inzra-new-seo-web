@@ -6,6 +6,7 @@
   <title>Checkout | Inzra</title>
   <meta name="description" content="Secure direct checkout for Inzra products.">
   <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://inzra.com/checkout.html">
   <style>
     :root {
       --ink: #111827;
@@ -35,6 +36,22 @@
       box-shadow: 0 14px 34px rgba(15, 23, 42, 0.1);
       overflow: hidden;
     }
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      padding: 0.8rem 1.2rem;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+    .site-nav a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    .site-nav a:hover { color: #845d00; }
     .head {
       padding: 1.1rem 1.2rem;
       background: linear-gradient(130deg, rgba(212, 160, 23, 0.18), rgba(255, 255, 255, 0));
@@ -135,10 +152,38 @@
       border: 1px solid var(--line);
       background: #fff;
     }
+    .site-foot {
+      border-top: 1px solid var(--line);
+      padding: 0.85rem 1.2rem;
+      color: var(--muted);
+      font-size: 0.88rem;
+      background: #fff;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .foot-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .foot-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.86rem;
+    }
   </style>
 </head>
 <body>
   <main class="wrap">
+    <nav class="site-nav" aria-label="Main menu">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="products.html">Products</a>
+    </nav>
     <header class="head">
       <h1>Checkout Ready</h1>
     </header>
@@ -167,6 +212,9 @@
         <a class="btn soft" href="index.html">Home</a>
       </div>
     </section>
+    <footer class="site-foot">
+      <span>Secure PayPal checkout for catalog purchases.</span>
+    </footer>
   </main>
 
   <script>

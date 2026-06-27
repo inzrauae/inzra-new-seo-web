@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /checkout.html
+Disallow: /product-details.html
+Disallow: /products-upload.html
+
+Sitemap: https://inzra.com/sitemap.xml
