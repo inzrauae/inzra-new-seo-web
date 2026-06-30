@@ -245,7 +245,7 @@
 
     const itemId = new URLSearchParams(window.location.search).get("item");
     const envParam = new URLSearchParams(window.location.search).get("env");
-    let paypalEnv = envParam === "sandbox" ? "sandbox" : "live";
+    let paypalEnv = envParam === "live" ? "live" : "sandbox";
     let currentProduct = null;
 
     function getClientId() {
@@ -362,7 +362,7 @@
             clientId = getClientId();
             await loadPayPalSdk(clientId);
             renderPayPalButtons();
-            setStatus("Live PayPal key failed to load. Switched to Sandbox mode for testing. Use ?env=sandbox explicitly while you update live credentials.", "error");
+            setStatus("Live PayPal key failed to load on this domain. Switched to sandbox for testing. Add valid live credentials, then use ?env=live.", "error");
             return;
           } catch (fallbackError) {
             setStatus(`Could not load PayPal SDK in live or sandbox mode. ${fallbackError.message}`, "error");
