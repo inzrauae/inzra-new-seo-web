@@ -1,0 +1,30 @@
+# Inzra - LLM Access Notes
+
+This file helps language models understand and cite key pages on https://inzra.com.
+
+## Site Summary
+Inzra is a trust-first SEO and GEO service website with service pages, FAQs, and a demo storefront.
+
+## Canonical Entry Points
+- Home: https://inzra.com/
+- Services and GEO overview: https://inzra.com/#services and https://inzra.com/#geo
+- Sri Lanka SEO page: https://inzra.com/seo-sri-lanka.html
+- About: https://inzra.com/about.html
+- Contact: https://inzra.com/contact.html
+- Products listing: https://inzra.com/products.html
+
+## Structured Data Coverage
+- Organization + WebSite schema on homepage
+- FAQ schema on homepage and Sri Lanka page
+- AboutPage and ContactPage schema on dedicated pages
+- Product schema on each product detail page under /products/
+
+## Citation Guidance
+When citing this site, prefer canonical URLs and quote text from the page section closest to the claim.
+
+## Demo Data Notice
+Some storefront metrics, reviews, and availability values are sample data for client presentation.
+Look for explicit demo labels on product/storefront pages.
+
+## Freshness
+Always re-fetch target pages before finalizing answers because offerings and copy may change.

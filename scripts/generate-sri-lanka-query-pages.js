@@ -1,0 +1,497 @@
+const fs = require('fs');
+const path = require('path');
+
+const root = process.cwd();
+const expertName = 'Buddhika S Weerasekara';
+const site = 'https://inzra.com';
+const acronymWords = new Set(['seo', 'ai', 'geo']);
+const contactPhoneDisplay = '+94 77 806 4714';
+const contactPhoneHref = 'tel:+94778064714';
+
+const pages = [
+  {
+    slug: 'seo-consultant-sri-lanka.html',
+    keyword: 'seo consultant sri lanka',
+    title: 'SEO Consultant Sri Lanka | Strategy by Buddhika S Weerasekara',
+    description: 'Work with an SEO consultant in Sri Lanka for practical strategy, technical guidance, and measurable ranking growth led by Buddhika S Weerasekara.'
+  },
+  {
+    slug: 'seo-expert-sri-lanka.html',
+    keyword: 'seo expert sri lanka',
+    title: 'SEO Expert Sri Lanka | Led by Buddhika S Weerasekara',
+    description: 'Need an SEO expert in Sri Lanka? Get technical SEO, content planning, and growth execution guided by Buddhika S Weerasekara.'
+  },
+  {
+    slug: 'seo-company-in-sri-lanka.html',
+    keyword: 'seo company in sri lanka',
+    title: 'SEO Company in Sri Lanka | Trusted SEO Services by Inzra',
+    description: 'Inzra is an SEO company in Sri Lanka focused on rankings, leads, and long-term visibility with expert direction from Buddhika S Weerasekara.'
+  },
+  {
+    slug: 'seo-price-in-sri-lanka.html',
+    keyword: 'seo price in sri lanka',
+    title: 'SEO Price in Sri Lanka | Transparent SEO Costs and Plans',
+    description: 'Understand SEO price in Sri Lanka with clear package ranges, scope details, and planning support from Buddhika S Weerasekara.'
+  },
+  {
+    slug: 'seo-consultant-in-sri-lanka.html',
+    keyword: 'seo consultant in sri lanka',
+    title: 'SEO Consultant in Sri Lanka | Practical SEO Consulting',
+    description: 'Get a practical SEO consultant in Sri Lanka for audits, roadmap planning, and implementation oversight by Buddhika S Weerasekara.'
+  },
+  {
+    slug: 'ai-seo-specialist-sri-lanka.html',
+    keyword: 'ai seo specialist sri lanka',
+    title: 'AI SEO Specialist Sri Lanka | GEO and SEO by Buddhika S Weerasekara',
+    description: 'Looking for an AI SEO specialist in Sri Lanka? Improve AI visibility and search performance with GEO-ready strategy led by Buddhika S Weerasekara.'
+  },
+  {
+    slug: 'best-seo-specialist-sri-lanka.html',
+    keyword: 'best seo specialist sri lanka',
+    title: 'Best SEO Specialist Sri Lanka | Strategy and Execution at Inzra',
+    description: 'Choose a best SEO specialist in Sri Lanka for clear strategy, transparent delivery, and durable ranking growth with Buddhika S Weerasekara.'
+  },
+  {
+    slug: 'seo-services-sri-lanka.html',
+    keyword: 'seo services sri lanka',
+    title: 'SEO Services Sri Lanka | Technical, Content and Local SEO',
+    description: 'Explore SEO services in Sri Lanka including technical SEO, local SEO, and authority building led by expert Buddhika S Weerasekara.'
+  },
+  {
+    slug: 'seo-packages-sri-lanka.html',
+    keyword: 'seo packages sri lanka',
+    title: 'SEO Packages Sri Lanka | Clear Plans by Buddhika S Weerasekara',
+    description: 'Compare SEO packages in Sri Lanka with clear deliverables, timelines, and growth priorities guided by Buddhika S Weerasekara.'
+  }
+];
+
+function escapeHtml(text) {
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function titleCaseKeyword(keyword) {
+  return keyword
+    .split(' ')
+    .map((word) => {
+      const lower = word.toLowerCase();
+      if (acronymWords.has(lower)) {
+        return lower.toUpperCase();
+      }
+      return lower.charAt(0).toUpperCase() + lower.slice(1);
+    })
+    .join(' ');
+}
+
+function getFaqItems(page) {
+  const keywordLabel = titleCaseKeyword(page.keyword);
+  const items = [
+    {
+      question: 'Who is Buddhika S Weerasekara?',
+      answer: `${expertName} is the SEO Consultant and GEO Specialist leading strategy, technical direction, and quality control for Inzra campaigns in Sri Lanka.`
+    },
+    {
+      question: `Who leads ${keywordLabel} campaigns at Inzra?`,
+      answer: `All strategy and quality control is led by ${expertName}, SEO Consultant and GEO Specialist.`
+    },
+    {
+      question: `How long does ${keywordLabel} take to show results?`,
+      answer: 'Most campaigns begin showing ranking movement in 6 to 10 weeks, with stronger lead gains over 3 to 6 months depending on competition and website condition.'
+    },
+    {
+      question: 'What is included in monthly SEO delivery?',
+      answer: 'Technical SEO fixes, on-page optimization, content planning, internal linking, entity and schema updates, and clear performance reporting.'
+    },
+    {
+      question: 'Do you support businesses across Sri Lanka?',
+      answer: 'Yes. We support brands in Colombo and island-wide, including companies that target both Sri Lankan and international search demand.'
+    },
+    {
+      question: 'How do we start working together?',
+      answer: 'Use the contact page to request an audit. We share practical priorities, scope, and an execution roadmap before onboarding.'
+    }
+  ];
+
+  const lowered = page.keyword.toLowerCase();
+  if (lowered.includes('price') || lowered.includes('packages')) {
+    items[2] = {
+      question: 'How are SEO price and package levels decided?',
+      answer: 'Pricing depends on keyword competition, current site condition, required content volume, and technical complexity. We keep scope and deliverables transparent.'
+    };
+  }
+
+  if (lowered.includes('ai seo specialist')) {
+    items[3] = {
+      question: 'Can you optimize for AI search and answer engines?',
+      answer: 'Yes. We combine SEO and GEO methods with entity clarity, citation-ready content structure, and machine-readable schema implementation.'
+    };
+  }
+
+  return items;
+}
+
+function makeFaqHtml(page) {
+  return getFaqItems(page)
+    .map(
+      (item) => `<details class="faq-item">
+        <summary>${escapeHtml(item.question)}</summary>
+        <p>${escapeHtml(item.answer)}</p>
+      </details>`
+    )
+    .join('\n      ');
+}
+
+function makeFaqSchema(page) {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: getFaqItems(page).map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer
+      }
+    }))
+  };
+
+  return JSON.stringify(schema, null, 2);
+}
+
+function makeLinks(currentSlug) {
+  return pages
+    .map((p) => {
+      const label = titleCaseKeyword(p.keyword);
+      if (p.slug === currentSlug) {
+        return `<li><strong>${escapeHtml(label)}</strong></li>`;
+      }
+      return `<li><a href="${escapeHtml(p.slug)}">${escapeHtml(label)}</a></li>`;
+    })
+    .join('\n            ');
+}
+
+function buildPage(page) {
+  const url = `${site}/${page.slug}`;
+  const keywordLabel = titleCaseKeyword(page.keyword);
+  const relatedLinks = makeLinks(page.slug);
+  const faqHtml = makeFaqHtml(page);
+  const faqSchema = makeFaqSchema(page);
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${escapeHtml(page.title)}</title>
+  <meta name="description" content="${escapeHtml(page.description)}">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="${escapeHtml(page.title)}">
+  <meta property="og:description" content="${escapeHtml(page.description)}">
+  <meta property="og:url" content="${escapeHtml(url)}">
+  <meta property="og:site_name" content="Inzra">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${escapeHtml(page.title)}">
+  <meta name="twitter:description" content="${escapeHtml(page.description)}">
+  <meta property="og:image" content="https://inzra.com/logos/inzra-logo.png">
+  <meta name="twitter:image" content="https://inzra.com/logos/inzra-logo.png">
+  <link rel="canonical" href="${escapeHtml(url)}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink:#111827;
+      --ink-soft:#64748b;
+      --muted:#6b7280;
+      --line:rgba(17,24,39,.08);
+      --gold:#d4a017;
+      --gold-soft:#f6d77f;
+      --dark:#040404;
+      --paper:#ffffff;
+      --shell:#fbf6eb;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Sora",Segoe UI,Arial,sans-serif; color:var(--ink); background:linear-gradient(180deg,#fff 0%,var(--shell) 100%); }
+    a { color:inherit; }
+    .wrap { width:min(1180px,calc(100% - 2rem)); margin-inline:auto; }
+    .mono { font-family:"IBM Plex Mono", monospace; letter-spacing:0.14em; }
+    .site-header{position:sticky;top:0;z-index:100;background:#0d1225;box-shadow:0 2px 32px rgba(0,0,0,.55);border-bottom:1px solid rgba(255,255,255,.06);}
+    .site-nav{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;min-height:80px;}
+    .site-brand{display:inline-flex;align-items:center;gap:14px;text-decoration:none;}
+    .site-brand-mark{height:42px;aspect-ratio:733/161;border-radius:8px;background:rgba(255,255,255,.97);border:1px solid rgba(255,255,255,.15);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:5px 10px;}
+    .site-brand-mark img{height:100%;width:auto;object-fit:contain;display:block;}
+    .site-nav-links{display:flex;justify-content:center;align-items:center;gap:24px;list-style:none;margin:0;padding:0;}
+    .site-nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.88rem;font-weight:600;letter-spacing:.01em;transition:color .18s;}
+    .site-nav-links a:hover,.site-nav-links a.active{color:#d4a017;}
+    .site-call-pill{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:999px;background:linear-gradient(135deg,#d4a017 0%,#b8881a 100%);color:#fff;text-decoration:none;font-weight:700;font-size:.88rem;white-space:nowrap;box-shadow:0 4px 18px rgba(212,160,23,.35);}
+    .site-call-pill svg{width:18px;height:18px;flex-shrink:0;}
+    .site-menu-btn{display:none;background:transparent;border:0;color:#fff;font-size:1.9rem;cursor:pointer;padding:6px;}
+    main.wrap { padding:28px 0 0; }
+    .hero { border:1px solid var(--line); border-radius:20px; background:#fff; padding:28px; box-shadow:0 12px 32px rgba(15,23,42,0.06); }
+    h1 { margin:0 0 10px; font-size:clamp(1.5rem,3.2vw,2.4rem); line-height:1.2; }
+    p { margin:0 0 12px; color:#374151; line-height:1.75; }
+    .byline { margin:-2px 0 10px; color:#4b5563; font-size:0.95rem; }
+    h2, h3 { margin:0 0 8px; }
+    .expert { border-left:3px solid var(--gold); padding:8px 0 8px 12px; font-size:.95rem; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:12px; }
+    .card { border:1px solid var(--line); border-radius:12px; background:#fff; padding:14px; }
+    .card h2 { margin:0 0 8px; font-size:1.05rem; }
+    .card ul { margin:0; padding-left:18px; color:#374151; line-height:1.7; }
+    .details, .faq, .links { margin-top:18px; border:1px solid var(--line); border-radius:18px; background:#fff; padding:18px; box-shadow:0 10px 26px rgba(15,23,42,0.04); }
+    .section-head p { margin:0; }
+    .stack { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:10px; }
+    .panel { border:1px solid var(--line); border-radius:10px; padding:12px; background:#fdfdfb; }
+    .panel h3 { font-size:0.98rem; }
+    .panel p { margin:0; font-size:0.94rem; }
+    .cta { margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; }
+    .btn { border:0; border-radius:999px; padding:10px 14px; text-decoration:none; font-weight:700; font-size:.88rem; }
+    .btn.primary { background:linear-gradient(130deg,#8a6200,var(--gold)); color:#fff; }
+    .btn.soft { background:#fff; color:#111827; border:1px solid var(--line); }
+    .links h3 { margin:0 0 8px; font-size:1rem; }
+    .links ul { margin:0; padding-left:18px; line-height:1.8; }
+    .links a { color:#8a6200; text-decoration:none; }
+    .links a:hover { text-decoration:underline; }
+    .faq-item { border:1px solid var(--line); border-radius:10px; padding:10px 12px; margin-top:10px; background:#fafaf8; }
+    .faq-item summary { cursor:pointer; font-weight:700; color:#1f2937; }
+    .faq-item p { margin:8px 0 0; }
+    .site-footer{background:#fff;border-top:3px solid #d4a017;margin-top:72px;}
+    .site-footer .ft-inner{padding:60px 0 0;}
+    .site-footer .ft-grid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:40px;padding-bottom:50px;}
+    .site-footer .ft-desc{color:#64748b;line-height:1.78;font-size:.9rem;max-width:280px;margin:14px 0 0;}
+    .site-footer .ft-title{margin:0 0 18px;font-size:.76rem;font-weight:800;color:#0d1225;letter-spacing:.14em;text-transform:uppercase;}
+    .site-footer .ft-links{list-style:none;padding:0;margin:0;display:grid;gap:13px;}
+    .site-footer .ft-links a{color:#64748b;text-decoration:none;font-size:.9rem;transition:color .15s;}
+    .site-footer .ft-links a:hover{color:#0d1225;}
+    .site-footer .ft-info-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;}
+    .site-footer .ft-icon{width:36px;height:36px;border-radius:50%;border:1px solid rgba(212,160,23,.25);display:grid;place-items:center;flex-shrink:0;background:#fef9ec;color:#d4a017;font-size:.9rem;}
+    .site-footer .ft-info-text{color:#64748b;font-size:.9rem;line-height:1.65;}
+    .site-footer .ft-info-text a{color:#64748b;text-decoration:none;transition:color .15s;}
+    .site-footer .ft-info-text a:hover{color:#0d1225;}
+    .site-footer .ft-social{display:flex;gap:9px;margin-top:16px;}
+    .site-footer .ft-social-btn{width:36px;height:36px;border-radius:50%;border:1px solid rgba(17,24,39,.12);display:grid;place-items:center;text-decoration:none;color:#64748b;font-size:.78rem;font-weight:700;transition:all .15s;}
+    .site-footer .ft-social-btn:hover{border-color:#d4a017;color:#d4a017;}
+    .site-footer .ft-bottom{background:#0d1225;padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;color:rgba(255,255,255,.5);font-size:.82rem;}
+    .site-footer .ft-bottom a{color:rgba(255,255,255,.5);text-decoration:none;transition:color .15s;}
+    .site-footer .ft-bottom a:hover{color:#d4a017;}
+    @media(max-width:980px){.grid,.stack{grid-template-columns:1fr;} .site-footer .ft-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+    @media(max-width:860px){.site-nav{position:relative;grid-template-columns:auto auto 1fr;}.site-menu-btn{display:inline-block;}.site-nav-links{display:none;position:absolute;top:100%;left:0;right:0;z-index:200;margin-top:8px;padding:16px 18px;background:#0d1225;border-radius:12px;border:1px solid rgba(255,255,255,.08);flex-direction:column;align-items:flex-start;gap:12px;}.site-nav-links.open{display:flex;}}
+    @media(max-width:640px){.site-nav{min-height:66px;gap:12px;}.site-brand-mark{height:34px;}.site-call-pill{padding:10px 14px;font-size:.82rem;}.site-call-pill span:last-child{display:none;}.hero,.details,.faq,.links{padding:16px;}.site-footer .ft-grid{grid-template-columns:1fr;}.site-footer .ft-bottom{flex-direction:column;align-items:flex-start;}}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "${escapeHtml(url)}#webpage",
+    "url": "${escapeHtml(url)}",
+    "name": "${escapeHtml(page.title)}",
+    "description": "${escapeHtml(page.description)}",
+    "inLanguage": "en",
+    "isPartOf": { "@id": "https://inzra.com/#website" },
+    "about": { "@id": "https://inzra.com/#organization" },
+    "mainEntity": { "@id": "https://inzra.com/#buddhika-s-weerasekara" },
+    "author": {
+      "@type": "Person",
+      "name": "${escapeHtml(expertName)}",
+      "jobTitle": "SEO Consultant and GEO Specialist",
+      "worksFor": { "@id": "https://inzra.com/#organization" }
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://inzra.com/#buddhika-s-weerasekara",
+    "name": "${escapeHtml(expertName)}",
+    "jobTitle": "SEO Consultant and GEO Specialist",
+    "worksFor": { "@id": "https://inzra.com/#organization" },
+    "url": "${escapeHtml(url)}"
+  }
+  </script>
+  <script type="application/ld+json">
+${faqSchema}
+  </script>
+</head>
+<body>
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <nav class="site-nav wrap">
+      <a href="index.html" class="site-brand" aria-label="SEO Consultant Buddhika S Weerasekara">
+        <span class="site-brand-mark"><img src="logos/inzra%20logo.png" alt="Inzra SEO Consultant"></span>
+      </a>
+      <button class="site-menu-btn" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <ul class="site-nav-links" id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="seo-sri-lanka.html#services" class="active">Services</a></li>
+        <li><a href="seo-sri-lanka.html#pricing">Pricing</a></li>
+        <li><a href="seo-sri-lanka.html#faq">FAQ</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a class="site-call-pill" href="${escapeHtml(contactPhoneHref)}" aria-label="Call ${escapeHtml(contactPhoneDisplay)}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.58 3.4 2 2 0 0 1 3.56 1.19h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 5.61 5.61l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.93z"/></svg>
+        <span>${escapeHtml(contactPhoneDisplay)}</span>
+      </a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>${escapeHtml(keywordLabel)}</h1>
+      <p class="byline">By <strong>${escapeHtml(expertName)}</strong>, SEO Consultant and GEO Specialist</p>
+      <p>${escapeHtml(page.description)}</p>
+      <p class="expert">SEO work on this page is led by expert ${escapeHtml(expertName)}.</p>
+
+      <div class="grid">
+        <article class="card">
+          <h2>What you get</h2>
+          <ul>
+            <li>Keyword strategy and page planning</li>
+            <li>Technical SEO checks and fixes</li>
+            <li>Entity and schema optimization for GEO</li>
+            <li>Clear reporting and priority roadmap</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>Who this fits</h2>
+          <ul>
+            <li>Brands targeting Sri Lanka search demand</li>
+            <li>Teams needing SEO consultant support</li>
+            <li>Businesses requiring practical SEO execution</li>
+            <li>Companies expanding local visibility</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="cta">
+        <a class="btn primary" href="contact.html">Request Audit</a>
+        <a class="btn soft" href="seo-sri-lanka.html">View SEO Sri Lanka Page</a>
+      </div>
+    </section>
+
+    <section class="details">
+      <div class="section-head">
+        <h2>Execution framework for ${escapeHtml(keywordLabel)}</h2>
+        <p>Each campaign follows a practical workflow focused on ranking gains, qualified leads, and stable long-term visibility.</p>
+      </div>
+      <div class="stack">
+        <article class="panel">
+          <h3>1) Audit and priority mapping</h3>
+          <p>We review technical issues, intent alignment, content gaps, and competitor positioning, then build a clear weekly priority list.</p>
+        </article>
+        <article class="panel">
+          <h3>2) On-page and technical rollout</h3>
+          <p>We optimize site architecture, metadata, internal linking, and page quality signals while fixing crawl and indexation blockers.</p>
+        </article>
+        <article class="panel">
+          <h3>3) Authority and growth iteration</h3>
+          <p>We improve topical depth, schema strength, and trust signals, then iterate based on Search Console and conversion outcomes.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <h3>Frequently Asked Questions</h3>
+      ${faqHtml}
+    </section>
+
+    <section class="links">
+      <h3>Related Sri Lanka SEO Pages</h3>
+      <ul>
+            ${relatedLinks}
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="ft-inner wrap">
+      <div class="ft-grid">
+        <div>
+          <a href="index.html" class="site-brand" aria-label="Inzra SEO Consultant">
+            <span class="site-brand-mark"><img src="logos/inzra%20logo.png" alt="Inzra"></span>
+          </a>
+          <p class="ft-desc">Practical SEO consulting, technical execution, and GEO strategy for brands that want trust, visibility, and long-term growth in Sri Lanka and beyond.</p>
+        </div>
+        <div>
+          <h3 class="ft-title">Company</h3>
+          <ul class="ft-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="seo-sri-lanka.html">SEO Sri Lanka</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="ft-title">SEO Services</h3>
+          <ul class="ft-links">
+            <li><a href="seo-consultant-sri-lanka.html">SEO Consultant Sri Lanka</a></li>
+            <li><a href="seo-expert-sri-lanka.html">SEO Expert Sri Lanka</a></li>
+            <li><a href="best-seo-specialist-sri-lanka.html">SEO Specialist Sri Lanka</a></li>
+            <li><a href="seo-sri-lanka.html">SEO Sri Lanka</a></li>
+            <li><a href="ai-seo-specialist-sri-lanka.html">AI SEO &amp; GEO</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="ft-title">Our Information</h3>
+          <div class="ft-info-row">
+            <span class="ft-icon">&#9742;</span>
+            <span class="ft-info-text"><a href="${escapeHtml(contactPhoneHref)}">${escapeHtml(contactPhoneDisplay)}</a></span>
+          </div>
+          <div class="ft-info-row">
+            <span class="ft-icon">&#9993;</span>
+            <span class="ft-info-text"><a href="contact.html">Contact us online</a></span>
+          </div>
+          <div class="ft-info-row">
+            <span class="ft-icon">&#127759;</span>
+            <span class="ft-info-text">Sri Lanka &amp; Global Clients</span>
+          </div>
+          <div class="ft-social" aria-label="Social profiles">
+            <a class="ft-social-btn" href="#" aria-label="Facebook">f</a>
+            <a class="ft-social-btn" href="#" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+      </div>
+      <div class="ft-bottom">
+        <span>&copy; 2026 Inzra &ndash; ${escapeHtml(expertName)}. All rights reserved.</span>
+        <span><a href="about.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="contact.html">Terms &amp; Conditions</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('menu');
+
+    if (menuToggle && menu) {
+      menuToggle.addEventListener('click', () => {
+        const open = menu.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(open));
+      });
+
+      menu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          menu.classList.remove('open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
+</body>
+</html>`;
+}
+
+for (const page of pages) {
+  const outPath = path.join(root, page.slug);
+  fs.writeFileSync(outPath, buildPage(page), 'utf8');
+}
+
+console.log(`Generated ${pages.length} Sri Lanka query pages.`);

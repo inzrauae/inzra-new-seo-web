@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Inzra SEO Agency</title>
-    <meta name="description" content="Learn about Inzra â€” a trust-first SEO agency built around transparent strategy, technical execution, and measurable growth for ambitious brands.">
+    <meta name="description" content="Learn about Inzra - a trust-first SEO agency built around transparent strategy, technical execution, and measurable growth for ambitious brands.">
     <meta name="robots" content="index, follow">
     <meta name="keywords" content="seo agency, about inzra, seo company, trust-first seo, seo consultant, technical seo agency, link building agency, local seo company, seo services, geo optimization">
     <meta property="og:type" content="website">
@@ -261,6 +261,43 @@
             .values-grid, .team-grid, .about-stats { grid-template-columns: 1fr; }
             section { padding: 44px 0; }
         }
+        /* ===== Site Header & Footer ===== */
+        .site-header{position:sticky;top:0;z-index:100;background:#0d1225;box-shadow:0 2px 32px rgba(0,0,0,.55);border-bottom:1px solid rgba(255,255,255,.06);}
+        .site-nav{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;min-height:80px;}
+        .site-brand{display:inline-flex;align-items:center;gap:14px;text-decoration:none;}
+        .site-brand-mark{height:42px;aspect-ratio:733/161;border-radius:8px;background:rgba(255,255,255,.97);border:1px solid rgba(255,255,255,.15);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:5px 10px;}
+        .site-brand-mark img{height:100%;width:auto;object-fit:contain;display:block;}
+        .site-brand-copy{display:flex;flex-direction:column;gap:4px;}
+        .site-brand-copy strong{display:block;color:#d4a017;font-size:1.05rem;line-height:1;letter-spacing:.08em;}
+        .site-brand-copy small{display:block;color:rgba(255,255,255,.5);font-size:.47rem;letter-spacing:.3em;line-height:1;}
+        .site-nav-links{display:flex;justify-content:center;align-items:center;gap:24px;list-style:none;margin:0;padding:0;}
+        .site-nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.88rem;font-weight:600;letter-spacing:.01em;transition:color .18s;}
+        .site-nav-links a:hover,.site-nav-links a.active{color:#d4a017;}
+        .site-call-pill{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:999px;background:linear-gradient(135deg,#d4a017 0%,#b8881a 100%);color:#fff;text-decoration:none;font-weight:700;font-size:.88rem;white-space:nowrap;box-shadow:0 4px 18px rgba(212,160,23,.35);}
+        .site-call-pill svg{width:18px;height:18px;flex-shrink:0;}
+        .site-menu-btn{display:none;background:transparent;border:0;color:#fff;font-size:1.9rem;cursor:pointer;padding:6px;}
+        .site-footer{background:#fff;border-top:3px solid #d4a017;margin-top:72px;}
+        .site-footer .ft-inner{padding:60px 0 0;}
+        .site-footer .ft-grid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:40px;padding-bottom:50px;}
+        .site-footer .ft-desc{color:#64748b;line-height:1.78;font-size:.9rem;max-width:280px;margin:14px 0 0;}
+        .site-footer .ft-title{margin:0 0 18px;font-size:.76rem;font-weight:800;color:#0d1225;letter-spacing:.14em;text-transform:uppercase;}
+        .site-footer .ft-links{list-style:none;padding:0;margin:0;display:grid;gap:13px;}
+        .site-footer .ft-links a{color:#64748b;text-decoration:none;font-size:.9rem;transition:color .15s;}
+        .site-footer .ft-links a:hover{color:#0d1225;}
+        .site-footer .ft-info-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;}
+        .site-footer .ft-icon{width:36px;height:36px;border-radius:50%;border:1px solid rgba(212,160,23,.25);display:grid;place-items:center;flex-shrink:0;background:#fef9ec;color:#d4a017;font-size:.9rem;}
+        .site-footer .ft-info-text{color:#64748b;font-size:.9rem;line-height:1.65;}
+        .site-footer .ft-info-text a{color:#64748b;text-decoration:none;transition:color .15s;}
+        .site-footer .ft-info-text a:hover{color:#0d1225;}
+        .site-footer .ft-social{display:flex;gap:9px;margin-top:16px;}
+        .site-footer .ft-social-btn{width:36px;height:36px;border-radius:50%;border:1px solid rgba(17,24,39,.12);display:grid;place-items:center;text-decoration:none;color:#64748b;font-size:.78rem;font-weight:700;transition:all .15s;}
+        .site-footer .ft-social-btn:hover{border-color:#d4a017;color:#d4a017;}
+        .site-footer .ft-bottom{background:#0d1225;padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;color:rgba(255,255,255,.5);font-size:.82rem;}
+        .site-footer .ft-bottom a{color:rgba(255,255,255,.5);text-decoration:none;transition:color .15s;}
+        .site-footer .ft-bottom a:hover{color:#d4a017;}
+        @media(max-width:980px){.site-footer .ft-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+        @media(max-width:860px){.site-nav{position:relative;grid-template-columns:auto auto 1fr;}.site-menu-btn{display:inline-block;}.site-nav-links{display:none;position:absolute;top:100%;left:0;right:0;z-index:200;margin-top:8px;padding:16px 18px;background:#0d1225;border-radius:12px;border:1px solid rgba(255,255,255,.08);flex-direction:column;align-items:flex-start;gap:12px;}.site-nav-links.open{display:flex;}}
+        @media(max-width:640px){.site-nav{min-height:66px;gap:12px;}.site-brand-mark{height:34px;}.site-brand-copy strong{font-size:.9rem;}.site-brand-copy small{font-size:.42rem;}.site-call-pill{padding:10px 14px;font-size:.82rem;}.site-call-pill span:last-child{display:none;}.site-footer .ft-grid{grid-template-columns:1fr;}.site-footer .ft-bottom{flex-direction:column;align-items:flex-start;}}
     </style>
   <meta property="og:image" content="https://inzra.com/logos/inzra-logo.png">
   <meta name="twitter:image" content="https://inzra.com/logos/inzra-logo.png">
@@ -268,30 +305,36 @@
 </head>
 <body>
 
-    <!-- NAV -->
-    <div class="topbar reveal">
-        <nav class="nav glass wrap">
-            <a href="index.html" class="brand" aria-label="Inzra home">
-                <span class="brand-mark"><img src="logos/inzra%20logo.png" alt="Inzra logo"></span>
+    <!-- SITE HEADER -->
+    <header class="site-header">
+        <nav class="site-nav wrap">
+            <a href="index.html" class="site-brand" aria-label="SEO Consultant Buddhika S Weerasekara">
+                <span class="site-brand-mark"><img src="logos/inzra%20logo.png" alt="Inzra SEO Consultant"></span>
+
             </a>
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
-            <div class="menu" id="menu">
-                <a href="index.html#services">Services</a>
-                <a href="about.html" class="active">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="seo-sri-lanka.html">SEO Sri Lanka</a>
-                <a href="index.html#products">Products</a>
-                <a href="contact.html" class="btn primary">Get Free Audit</a>
-            </div>
+            <button class="site-menu-btn" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+            <ul class="site-nav-links" id="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="seo-sri-lanka.html#services">Services</a></li>
+                <li><a href="seo-sri-lanka.html#pricing">Pricing</a></li>
+                <li><a href="seo-sri-lanka.html#faq">FAQ</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a class="site-call-pill" href="tel:+94778064714" aria-label="Call +94 77 806 4714">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.58 3.4 2 2 0 0 1 3.56 1.19h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 5.61 5.61l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.93z"/></svg>
+                <span>+94 77 806 4714</span>
+            </a>
         </nav>
-    </div>
+    </header>
 
     <!-- PAGE HERO -->
     <div class="wrap">
         <div class="page-hero reveal">
             <div class="eyebrow mono"><span class="pulse"></span> Who We Are</div>
             <h1>A <span class="gradient-text">trust-first</span> SEO agency built on evidence.</h1>
-            <p class="lead">Inzra was founded on a simple belief: SEO should be transparent, measurable, and built around real business outcomes â€” not vanity metrics or vague promises.</p>
+            <p class="lead">Inzra was founded on a simple belief: SEO should be transparent, measurable, and built around real business outcomes - not vanity metrics or vague promises.</p>
         </div>
     </div>
 
@@ -301,14 +344,14 @@
             <div class="story-panel reveal">
                 <span class="chip mono">Our Mission</span>
                 <h3>Search growth that compounds.</h3>
-                <p>We exist to help ambitious brands build real authority on the web â€” the kind that earns rankings in Google, citations in AI responses, and genuine trust from their audience.</p>
+                <p>We exist to help ambitious brands build real authority on the web - the kind that earns rankings in Google, citations in AI responses, and genuine trust from their audience.</p>
                 <p>We don't sell rankings. We build the foundation that makes rankings inevitable: strong technical structure, credible links, and content that answers real questions.</p>
             </div>
             <div class="story-panel reveal">
                 <span class="chip mono">Our Story</span>
                 <h3>Started with frustration, built on discipline.</h3>
                 <p>Inzra grew out of a frustration with agencies that overpromised and under-delivered. We saw brands burned by black-hat tactics, opaque reporting, and cookie-cutter strategies that ignored their actual goals.</p>
-                <p>So we built something different: a calm, credible SEO partner that treats every client like a long-term relationship â€” not a contract to fill.</p>
+                <p>So we built something different: a calm, credible SEO partner that treats every client like a long-term relationship - not a contract to fill.</p>
             </div>
         </div>
     </section>
@@ -317,7 +360,7 @@
     <section class="wrap">
         <div class="about-stats">
             <div class="about-stat reveal"><strong>142<em>%</em></strong><small>Average organic traffic growth in 6 months</small></div>
-            <div class="about-stat reveal"><strong>850<em>+</em></strong><small>Authority placements delivered in 2024â€“25</small></div>
+            <div class="about-stat reveal"><strong>850<em>+</em></strong><small>Authority placements delivered in 2024-25</small></div>
             <div class="about-stat reveal"><strong>120<em>+</em></strong><small>Growth brands served across B2B and SaaS</small></div>
             <div class="about-stat reveal"><strong>92<em>/100</em></strong><small>Average GEO readiness score post-campaign</small></div>
         </div>
@@ -333,7 +376,7 @@
             <div class="value-card reveal">
                 <span class="value-icon">&#128270;</span>
                 <h3>Full Transparency</h3>
-                <p>Weekly reports, live dashboards, and clear scope â€” you always know exactly what's being done and why.</p>
+                <p>Weekly reports, live dashboards, and clear scope - you always know exactly what's being done and why.</p>
             </div>
             <div class="value-card reveal">
                 <span class="value-icon">&#128200;</span>
@@ -348,12 +391,12 @@
             <div class="value-card reveal">
                 <span class="value-icon">&#128170;</span>
                 <h3>Long-Term Thinking</h3>
-                <p>We build authority that compounds â€” no quick-win shortcuts that unravel in the next algorithm update.</p>
+                <p>We build authority that compounds - no quick-win shortcuts that unravel in the next algorithm update.</p>
             </div>
             <div class="value-card reveal">
                 <span class="value-icon">&#128101;</span>
                 <h3>Human Support</h3>
-                <p>Direct access to your strategist â€” not a support ticket queue or an account manager with 80 clients.</p>
+                <p>Direct access to your strategist - not a support ticket queue or an account manager with 80 clients.</p>
             </div>
             <div class="value-card reveal">
                 <span class="value-icon">&#127758;</span>
@@ -373,19 +416,19 @@
             <div class="team-card reveal">
                 <div class="team-avatar">&#128104;&#8205;&#128187;</div>
                 <h3>Technical SEO Lead</h3>
-                <span class="role mono">Core Web Vitals Â· Schema Â· Crawl Architecture</span>
+                <span class="role mono">Core Web Vitals | Schema | Crawl Architecture</span>
                 <p>10+ years in enterprise technical SEO. Specializes in crawl efficiency, structured data, and JavaScript rendering.</p>
             </div>
             <div class="team-card reveal">
                 <div class="team-avatar">&#128279;</div>
                 <h3>Link Strategy Director</h3>
-                <span class="role mono">Digital PR Â· Outreach Â· Authority Building</span>
+                <span class="role mono">Digital PR | Outreach | Authority Building</span>
                 <p>Led link programs for SaaS and fintech brands. Focused on high-trust placements that move domain authority fast.</p>
             </div>
             <div class="team-card reveal">
                 <div class="team-avatar">&#129504;</div>
                 <h3>GEO &amp; Content Strategist</h3>
-                <span class="role mono">Generative Engine Optimization Â· Entity SEO</span>
+                <span class="role mono">Generative Engine Optimization | Entity SEO</span>
                 <p>Builds content architectures designed for both classic search rankings and AI answer engine citation.</p>
             </div>
         </div>
@@ -395,7 +438,7 @@
     <section class="wrap">
         <div class="cta-band reveal">
             <h2>Ready to work together?</h2>
-            <p>Start with a free audit. We'll review your site, identify gaps, and share a practical roadmap â€” no commitment required.</p>
+            <p>Start with a free audit. We'll review your site, identify gaps, and share a practical roadmap - no commitment required.</p>
             <div class="cta-actions">
                 <a href="contact.html" class="btn primary">Get Free Audit</a>
                 <a href="index.html#services" class="btn soft">Explore Services</a>
@@ -403,30 +446,60 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="wrap footer-shell reveal">
-            <div class="footer-top">
+    <!-- SITE FOOTER -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="ft-inner wrap">
+            <div class="ft-grid">
                 <div>
-                    <h3 class="footer-title">Built for trust-first SEO partnerships</h3>
-                    <p class="footer-desc">Transparent reporting, clear scope, and measurable outcomes. We combine search performance with strong brand credibility for lasting growth.</p>
+                    <a href="index.html" class="site-brand" aria-label="Inzra SEO Consultant">
+                        <span class="site-brand-mark"><img src="logos/inzra%20logo.png" alt="Inzra"></span>
+
+                    </a>
+                    <p class="ft-desc">Practical SEO consulting, technical execution, and GEO strategy for brands that want trust, visibility, and long-term growth in Sri Lanka and beyond.</p>
                 </div>
-                <div class="trust-logo-row" aria-label="Trust partner logos">
-                    <div class="trust-logo"><img src="logos/Untitled-design-21.png" alt="Trust partner 1"></div>
-                    <div class="trust-logo"><img src="logos/Untitled-design-22.png" alt="Trust partner 2"></div>
-                    <div class="trust-logo"><img src="logos/Untitled-design-23.png" alt="Trust partner 3"></div>
+                <div>
+                    <h3 class="ft-title">Company</h3>
+                    <ul class="ft-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="seo-sri-lanka.html">SEO Sri Lanka</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="ft-title">SEO Services</h3>
+                    <ul class="ft-links">
+                        <li><a href="seo-consultant-sri-lanka.html">SEO Consultant Sri Lanka</a></li>
+                        <li><a href="seo-expert-sri-lanka.html">SEO Expert Sri Lanka</a></li>
+                        <li><a href="best-seo-specialist-sri-lanka.html">SEO Specialist Sri Lanka</a></li>
+                        <li><a href="seo-sri-lanka.html">SEO Sri Lanka</a></li>
+                        <li><a href="ai-seo-specialist-sri-lanka.html">AI SEO &amp; GEO</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="ft-title">Our Information</h3>
+                    <div class="ft-info-row">
+                        <span class="ft-icon">&#9742;</span>
+                        <span class="ft-info-text"><a href="tel:+94778064714">+94 77 806 4714</a></span>
+                    </div>
+                    <div class="ft-info-row">
+                        <span class="ft-icon">&#9993;</span>
+                        <span class="ft-info-text"><a href="contact.html">Contact us online</a></span>
+                    </div>
+                    <div class="ft-info-row">
+                        <span class="ft-icon">&#127759;</span>
+                        <span class="ft-info-text">Sri Lanka &amp; Global Clients</span>
+                    </div>
+                    <div class="ft-social" aria-label="Social profiles">
+                        <a class="ft-social-btn" href="#" aria-label="Facebook">f</a>
+                        <a class="ft-social-btn" href="#" aria-label="LinkedIn">in</a>
+                    </div>
                 </div>
             </div>
-            <div class="foot">
-                <div style="color:rgba(248,250,252,0.7);">&copy; 2026 Inzra. Search growth architecture for ambitious brands.</div>
-                <nav class="foot-links" aria-label="Footer navigation">
-                    <a href="index.html">Home</a>
-                    <a href="index.html#services">Services</a>
-                    <a href="about.html">About</a>
-                    <a href="contact.html">Contact</a>
-                    <a href="seo-sri-lanka.html">SEO Sri Lanka</a>
-                    <a href="products.html">Products</a>
-                </nav>
+            <div class="ft-bottom">
+                <span>&copy; 2026 Inzra &ndash; Buddhika S Weerasekara. All rights reserved.</span>
+                <span><a href="about.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="contact.html">Terms &amp; Conditions</a></span>
             </div>
         </div>
     </footer>
@@ -435,10 +508,14 @@
     {
         "@context": "https://schema.org",
         "@type": "AboutPage",
+        "@id": "https://inzra.com/about.html#webpage",
         "name": "About Inzra",
         "url": "https://inzra.com/about.html",
+        "inLanguage": "en",
         "description": "Inzra is a trust-first SEO agency delivering technical SEO, link building, local SEO, and GEO optimization.",
-        "publisher": { "@type": "Organization", "name": "Inzra", "url": "https://inzra.com/" }
+        "isPartOf": { "@id": "https://inzra.com/#website" },
+        "about": { "@id": "https://inzra.com/#organization" },
+        "publisher": { "@id": "https://inzra.com/#organization" }
     }
     </script>
 

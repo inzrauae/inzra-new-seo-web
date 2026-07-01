@@ -1161,28 +1161,144 @@
                 padding: 44px 0;
             }
         }
+        /* ===== Site Header & Footer ===== */
+        .site-header{position:sticky;top:0;z-index:100;background:#0d1225;box-shadow:0 2px 32px rgba(0,0,0,.55);border-bottom:1px solid rgba(255,255,255,.06);}
+        .site-nav{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;min-height:80px;}
+        .site-brand{display:inline-flex;align-items:center;gap:14px;text-decoration:none;}
+        .site-brand-mark{height:42px;aspect-ratio:733/161;border-radius:8px;background:rgba(255,255,255,.97);border:1px solid rgba(255,255,255,.15);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:5px 10px;}
+        .site-brand-mark img{height:100%;width:auto;object-fit:contain;display:block;}
+        .site-brand-copy{display:flex;flex-direction:column;gap:4px;}
+        .site-brand-copy strong{display:block;color:#d4a017;font-size:1.05rem;line-height:1;letter-spacing:.08em;}
+        .site-brand-copy small{display:block;color:rgba(255,255,255,.5);font-size:.47rem;letter-spacing:.3em;line-height:1;}
+        .site-nav-links{display:flex;justify-content:center;align-items:center;gap:24px;list-style:none;margin:0;padding:0;}
+        .site-nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.88rem;font-weight:600;letter-spacing:.01em;transition:color .18s;}
+        .site-nav-links a:hover,.site-nav-links a.active{color:#d4a017;}
+        .site-call-pill{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:999px;background:linear-gradient(135deg,#d4a017 0%,#b8881a 100%);color:#fff;text-decoration:none;font-weight:700;font-size:.88rem;white-space:nowrap;box-shadow:0 4px 18px rgba(212,160,23,.35);}
+        .site-call-pill svg{width:18px;height:18px;flex-shrink:0;}
+        .site-menu-btn{display:none;background:transparent;border:0;color:#fff;font-size:1.9rem;cursor:pointer;padding:6px;}
+        .site-footer{background:#fff;border-top:3px solid #d4a017;margin-top:72px;}
+        .site-footer .ft-inner{padding:60px 0 0;}
+        .site-footer .ft-grid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:40px;padding-bottom:50px;}
+        .site-footer .ft-desc{color:#64748b;line-height:1.78;font-size:.9rem;max-width:280px;margin:14px 0 0;}
+        .site-footer .ft-title{margin:0 0 18px;font-size:.76rem;font-weight:800;color:#0d1225;letter-spacing:.14em;text-transform:uppercase;}
+        .site-footer .ft-links{list-style:none;padding:0;margin:0;display:grid;gap:13px;}
+        .site-footer .ft-links a{color:#64748b;text-decoration:none;font-size:.9rem;transition:color .15s;}
+        .site-footer .ft-links a:hover{color:#0d1225;}
+        .site-footer .ft-info-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;}
+        .site-footer .ft-icon{width:36px;height:36px;border-radius:50%;border:1px solid rgba(212,160,23,.25);display:grid;place-items:center;flex-shrink:0;background:#fef9ec;color:#d4a017;font-size:.9rem;}
+        .site-footer .ft-info-text{color:#64748b;font-size:.9rem;line-height:1.65;}
+        .site-footer .ft-info-text a{color:#64748b;text-decoration:none;transition:color .15s;}
+        .site-footer .ft-info-text a:hover{color:#0d1225;}
+        .site-footer .ft-social{display:flex;gap:9px;margin-top:16px;}
+        .site-footer .ft-social-btn{width:36px;height:36px;border-radius:50%;border:1px solid rgba(17,24,39,.12);display:grid;place-items:center;text-decoration:none;color:#64748b;font-size:.78rem;font-weight:700;transition:all .15s;}
+        .site-footer .ft-social-btn:hover{border-color:#d4a017;color:#d4a017;}
+        .site-footer .ft-bottom{background:#0d1225;padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;color:rgba(255,255,255,.5);font-size:.82rem;}
+        .site-footer .ft-bottom a{color:rgba(255,255,255,.5);text-decoration:none;transition:color .15s;}
+        .site-footer .ft-bottom a:hover{color:#d4a017;}
+        @media(max-width:980px){.site-footer .ft-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+        @media(max-width:860px){.site-nav{position:relative;grid-template-columns:auto auto 1fr;}.site-menu-btn{display:inline-block;}.site-nav-links{display:none;position:absolute;top:100%;left:0;right:0;z-index:200;margin-top:8px;padding:16px 18px;background:#0d1225;border-radius:12px;border:1px solid rgba(255,255,255,.08);flex-direction:column;align-items:flex-start;gap:12px;}.site-nav-links.open{display:flex;}}
+        @media(max-width:640px){.site-nav{min-height:66px;gap:12px;}.site-brand-mark{height:34px;}.site-brand-copy strong{font-size:.9rem;}.site-brand-copy small{font-size:.42rem;}.site-call-pill{padding:10px 14px;font-size:.82rem;}.site-call-pill span:last-child{display:none;}.site-footer .ft-grid{grid-template-columns:1fr;}.site-footer .ft-bottom{flex-direction:column;align-items:flex-start;}}
+        /* ===== Expanded service cards ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+        }
+        .card ul {
+            margin: 10px 0 0;
+            padding-left: 16px;
+            color: var(--ink-700);
+            font-size: 0.85rem;
+            line-height: 1.7;
+        }
+        .card ul li { margin-bottom: 2px; }
+        /* ===== 3-phase framework ===== */
+        .three-step {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+        .phase-list {
+            margin: 10px 0 0;
+            padding-left: 16px;
+            color: var(--ink-700);
+            font-size: 0.85rem;
+            line-height: 1.7;
+        }
+        .phase-list li { margin-bottom: 3px; }
+        .phase-deliverable {
+            margin-top: 14px;
+            padding: 8px 12px;
+            background: rgba(212, 160, 23, 0.09);
+            border-left: 2px solid #d4a017;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.79rem;
+            color: #8a6200;
+            font-weight: 600;
+        }
+        /* ===== Comparison table ===== */
+        .compare-wrap { overflow-x: auto; margin-top: 18px; }
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+        }
+        .compare-table th {
+            padding: 11px 16px;
+            text-align: left;
+            font-size: 0.76rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-bottom: 2px solid var(--line);
+        }
+        .compare-table th:nth-child(2) { color: var(--ink-500); background: rgba(255,255,255,0.55); }
+        .compare-table th:nth-child(3) { color: #8a6200; background: rgba(212,160,23,0.07); }
+        .compare-table td {
+            padding: 11px 16px;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+            line-height: 1.55;
+        }
+        .compare-table td:first-child { font-weight: 700; color: var(--ink-900); width: 14%; }
+        .compare-table td.td-generic { color: var(--ink-500); background: rgba(255,255,255,0.45); }
+        .compare-table td.td-inzra { color: #374151; background: rgba(212,160,23,0.04); }
+        .compare-table tbody tr:hover td { background: rgba(255,255,255,0.75); }
+        @media (max-width: 980px) { .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 760px) {
+            .services-grid, .three-step { grid-template-columns: 1fr; }
+            .compare-table { font-size: 0.82rem; }
+            .compare-table td, .compare-table th { padding: 9px 10px; }
+        }
     </style>
   <meta property="og:image" content="https://inzra.com/logos/inzra-logo.png">
   <meta name="twitter:image" content="https://inzra.com/logos/inzra-logo.png">
 </head>
 <body>
     <div class="spotlight" id="spotlight" aria-hidden="true"></div>
-    <div class="topbar reveal">
-        <nav class="nav glass">
-            <a href="#top" class="brand" aria-label="Inzra home">
-                <span class="brand-mark"><img src="logos/inzra%20logo.png" alt="Inzra logo"></span>
+    <!-- SITE HEADER -->
+    <header class="site-header">
+        <nav class="site-nav wrap">
+            <a href="#top" class="site-brand" aria-label="SEO Consultant Buddhika S Weerasekara">
+                <span class="site-brand-mark"><img src="logos/inzra%20logo.png" alt="Inzra SEO Consultant"></span>
+
             </a>
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
-            <div class="menu" id="menu">
-                <a href="#services">Services</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="seo-sri-lanka.html">SEO Sri Lanka</a>
-                <a href="products.html">Products</a>
-                <a href="contact.html" class="btn primary">Get Free Audit</a>
-            </div>
+            <button class="site-menu-btn" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+            <ul class="site-nav-links" id="menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="seo-sri-lanka.html#services">Services</a></li>
+                <li><a href="seo-sri-lanka.html#pricing">Pricing</a></li>
+                <li><a href="seo-sri-lanka.html#faq">FAQ</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a class="site-call-pill" href="tel:+94778064714" aria-label="Call +94 77 806 4714">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.58 3.4 2 2 0 0 1 3.56 1.19h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 5.61 5.61l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.93z"/></svg>
+                <span>+94 77 806 4714</span>
+            </a>
         </nav>
-    </div>
+    </header>
 
     <main id="top" class="wrap">
         <section class="hero">
@@ -1197,7 +1313,7 @@
                     A modern <span class="gradient-text">SEO agency</span> for brands that want to rank and get cited by AI.
                 </h1>
                 <p>
-                    We are an SEO company and SEO consultant team combining technical SEO, digital PR, and GEO execution to deliver strong SEO services, practical SEO strategy, and measurable SEO optimization.
+                    One-on-one SEO consulting — no outsourcing, no agency layers, no junior staff. Buddhika S Weerasekara personally handles technical SEO, content strategy, digital PR, and GEO execution to deliver clear, honest, and measurable growth.
                 </p>
                 <div class="hero-actions">
                     <a href="#audit" class="btn primary">Run Instant Site Audit</a>
@@ -1210,20 +1326,20 @@
                 </div>
                 <div class="trust-strip">
                     <div class="trust-item">
-                        <strong>Trusted process</strong>
-                        <span>Clear deliverables, weekly updates, no hidden steps.</span>
+                        <strong>Direct specialist access</strong>
+                        <span>Work 1-on-1 with Buddhika S Weerasekara. No outsourcing, no middlemen.</span>
                     </div>
                     <div class="trust-item">
-                        <strong>Gold-standard brand</strong>
-                        <span>Premium identity with a gold logo and refined palette.</span>
+                        <strong>No contracts</strong>
+                        <span>Month-to-month plans. Stay because results are real, not because paperwork says so.</span>
                     </div>
                     <div class="trust-item">
-                        <strong>Evidence first</strong>
-                        <span>Structured case studies and measurable campaign outcomes.</span>
+                        <strong>Sri Lanka &amp; global</strong>
+                        <span>Serving clients across Sri Lanka, UK, US, Australia, and beyond.</span>
                     </div>
                     <div class="trust-item">
-                        <strong>Human support</strong>
-                        <span>SEO strategist guidance instead of automated churn.</span>
+                        <strong>Transparent reporting</strong>
+                        <span>Real dashboards with genuine growth data — no vanity metrics or hidden steps.</span>
                     </div>
                 </div>
                 <div class="hero-note mono">Zero spam tactics. Full transparency. Performance reviewed weekly.</div>
@@ -1279,38 +1395,96 @@
     <section id="services" class="wrap">
         <div class="section-head reveal">
             <h2>SEO services built for modern search behavior</h2>
-            <p>From local SEO services to enterprise campaigns, every SEO strategy is built around intent, relevance, and conversion-focused SEO optimization.</p>
+            <p>From local SEO and content marketing to enterprise campaigns and AI-era GEO &mdash; every strategy is built around intent, relevance, and conversion-focused SEO optimization.</p>
         </div>
-        <div class="cards">
-            <article class="card reveal">
-                <span class="chip mono">Digital PR</span>
-                <h3>Authority Placements</h3>
-                <p>Editorial placements on high-trust publications that strengthen entity signals and brand credibility.</p>
+        <div class="services-grid reveal">
+            <article class="card">
+                <span class="chip mono">01 Technical</span>
+                <h3>Technical SEO</h3>
+                <p>Is your website hiding bad habits holding your business back? We fix the foundations.</p>
+                <ul>
+                    <li>Site speed optimization</li>
+                    <li>Core Web Vitals</li>
+                    <li>Schema markup</li>
+                    <li>Mobile optimization</li>
+                </ul>
             </article>
-            <article class="card reveal">
-                <span class="chip mono">Context Layer</span>
-                <h3>Smart Niche Edits</h3>
-                <p>Contextual dofollow integrations in existing pages already trusted by search engines and users.</p>
+            <article class="card">
+                <span class="chip mono">02 eCommerce</span>
+                <h3>eCommerce SEO</h3>
+                <p>Competition for shopping keywords is fierce. Our eCommerce SEO mastery drives product visibility and revenue.</p>
+                <ul>
+                    <li>Product optimization</li>
+                    <li>Category page SEO</li>
+                    <li>Shopping schema</li>
+                    <li>Conversion optimization</li>
+                </ul>
             </article>
-            <article class="card reveal">
-                <span class="chip mono">Intelligence</span>
-                <h3>Competitor Gap Modeling</h3>
-                <p>Data-backed roadmap showing where competitors win and exactly what to build to overtake them.</p>
+            <article class="card">
+                <span class="chip mono">03 Local SEO</span>
+                <h3>Local SEO Sri Lanka</h3>
+                <p>Be the leader of the local pack with targeted local SEO strategies that put you on the map.</p>
+                <ul>
+                    <li>Google Business Profile</li>
+                    <li>Local citations</li>
+                    <li>Review management</li>
+                    <li>Location-based keywords</li>
+                </ul>
             </article>
-            <article class="card reveal">
-                <span class="chip mono">On-Page</span>
-                <h3>Keyword Cluster Mapping</h3>
-                <p>Semantic content architecture that expands coverage and captures transactional intent faster.</p>
+            <article class="card">
+                <span class="chip mono">04 Enterprise</span>
+                <h3>Enterprise SEO</h3>
+                <p>As your business matures, so should your SEO. We handle complex content hierarchies at scale.</p>
+                <ul>
+                    <li>Large-scale optimization</li>
+                    <li>Technical audits</li>
+                    <li>Content strategy</li>
+                    <li>Advanced analytics</li>
+                </ul>
             </article>
-            <article class="card reveal">
-                <span class="chip mono">Local SEO</span>
-                <h3>Local SEO Services</h3>
-                <p>As a local SEO agency and local SEO company, we optimize maps, location pages, and local authority signals.</p>
+            <article class="card">
+                <span class="chip mono">05 Content</span>
+                <h3>Content Marketing</h3>
+                <p>Drive targeted traffic, establish trust, and build authority with expertly crafted SEO content.</p>
+                <ul>
+                    <li>SEO copywriting</li>
+                    <li>Content strategy</li>
+                    <li>Blog optimization</li>
+                    <li>Authority building</li>
+                </ul>
             </article>
-            <article class="card reveal">
-                <span class="chip mono">Reporting</span>
-                <h3>Live Tracking Portal</h3>
-                <p>Transparent campaign dashboard with links, index status, traffic impact, and progress milestones.</p>
+            <article class="card">
+                <span class="chip mono">06 Digital PR</span>
+                <h3>Link Building &amp; PR</h3>
+                <p>Boost rankings and attract visitors most likely to convert with targeted link-building and digital PR.</p>
+                <ul>
+                    <li>High-authority links</li>
+                    <li>Digital PR campaigns</li>
+                    <li>Brand mentions</li>
+                    <li>Relationship building</li>
+                </ul>
+            </article>
+            <article class="card">
+                <span class="chip mono">07 AI SEO</span>
+                <h3>AI SEO &amp; GEO</h3>
+                <p>ChatGPT and Perplexity are reshaping search. We optimize for both Google rankings and AI citations.</p>
+                <ul>
+                    <li>AI content optimization</li>
+                    <li>Answer Engine Optimization</li>
+                    <li>Entity graph building</li>
+                    <li>Future-proof strategies</li>
+                </ul>
+            </article>
+            <article class="card">
+                <span class="chip mono">08 International</span>
+                <h3>International SEO</h3>
+                <p>Want customers from around the world? International SEO strategies find your audience wherever they are.</p>
+                <ul>
+                    <li>Hreflang implementation</li>
+                    <li>Multi-language SEO</li>
+                    <li>Global keyword research</li>
+                    <li>International targeting</li>
+                </ul>
             </article>
         </div>
     </section>
@@ -1370,74 +1544,110 @@
         </div>
     </section>
 
-    <section id="process" class="wrap">
+    <section id="compare" class="wrap">
         <div class="section-head reveal">
-            <h2>Execution pipeline</h2>
-            <p>Fast feedback loops keep momentum high while preserving quality at every stage.</p>
+            <h2>What proper SEO actually looks like</h2>
+            <p>Not all SEO is built the same. Before you invest, here is the difference between research-backed work and the kind of empty promises that keep businesses stuck.</p>
         </div>
-        <div class="process">
-            <article class="step reveal">
-                <div class="step-index mono">Step 01</div>
-                <h4>Authority Audit</h4>
-                <p>Baseline review of current backlinks, topical authority, and technical constraints.</p>
-            </article>
-            <article class="step reveal">
-                <div class="step-index mono">Step 02</div>
-                <h4>Gap Blueprint</h4>
-                <p>Competitor-led model for required link velocity, anchor strategy, and target pages.</p>
-            </article>
-            <article class="step reveal">
-                <div class="step-index mono">Step 03</div>
-                <h4>Campaign Launch</h4>
-                <p>Outreach and digital PR deployment with weekly quality validation checkpoints.</p>
-            </article>
-            <article class="step reveal">
-                <div class="step-index mono">Step 04</div>
-                <h4>Scale and Iterate</h4>
-                <p>Continuous optimization using live ranking signals and conversion-informed priorities.</p>
-            </article>
+        <div class="compare-wrap reveal">
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>Area</th>
+                        <th>Generic SEO</th>
+                        <th>What Inzra does</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Website audit</td>
+                        <td class="td-generic">A generic checklist run through a free tool</td>
+                        <td class="td-inzra">A custom diagnostic based on how Google actually reads and ranks your site</td>
+                    </tr>
+                    <tr>
+                        <td>Keyword strategy</td>
+                        <td class="td-generic">A list of high-volume keywords</td>
+                        <td class="td-inzra">Keywords grouped by what customers actually mean when they search, mapped to your services</td>
+                    </tr>
+                    <tr>
+                        <td>Content</td>
+                        <td class="td-generic">Generic blog posts written for word count</td>
+                        <td class="td-inzra">Strategic pages designed to rank in both Google and AI-powered search results</td>
+                    </tr>
+                    <tr>
+                        <td>Link building</td>
+                        <td class="td-generic">Bulk directory listings or low-quality links</td>
+                        <td class="td-inzra">Selective placements on relevant, trustworthy websites through outreach and digital PR</td>
+                    </tr>
+                    <tr>
+                        <td>Technical SEO</td>
+                        <td class="td-generic">A quick speed test and mobile check</td>
+                        <td class="td-inzra">Deep analysis of how search engines crawl, render, and understand your website</td>
+                    </tr>
+                    <tr>
+                        <td>Reporting</td>
+                        <td class="td-generic">A monthly PDF with traffic graphs that can hide bot traffic or artificial growth</td>
+                        <td class="td-inzra">Transparent reports and real-time dashboards that separate genuine growth from vanity spikes and misleading numbers</td>
+                    </tr>
+                    <tr>
+                        <td>AI search readiness</td>
+                        <td class="td-generic">Not mentioned</td>
+                        <td class="td-inzra">Content and site structure optimised for AI Overviews, ChatGPT, Perplexity, and emerging search formats</td>
+                    </tr>
+                    <tr>
+                        <td>Methodology</td>
+                        <td class="td-generic">Tool-dependent and different every month</td>
+                        <td class="td-inzra">A consistent, research-backed process built on Google&rsquo;s public patents, guidelines, and live search data</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
-    <section id="results" class="wrap">
+    <section id="process" class="wrap">
         <div class="section-head reveal">
-            <h2>Proof from active campaigns</h2>
-            <p>Clear outcomes from B2B growth engagements in competitive markets.</p>
+            <h2>The 90-Day Growth Framework</h2>
+            <p>SEO does not have to feel complicated or confusing. Every engagement follows a clear, structured methodology built on Google&rsquo;s own ranking systems, public guidelines, and live search data &mdash; with Google prioritised first.</p>
         </div>
-        <div class="case-grid">
-            <article class="case reveal">
-                <div class="case-top">
-                    <div>
-                        <p class="mono" style="font-size:0.7rem; text-transform:uppercase;">Fintech SaaS</p>
-                        <h4>ScaleX Digital</h4>
-                    </div>
-                    <div class="case-metric">+310%</div>
-                </div>
-                <div class="case-body">
-                    <p>Expanded from low-authority pages to a full topical cluster with strategic placements in 90 days.</p>
-                    <div class="mini-metrics">
-                        <div><small>Before</small><strong>DR 24</strong></div>
-                        <div><small>After</small><strong>DR 68</strong></div>
-                        <div><small>Time</small><strong>90 days</strong></div>
-                    </div>
-                </div>
+        <div class="three-step reveal">
+            <article class="step">
+                <div class="step-index mono">Phase 1 &mdash; Weeks 1&ndash;4</div>
+                <h4>Diagnostic &amp; Baseline</h4>
+                <p>Understanding where you stand before making a single change.</p>
+                <ul class="phase-list">
+                    <li>Comprehensive technical SEO audit checking how search engines crawl and rank your site</li>
+                    <li>Keyword research to uncover what your customers are actually searching for</li>
+                    <li>Competitor analysis to identify opportunities and gaps in your market</li>
+                    <li>Search visibility analysis using live data from Google-first sources</li>
+                    <li>Campaign setup with proper tracking, tagging, and a custom dashboard</li>
+                </ul>
+                <div class="phase-deliverable">Deliverable: Diagnostic Report &amp; Prioritised Roadmap in plain English</div>
             </article>
-            <article class="case reveal">
-                <div class="case-top">
-                    <div>
-                        <p class="mono" style="font-size:0.7rem; text-transform:uppercase;">Cybersecurity</p>
-                        <h4>VaultFlow Inc.</h4>
-                    </div>
-                    <div class="case-metric">$1.2M</div>
-                </div>
-                <div class="case-body">
-                    <p>Digital PR and authority pages generated enterprise lead growth and stronger pipeline contribution.</p>
-                    <div class="mini-metrics">
-                        <div><small>Before</small><strong>DR 41</strong></div>
-                        <div><small>After</small><strong>DR 79</strong></div>
-                        <div><small>Time</small><strong>5 months</strong></div>
-                    </div>
-                </div>
+            <article class="step">
+                <div class="step-index mono">Phase 2 &mdash; Weeks 5&ndash;8</div>
+                <h4>Strategic Execution</h4>
+                <p>Fixing what&rsquo;s holding you back and building what&rsquo;s missing.</p>
+                <ul class="phase-list">
+                    <li>Content audit to uncover gaps, cannibalisation, and missed growth opportunities</li>
+                    <li>On-page improvements based on how Google&rsquo;s ranking systems actually work</li>
+                    <li>Meta titles, descriptions, and internal linking improvements</li>
+                    <li>First link-building campaign focused on relevant, trustworthy websites</li>
+                    <li>Technical fixes: site speed, mobile experience, structured data, and schema</li>
+                </ul>
+                <div class="phase-deliverable">Deliverable: First Performance Report showing what&rsquo;s changed and what&rsquo;s next</div>
+            </article>
+            <article class="step">
+                <div class="step-index mono">Phase 3 &mdash; Weeks 9&ndash;12</div>
+                <h4>Scale &amp; Compound</h4>
+                <p>Turning early wins into long-term, compounding growth.</p>
+                <ul class="phase-list">
+                    <li>New content built around topics and questions your customers are actively searching</li>
+                    <li>Site structure improvements so search engines prioritise your most important pages</li>
+                    <li>Advanced structured data to help Google better understand your business</li>
+                    <li>Ongoing link-building and digital PR to build authority over time</li>
+                    <li>Speed, performance, and user experience refinements for stronger conversions</li>
+                </ul>
+                <div class="phase-deliverable">Deliverable: Full Quarter Review with measurable results and a clear next-phase plan</div>
             </article>
         </div>
     </section>
@@ -1445,7 +1655,7 @@
     <section id="products" class="wrap">
         <div class="section-head reveal">
             <h2>Buy Services Here</h2>
-            <p>These products are loaded from your active listings so anyone can purchase directly from this page.</p>
+            <p>Demo storefront for client presentation: products, stats, and reviews below use sample data.</p>
         </div>
         <div class="shop-toolbar reveal">
             <input id="shopSearch" class="shop-field" type="text" placeholder="Search products, e.g. backlinks, web design, hosting...">
@@ -1512,31 +1722,83 @@
                 <summary>Can one strategy support Google and AI answer engines together?</summary>
                 <p>Yes. A unified strategy improves crawlability, authority, and structured semantics, helping both classic search rankings and answer-engine visibility.</p>
             </details>
+            <details>
+                <summary>How long does it take to see results from SEO?</summary>
+                <p>Most clients begin to see measurable improvements within 3&ndash;6 months. Competitive markets may take longer. The 90-Day Growth Framework is designed to deliver early wins in the first phase while building compounding momentum through phase two and three.</p>
+            </details>
+            <details>
+                <summary>Can you guarantee a first-page ranking on Google?</summary>
+                <p>No ethical SEO consultant can guarantee specific rankings &mdash; anyone who does is misleading you. What we guarantee is a transparent, research-backed process, clear reporting, and a commitment to sustainable, measurable growth over time.</p>
+            </details>
+            <details>
+                <summary>Do I need to change my website content for SEO?</summary>
+                <p>In most cases, yes. SEO often requires improvements to page titles, headings, body copy, and internal linking. We guide you through exactly what needs to change and why, in plain English &mdash; no jargon.</p>
+            </details>
+            <details>
+                <summary>What is the contract length for your SEO service?</summary>
+                <p>There are no long-term contracts. All engagements are month-to-month. You stay because the results are real, not because paperwork forces you to. Most clients choose to continue once they see the growth compounding.</p>
+            </details>
+            <details>
+                <summary>What is the starting cost for SEO with Inzra?</summary>
+                <p>Pricing depends on your website, market, and goals. The best first step is a free audit and consultation. Contact us through the form above or call <a href="tel:+94778064714" style="color:inherit;">+94 77 806 4714</a> for a no-pressure conversation about what your business needs.</p>
+            </details>
         </div>
     </section>
 
-    <footer>
-        <div class="wrap footer-shell reveal">
-            <div class="footer-top">
+    <!-- SITE FOOTER -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="ft-inner wrap">
+            <div class="ft-grid">
                 <div>
-                    <h3 class="footer-title">Built for trust-first SEO partnerships</h3>
-                    <p class="footer-desc">Transparent reporting, clear scope, and measurable outcomes. We combine search performance with strong brand credibility.</p>
+                    <a href="index.html" class="site-brand" aria-label="Inzra SEO Consultant">
+                        <span class="site-brand-mark"><img src="logos/inzra%20logo.png" alt="Inzra"></span>
+
+                    </a>
+                    <p class="ft-desc">Practical SEO consulting, technical execution, and GEO strategy for brands that want trust, visibility, and long-term growth in Sri Lanka and beyond.</p>
                 </div>
-                <div class="trust-logo-row" aria-label="Trust logos">
-                    <div class="trust-logo"><img src="logos/Untitled-design-21.png" alt="Trust partner logo 1"></div>
-                    <div class="trust-logo"><img src="logos/Untitled-design-22.png" alt="Trust partner logo 2"></div>
-                    <div class="trust-logo"><img src="logos/Untitled-design-23.png" alt="Trust partner logo 3"></div>
+                <div>
+                    <h3 class="ft-title">Company</h3>
+                    <ul class="ft-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="seo-sri-lanka.html">SEO Sri Lanka</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="ft-title">SEO Services</h3>
+                    <ul class="ft-links">
+                        <li><a href="seo-consultant-sri-lanka.html">SEO Consultant Sri Lanka</a></li>
+                        <li><a href="seo-expert-sri-lanka.html">SEO Expert Sri Lanka</a></li>
+                        <li><a href="best-seo-specialist-sri-lanka.html">SEO Specialist Sri Lanka</a></li>
+                        <li><a href="seo-sri-lanka.html">SEO Sri Lanka</a></li>
+                        <li><a href="ai-seo-specialist-sri-lanka.html">AI SEO &amp; GEO</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="ft-title">Our Information</h3>
+                    <div class="ft-info-row">
+                        <span class="ft-icon">&#9742;</span>
+                        <span class="ft-info-text"><a href="tel:+94778064714">+94 77 806 4714</a></span>
+                    </div>
+                    <div class="ft-info-row">
+                        <span class="ft-icon">&#9993;</span>
+                        <span class="ft-info-text"><a href="contact.html">Contact us online</a></span>
+                    </div>
+                    <div class="ft-info-row">
+                        <span class="ft-icon">&#127759;</span>
+                        <span class="ft-info-text">Sri Lanka &amp; Global Clients</span>
+                    </div>
+                    <div class="ft-social" aria-label="Social profiles">
+                        <a class="ft-social-btn" href="#" aria-label="Facebook">f</a>
+                        <a class="ft-social-btn" href="#" aria-label="LinkedIn">in</a>
+                    </div>
                 </div>
             </div>
-            <div class="foot">
-                <div style="color:rgba(248,250,252,0.65);">© 2026 Inzra. Search growth architecture for ambitious brands.</div>
-                <nav class="foot-links" aria-label="Footer links">
-                    <a href="#services">Services</a>
-                    <a href="#geo">GEO Layer</a>
-                    <a href="products.html">Buy Services</a>
-                    <a href="#results">Case Studies</a>
-                    <a href="#audit">Contact</a>
-                </nav>
+            <div class="ft-bottom">
+                <span>&copy; 2026 Inzra &ndash; Buddhika S Weerasekara. All rights reserved.</span>
+                <span><a href="about.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="contact.html">Terms &amp; Conditions</a></span>
             </div>
         </div>
     </footer>
@@ -1545,10 +1807,32 @@
         {
             "@context": "https://schema.org",
             "@type": "Organization",
+            "@id": "https://inzra.com/#organization",
             "name": "Inzra",
             "url": "https://inzra.com/",
+            "logo": "https://inzra.com/logos/inzra-logo.png",
+            "inLanguage": "en",
+            "areaServed": ["Worldwide", "Sri Lanka"],
             "description": "Inzra is an SEO agency and SEO company providing SEO services, local SEO services, SEO strategy, and SEO optimization.",
-            "serviceType": ["SEO Services", "Local SEO Services", "SEO Strategy", "SEO Optimization", "Generative Engine Optimization"]
+            "serviceType": ["SEO Services", "Local SEO Services", "SEO Strategy", "SEO Optimization", "Generative Engine Optimization"],
+            "knowsAbout": ["Technical SEO", "Entity SEO", "Local SEO", "Digital PR", "Generative Engine Optimization", "Structured Data"]
+        }
+    </script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://inzra.com/#website",
+            "url": "https://inzra.com/",
+            "name": "Inzra",
+            "inLanguage": "en",
+            "publisher": { "@id": "https://inzra.com/#organization" },
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://inzra.com/products.html?search={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
         }
     </script>
 
@@ -1654,7 +1938,7 @@
 
         function renderShop(items) {
             shopGrid.innerHTML = "";
-            shopMeta.textContent = `${items.length} products ready to purchase`;
+            shopMeta.textContent = `${items.length} demo products available to preview`;
 
             if (!items.length) {
                 shopEmpty.style.display = "block";

@@ -220,7 +220,7 @@
           <strong id="total">$0.00</strong>
         </div>
       </div>
-      <p class="notice">Pay securely with PayPal. This checkout uses your product catalog price and item ID.</p>
+      <p class="notice">Demo checkout preview: pricing and product info are sample data for client presentation.</p>
       <p id="status" class="status">Preparing checkout...</p>
       <div id="paypal-button-container"></div>
       <div class="actions">
@@ -229,12 +229,12 @@
       </div>
     </section>
     <footer class="site-foot">
-      <span>Secure PayPal checkout for catalog purchases.</span>
+      <span>Demo checkout mode for client presentation and flow testing.</span>
     </footer>
   </main>
 
   <script>
-    const PAYPAL_LIVE_CLIENT_ID = "AePSuKx2iKcL2eEaoRJHiq1MSxUH3ZphAeE3dM4OaJJAc";
+    const PAYPAL_LIVE_CLIENT_ID = "DEMO_LIVE_CLIENT_ID";
     const PAYPAL_SANDBOX_CLIENT_ID = "sb";
 
     const itemIdEl = document.getElementById("itemId");
@@ -347,7 +347,7 @@
 
       let clientId = getClientId();
 
-      if (!clientId || clientId === "REPLACE_WITH_PAYPAL_CLIENT_ID") {
+      if (!clientId || clientId === "REPLACE_WITH_PAYPAL_CLIENT_ID" || clientId === "DEMO_LIVE_CLIENT_ID") {
         setStatus("Add your PayPal Client ID in checkout.html to enable checkout buttons.", "error");
         return;
       }

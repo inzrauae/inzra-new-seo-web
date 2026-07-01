@@ -316,30 +316,78 @@
             .nav { flex-wrap: wrap; border-radius: 18px; }
             .nav-links { width: 100%; justify-content: space-between; }
         }
+        /* ===== Site Header & Footer ===== */
+        .site-header{position:sticky;top:0;z-index:100;background:#0d1225;box-shadow:0 2px 32px rgba(0,0,0,.55);border-bottom:1px solid rgba(255,255,255,.06);}
+        .site-nav{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;min-height:80px;}
+        .site-brand{display:inline-flex;align-items:center;gap:14px;text-decoration:none;}
+        .site-brand-mark{height:42px;aspect-ratio:733/161;border-radius:8px;background:rgba(255,255,255,.97);border:1px solid rgba(255,255,255,.15);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:5px 10px;}
+        .site-brand-mark img{height:100%;width:auto;object-fit:contain;display:block;}
+        .site-brand-copy{display:flex;flex-direction:column;gap:4px;}
+        .site-brand-copy strong{display:block;color:#d4a017;font-size:1.05rem;line-height:1;letter-spacing:.08em;}
+        .site-brand-copy small{display:block;color:rgba(255,255,255,.5);font-size:.47rem;letter-spacing:.3em;line-height:1;}
+        .site-nav-links{display:flex;justify-content:center;align-items:center;gap:24px;list-style:none;margin:0;padding:0;}
+        .site-nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.88rem;font-weight:600;letter-spacing:.01em;transition:color .18s;}
+        .site-nav-links a:hover,.site-nav-links a.active{color:#d4a017;}
+        .site-call-pill{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:999px;background:linear-gradient(135deg,#d4a017 0%,#b8881a 100%);color:#fff;text-decoration:none;font-weight:700;font-size:.88rem;white-space:nowrap;box-shadow:0 4px 18px rgba(212,160,23,.35);}
+        .site-call-pill svg{width:18px;height:18px;flex-shrink:0;}
+        .site-menu-btn{display:none;background:transparent;border:0;color:#fff;font-size:1.9rem;cursor:pointer;padding:6px;}
+        .site-footer{background:#fff;border-top:3px solid #d4a017;margin-top:72px;}
+        .site-footer .ft-inner{padding:60px 0 0;}
+        .site-footer .ft-grid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:40px;padding-bottom:50px;}
+        .site-footer .ft-desc{color:#64748b;line-height:1.78;font-size:.9rem;max-width:280px;margin:14px 0 0;}
+        .site-footer .ft-title{margin:0 0 18px;font-size:.76rem;font-weight:800;color:#0d1225;letter-spacing:.14em;text-transform:uppercase;}
+        .site-footer .ft-links{list-style:none;padding:0;margin:0;display:grid;gap:13px;}
+        .site-footer .ft-links a{color:#64748b;text-decoration:none;font-size:.9rem;transition:color .15s;}
+        .site-footer .ft-links a:hover{color:#0d1225;}
+        .site-footer .ft-info-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;}
+        .site-footer .ft-icon{width:36px;height:36px;border-radius:50%;border:1px solid rgba(212,160,23,.25);display:grid;place-items:center;flex-shrink:0;background:#fef9ec;color:#d4a017;font-size:.9rem;}
+        .site-footer .ft-info-text{color:#64748b;font-size:.9rem;line-height:1.65;}
+        .site-footer .ft-info-text a{color:#64748b;text-decoration:none;transition:color .15s;}
+        .site-footer .ft-info-text a:hover{color:#0d1225;}
+        .site-footer .ft-social{display:flex;gap:9px;margin-top:16px;}
+        .site-footer .ft-social-btn{width:36px;height:36px;border-radius:50%;border:1px solid rgba(17,24,39,.12);display:grid;place-items:center;text-decoration:none;color:#64748b;font-size:.78rem;font-weight:700;transition:all .15s;}
+        .site-footer .ft-social-btn:hover{border-color:#d4a017;color:#d4a017;}
+        .site-footer .ft-bottom{background:#0d1225;padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;color:rgba(255,255,255,.5);font-size:.82rem;}
+        .site-footer .ft-bottom a{color:rgba(255,255,255,.5);text-decoration:none;transition:color .15s;}
+        .site-footer .ft-bottom a:hover{color:#d4a017;}
+        @media(max-width:980px){.site-footer .ft-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+        @media(max-width:860px){.site-nav{position:relative;grid-template-columns:auto auto 1fr;}.site-menu-btn{display:inline-block;}.site-nav-links{display:none;position:absolute;top:100%;left:0;right:0;z-index:200;margin-top:8px;padding:16px 18px;background:#0d1225;border-radius:12px;border:1px solid rgba(255,255,255,.08);flex-direction:column;align-items:flex-start;gap:12px;}.site-nav-links.open{display:flex;}}
+        @media(max-width:640px){.site-nav{min-height:66px;gap:12px;}.site-brand-mark{height:34px;}.site-brand-copy strong{font-size:.9rem;}.site-brand-copy small{font-size:.42rem;}.site-call-pill{padding:10px 14px;font-size:.82rem;}.site-call-pill span:last-child{display:none;}.site-footer .ft-grid{grid-template-columns:1fr;}.site-footer .ft-bottom{flex-direction:column;align-items:flex-start;}}
     </style>
   <meta property="og:image" content="https://inzra.com/logos/inzra-logo.png">
   <meta name="twitter:image" content="https://inzra.com/logos/inzra-logo.png">
   <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
-    <div class="wrap topbar">
-        <nav class="nav">
-            <a href="index.html" class="brand" aria-label="Inzra home">
-                <span class="brand-mark"><img src="logos/inzra%20logo.png" alt="Inzra logo"></span>
-                Inzra Products
+    <!-- SITE HEADER -->
+    <header class="site-header">
+        <nav class="site-nav wrap">
+            <a href="index.html" class="site-brand" aria-label="SEO Consultant Buddhika S Weerasekara">
+                <span class="site-brand-mark"><img src="logos/inzra%20logo.png" alt="Inzra SEO Consultant"></span>
+
             </a>
-            <div class="nav-links">
-                <a href="index.html">Main Site</a>
-                <a href="seo-sri-lanka.html">Sri Lanka Page</a>
-            </div>
+            <button class="site-menu-btn" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+            <ul class="site-nav-links" id="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="seo-sri-lanka.html#services">Services</a></li>
+                <li><a href="seo-sri-lanka.html#pricing">Pricing</a></li>
+                <li><a href="seo-sri-lanka.html#faq">FAQ</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a class="site-call-pill" href="tel:+94778064714" aria-label="Call +94 77 806 4714">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.58 3.4 2 2 0 0 1 3.56 1.19h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 5.61 5.61l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.93z"/></svg>
+                <span>+94 77 806 4714</span>
+            </a>
         </nav>
-    </div>
+    </header>
 
     <main class="wrap">
         <section class="hero">
             <span class="eyebrow">Active Listings Storefront</span>
             <h1>Buy Inzra Services Online</h1>
-            <p>Anyone can browse and purchase directly using your live listing links. Search, filter by category, and click Buy Now to open the product page.</p>
+            <p>Client demo storefront using sample data. Search and filter products, then open details and checkout preview flows.</p>
 
             <div class="toolbar">
                 <input id="searchInput" class="field" type="text" placeholder="Search products, e.g. SEO backlinks, web design, hosting...">
@@ -362,8 +410,62 @@
         </section>
     </main>
 
-    <footer class="wrap">
-        Powered by your active listings report. Pricing and availability are shown from exported data and may change on the marketplace.
+    <!-- SITE FOOTER -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="ft-inner wrap">
+            <div class="ft-grid">
+                <div>
+                    <a href="index.html" class="site-brand" aria-label="Inzra SEO Consultant">
+                        <span class="site-brand-mark"><img src="logos/inzra%20logo.png" alt="Inzra"></span>
+
+                    </a>
+                    <p class="ft-desc">Practical SEO consulting, technical execution, and GEO strategy for brands that want trust, visibility, and long-term growth in Sri Lanka and beyond.</p>
+                </div>
+                <div>
+                    <h3 class="ft-title">Company</h3>
+                    <ul class="ft-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="seo-sri-lanka.html">SEO Sri Lanka</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="ft-title">SEO Services</h3>
+                    <ul class="ft-links">
+                        <li><a href="seo-consultant-sri-lanka.html">SEO Consultant Sri Lanka</a></li>
+                        <li><a href="seo-expert-sri-lanka.html">SEO Expert Sri Lanka</a></li>
+                        <li><a href="best-seo-specialist-sri-lanka.html">SEO Specialist Sri Lanka</a></li>
+                        <li><a href="seo-sri-lanka.html">SEO Sri Lanka</a></li>
+                        <li><a href="ai-seo-specialist-sri-lanka.html">AI SEO &amp; GEO</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="ft-title">Our Information</h3>
+                    <div class="ft-info-row">
+                        <span class="ft-icon">&#9742;</span>
+                        <span class="ft-info-text"><a href="tel:+94778064714">+94 77 806 4714</a></span>
+                    </div>
+                    <div class="ft-info-row">
+                        <span class="ft-icon">&#9993;</span>
+                        <span class="ft-info-text"><a href="contact.html">Contact us online</a></span>
+                    </div>
+                    <div class="ft-info-row">
+                        <span class="ft-icon">&#127759;</span>
+                        <span class="ft-info-text">Sri Lanka &amp; Global Clients</span>
+                    </div>
+                    <div class="ft-social" aria-label="Social profiles">
+                        <a class="ft-social-btn" href="#" aria-label="Facebook">f</a>
+                        <a class="ft-social-btn" href="#" aria-label="LinkedIn">in</a>
+                    </div>
+                </div>
+            </div>
+            <div class="ft-bottom">
+                <span>&copy; 2026 Inzra &ndash; Buddhika S Weerasekara. All rights reserved.</span>
+                <span><a href="about.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="contact.html">Terms &amp; Conditions</a></span>
+            </div>
+        </div>
     </footer>
 
     <script>
@@ -418,7 +520,7 @@
 
         function renderProducts(items) {
             productsGrid.innerHTML = '';
-            resultsMeta.textContent = `${items.length} products available for purchase`;
+            resultsMeta.textContent = `${items.length} demo products available to preview`;
 
             if (!items.length) {
                 emptyState.style.display = 'block';
@@ -461,6 +563,24 @@
                 if (!res.ok) throw new Error('Could not load product data');
                 products = await res.json();
                 buildCategories(products);
+
+                const params = new URLSearchParams(window.location.search);
+                const searchParam = (params.get('search') || '').trim();
+                const categoryParam = (params.get('category') || '').trim();
+                const sortParam = (params.get('sort') || '').trim();
+
+                if (searchParam) {
+                    searchInput.value = searchParam;
+                }
+
+                if (categoryParam && Array.from(categorySelect.options).some((opt) => opt.value === categoryParam)) {
+                    categorySelect.value = categoryParam;
+                }
+
+                if (sortParam && Array.from(sortSelect.options).some((opt) => opt.value === sortParam)) {
+                    sortSelect.value = sortParam;
+                }
+
                 applyFilters();
             } catch (error) {
                 resultsMeta.textContent = 'Failed to load products-data.json';
@@ -474,6 +594,24 @@
         sortSelect.addEventListener('change', applyFilters);
 
         init();
+    </script>
+    <script>
+        (function(){
+            var t = document.getElementById('menuToggle');
+            var m = document.getElementById('menu');
+            if (t && m) {
+                t.addEventListener('click', function(){
+                    var open = m.classList.toggle('open');
+                    t.setAttribute('aria-expanded', String(open));
+                });
+                m.querySelectorAll('a').forEach(function(a){
+                    a.addEventListener('click', function(){
+                        m.classList.remove('open');
+                        t.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+        })();
     </script>
 </body>
 </html>

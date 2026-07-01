@@ -4,6 +4,9 @@ const path = require('path');
 const root = process.cwd();
 const dataPath = path.join(root, 'products-data.json');
 const productsDir = path.join(root, 'products');
+const siteOrigin = 'https://inzra.com';
+const siteLogoUrl = `${siteOrigin}/logos/inzra-logo.png`;
+const organizationId = `${siteOrigin}/#organization`;
 
 function escapeHtml(text) {
   return String(text)
@@ -82,7 +85,8 @@ function makeDescription(product) {
     third += ` ${watchers} ${singularPlural(watchers, 'buyer is', 'buyers are')} watching this offer.`;
   }
 
-  return `${first} ${second} ${third}`;
+  const demoSuffix = ' Demo metrics shown for client presentation only.';
+  return `${first} ${second} ${third}${demoSuffix}`;
 }
 
 function makeKeywords(product, kind) {
@@ -157,10 +161,12 @@ function buildCustomerReviews(product, kind) {
 function buildMetaBlock(product, description, keywords, reviews) {
   const item = String(product.itemNumber || '').trim();
   const title = String(product.title || 'Inzra Service').trim();
+  const category = String(product.category || 'Digital Services').trim();
   const currency = String(product.currency || 'USD').trim();
   const price = Number(product.price || 0).toFixed(2);
   const rating = Number(product.rating || 4.9).toFixed(1);
   const reviewCount = Number(product.reviews || 0);
+  const pageUrl = `${siteOrigin}/products/${encodeURIComponent(item)}.html`;
   const availability = Number(product.quantity || 0) > 0
     ? 'https://schema.org/InStock'
     : 'https://schema.org/OutOfStock';
@@ -177,19 +183,26 @@ function buildMetaBlock(product, description, keywords, reviews) {
     `  <meta property="og:site_name" content="Inzra">`,
     `  <meta property="og:title" content="${escapeAttr(title)} | Inzra">`,
     `  <meta property="og:description" content="${escapeAttr(description)}">`,
-    `  <meta property="og:url" content="products/${escapeAttr(item)}.html">`,
-    `  <meta name="twitter:card" content="summary">`,
+    `  <meta property="og:url" content="${escapeAttr(pageUrl)}">`,
+    `  <meta name="twitter:card" content="summary_large_image">`,
     `  <meta name="twitter:title" content="${escapeAttr(title)} | Inzra">`,
     `  <meta name="twitter:description" content="${escapeAttr(description)}">`,
-    `  <link rel="canonical" href="products/${escapeAttr(item)}.html">`,
+    `  <link rel="canonical" href="${escapeAttr(pageUrl)}">`,
     '  <script type="application/ld+json">',
     '  {',
     '    "@context": "https://schema.org",',
     '    "@type": "Product",',
+    `    "@id": "${escapeForJson(pageUrl)}#product",`,
+    `    "url": "${escapeForJson(pageUrl)}",`,
+    `    "mainEntityOfPage": "${escapeForJson(pageUrl)}",`,
     `    "name": "${escapeForJson(title)}",`,
     `    "description": "${escapeForJson(description)}",`,
+    `    "category": "${escapeForJson(category)}",`,
+    `    "inLanguage": "en",`,
+    `    "image": "${escapeForJson(siteLogoUrl)}",`,
     `    "sku": "${escapeForJson(item)}",`,
-    '    "brand": { "@type": "Brand", "name": "Inzra" },',
+    `    "brand": { "@type": "Organization", "@id": "${escapeForJson(organizationId)}", "name": "Inzra" },`,
+    `    "isPartOf": { "@type": "WebSite", "@id": "${escapeForJson(siteOrigin)}/#website", "url": "${escapeForJson(siteOrigin)}/", "name": "Inzra" },`,
     '    "aggregateRating": {',
     '      "@type": "AggregateRating",',
     `      "ratingValue": ${rating},`,
@@ -200,7 +213,8 @@ function buildMetaBlock(product, description, keywords, reviews) {
     `      "priceCurrency": "${escapeForJson(currency)}",`,
     `      "price": "${price}",`,
     `      "availability": "${availability}",`,
-    `      "url": "products/${escapeForJson(item)}.html"`,
+      `      "url": "${escapeForJson(pageUrl)}",`,
+      `      "seller": { "@type": "Organization", "@id": "${escapeForJson(organizationId)}", "name": "Inzra" }`,
     '    },',
     '    "review": [',
     reviewJson,
