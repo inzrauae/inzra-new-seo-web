@@ -160,13 +160,14 @@ function buildCustomerReviews(product, kind) {
 
 function buildMetaBlock(product, description, keywords, reviews) {
   const item = String(product.itemNumber || '').trim();
+  const slug = String(product.slug || item).trim();
   const title = String(product.title || 'Inzra Service').trim();
   const category = String(product.category || 'Digital Services').trim();
   const currency = String(product.currency || 'USD').trim();
   const price = Number(product.price || 0).toFixed(2);
   const rating = Number(product.rating || 4.9).toFixed(1);
   const reviewCount = Number(product.reviews || 0);
-  const pageUrl = `${siteOrigin}/products/${encodeURIComponent(item)}.html`;
+  const pageUrl = `${siteOrigin}/products/${slug}.html`;
   const availability = Number(product.quantity || 0) > 0
     ? 'https://schema.org/InStock'
     : 'https://schema.org/OutOfStock';
@@ -282,7 +283,7 @@ for (const product of data) {
   product.description = description;
   updatedJsonCount += 1;
 
-  const htmlPath = path.join(productsDir, `${item}.html`);
+  const htmlPath = path.join(productsDir, `${product.slug || item}.html`);
   if (!fs.existsSync(htmlPath)) continue;
 
   let html = fs.readFileSync(htmlPath, 'utf8');

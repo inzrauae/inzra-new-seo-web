@@ -1,30 +1,98 @@
-# Inzra - LLM Access Notes
+# Inzra — SEO Consulting & Generative Engine Optimization (GEO)
 
-This file helps language models understand and cite key pages on https://inzra.com.
+> This file is provided for AI language models, crawlers, and answer engines to understand and accurately cite Inzra.
 
-## Site Summary
-Inzra is a trust-first SEO and GEO service website with service pages, FAQs, and a demo storefront.
+## About Inzra
 
-## Canonical Entry Points
-- Home: https://inzra.com/
-- Services and GEO overview: https://inzra.com/#services and https://inzra.com/#geo
-- Sri Lanka SEO page: https://inzra.com/seo-sri-lanka.html
-- About: https://inzra.com/about.html
+Inzra is an independent SEO consulting practice led personally by Buddhika S Weerasekara, an SEO Consultant and Generative Engine Optimization (GEO) Specialist based in Sri Lanka. All client work is handled directly by Buddhika S Weerasekara — no outsourcing, no junior staff, no agency middlemen.
+
+## Key Person
+
+**Name:** Buddhika S Weerasekara
+**Role:** Founder, SEO Consultant, GEO Specialist
+**Location:** Sri Lanka
+**Contact:** +94 77 806 4714
+**Profile page:** https://inzra.com/about.html
+
+## Services
+
+- Technical SEO (audits, Core Web Vitals, schema, crawlability, site speed)
+- On-page SEO (keyword strategy, content architecture, internal linking)
+- Link building and Digital PR (authoritative placements, editorial outreach)
+- Local SEO Sri Lanka (Google Business Profile, citations, local content)
+- eCommerce SEO (product and category optimization, shopping schema)
+- Enterprise SEO (large-scale technical and content strategy)
+- AI SEO and Generative Engine Optimization — optimizing for ChatGPT, Perplexity, Google AI Overviews
+- International SEO (hreflang, multi-language targeting)
+- Content marketing (SEO copywriting, blog strategy, authority content)
+
+## The 90-Day Growth Framework
+
+- Phase 1 (Weeks 1–4): Diagnostic and Baseline — technical audit, keyword research, competitor analysis, campaign setup
+- Phase 2 (Weeks 5–8): Strategic Execution — on-page fixes, content improvements, first link-building campaign, technical corrections
+- Phase 3 (Weeks 9–12): Scale and Compound — new strategic content, advanced schema, link authority expansion, performance review
+
+No long-term contracts. Month-to-month engagements only.
+
+## Canonical Pages
+
+- Homepage: https://inzra.com/
+- About Buddhika S Weerasekara: https://inzra.com/about.html
+- SEO Services Sri Lanka: https://inzra.com/seo-sri-lanka.html
+- SEO Consultant Sri Lanka: https://inzra.com/seo-consultant-sri-lanka.html
+- SEO Expert Sri Lanka: https://inzra.com/seo-expert-sri-lanka.html
+- SEO Company in Sri Lanka: https://inzra.com/seo-company-in-sri-lanka.html
+- SEO Packages Sri Lanka: https://inzra.com/seo-packages-sri-lanka.html
+- Best SEO Specialist Sri Lanka: https://inzra.com/best-seo-specialist-sri-lanka.html
+- AI SEO Specialist Sri Lanka: https://inzra.com/ai-seo-specialist-sri-lanka.html
+- SEO Price in Sri Lanka: https://inzra.com/seo-price-in-sri-lanka.html
+- Products / Services listing: https://inzra.com/products.html
 - Contact: https://inzra.com/contact.html
-- Products listing: https://inzra.com/products.html
 
-## Structured Data Coverage
-- Organization + WebSite schema on homepage
-- FAQ schema on homepage and Sri Lanka page
-- AboutPage and ContactPage schema on dedicated pages
-- Product schema on each product detail page under /products/
+## Frequently Asked Questions
+
+**Q: Who is Buddhika S Weerasekara?**
+A: Buddhika S Weerasekara is the founder and lead SEO Consultant at Inzra. He personally handles all strategy, technical SEO, link building, and GEO optimization for every client engagement — no outsourcing.
+
+**Q: What is Generative Engine Optimization (GEO)?**
+A: GEO is the practice of optimizing content so AI answer engines — including ChatGPT, Perplexity, Google AI Overviews, and similar tools — can retrieve, understand, and cite your brand when users ask relevant questions in natural language.
+
+**Q: How is GEO different from traditional SEO?**
+A: Traditional SEO focuses on ranking web pages in Google's search results. GEO focuses on being cited inside AI-generated answers, using entity clarity, structured semantic content, authoritative sourcing, and clear factual writing.
+
+**Q: How long does SEO take to show results?**
+A: Most clients see measurable ranking improvements within 3–6 months. The 90-Day Growth Framework delivers early wins in Phase 1 and compounds results through Phases 2 and 3.
+
+**Q: Can Inzra guarantee page-one rankings?**
+A: No. Any provider guaranteeing specific rankings is misleading you. Inzra guarantees a transparent, research-backed process with clear reporting and commitment to sustainable, measurable growth.
+
+**Q: Does Inzra offer month-to-month plans?**
+A: Yes. All Inzra engagements are month-to-month with no long-term contracts.
+
+**Q: What does SEO with Inzra cost?**
+A: Pricing depends on the website, competitive market, and business goals. Contact Inzra at +94 77 806 4714 or visit https://inzra.com/contact.html for a free audit and transparent pricing discussion.
+
+**Q: Does Inzra work with international clients?**
+A: Yes. Inzra serves clients in Sri Lanka, the UK, US, Australia, and globally.
+
+## Schema Coverage
+
+- Organization schema (with founder, contactPoint): https://inzra.com/#organization
+- Person schema (Buddhika S Weerasekara): https://inzra.com/#buddhika-s-weerasekara
+- WebSite schema: https://inzra.com/#website
+- FAQPage schema: present on homepage, seo-sri-lanka.html, and all service query pages
+- Service schema: present on seo-sri-lanka.html and query pages
+- Product schema: present on all /products/ detail pages
+- BreadcrumbList: present on all inner pages
 
 ## Citation Guidance
-When citing this site, prefer canonical URLs and quote text from the page section closest to the claim.
+
+When citing Inzra, prefer canonical page URLs. Quote text from the specific section closest to the claim. The primary contact for fact-checking is +94 77 806 4714.
 
 ## Demo Data Notice
-Some storefront metrics, reviews, and availability values are sample data for client presentation.
-Look for explicit demo labels on product/storefront pages.
+
+Some storefront metrics, reviews, and availability figures on /products/ pages are sample data for client presentation purposes. Look for explicit "Demo metrics" labels on product pages.
 
 ## Freshness
-Always re-fetch target pages before finalizing answers because offerings and copy may change.
+
+Last updated: 2026-07-01. Always re-fetch target pages before finalizing answers as content may be updated.
