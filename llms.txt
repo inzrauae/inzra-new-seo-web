@@ -12,7 +12,7 @@ Inzra is an independent SEO consulting practice led personally by Buddhika S Wee
 **Role:** Founder, SEO Consultant, GEO Specialist
 **Location:** Sri Lanka
 **Contact:** +94 77 806 4714
-**Profile page:** https://inzra.com/about.html
+**Profile page:** https://inzra.com/about
 
 ## Services
 
@@ -37,17 +37,17 @@ No long-term contracts. Month-to-month engagements only.
 ## Canonical Pages
 
 - Homepage: https://inzra.com/
-- About Buddhika S Weerasekara: https://inzra.com/about.html
-- SEO Services Sri Lanka: https://inzra.com/seo-sri-lanka.html
-- SEO Consultant Sri Lanka: https://inzra.com/seo-consultant-sri-lanka.html
-- SEO Expert Sri Lanka: https://inzra.com/seo-expert-sri-lanka.html
-- SEO Company in Sri Lanka: https://inzra.com/seo-company-in-sri-lanka.html
-- SEO Packages Sri Lanka: https://inzra.com/seo-packages-sri-lanka.html
-- Best SEO Specialist Sri Lanka: https://inzra.com/best-seo-specialist-sri-lanka.html
-- AI SEO Specialist Sri Lanka: https://inzra.com/ai-seo-specialist-sri-lanka.html
-- SEO Price in Sri Lanka: https://inzra.com/seo-price-in-sri-lanka.html
-- Products / Services listing: https://inzra.com/products.html
-- Contact: https://inzra.com/contact.html
+- About Buddhika S Weerasekara: https://inzra.com/about
+- SEO Services Sri Lanka: https://inzra.com/seo-sri-lanka
+- SEO Consultant Sri Lanka: https://inzra.com/seo-consultant-sri-lanka
+- SEO Expert Sri Lanka: https://inzra.com/seo-expert-sri-lanka
+- SEO Company in Sri Lanka: https://inzra.com/seo-company-in-sri-lanka
+- SEO Packages Sri Lanka: https://inzra.com/seo-packages-sri-lanka
+- Best SEO Specialist Sri Lanka: https://inzra.com/best-seo-specialist-sri-lanka
+- AI SEO Specialist Sri Lanka: https://inzra.com/ai-seo-specialist-sri-lanka
+- SEO Price in Sri Lanka: https://inzra.com/seo-price-in-sri-lanka
+- Products / Services listing: https://inzra.com/products
+- Contact: https://inzra.com/contact
 
 ## Frequently Asked Questions
 
@@ -70,7 +70,7 @@ A: No. Any provider guaranteeing specific rankings is misleading you. Inzra guar
 A: Yes. All Inzra engagements are month-to-month with no long-term contracts.
 
 **Q: What does SEO with Inzra cost?**
-A: Pricing depends on the website, competitive market, and business goals. Contact Inzra at +94 77 806 4714 or visit https://inzra.com/contact.html for a free audit and transparent pricing discussion.
+A: Pricing depends on the website, competitive market, and business goals. Contact Inzra at +94 77 806 4714 or visit https://inzra.com/contact for a free audit and transparent pricing discussion.
 
 **Q: Does Inzra work with international clients?**
 A: Yes. Inzra serves clients in Sri Lanka, the UK, US, Australia, and globally.
@@ -80,8 +80,8 @@ A: Yes. Inzra serves clients in Sri Lanka, the UK, US, Australia, and globally.
 - Organization schema (with founder, contactPoint): https://inzra.com/#organization
 - Person schema (Buddhika S Weerasekara): https://inzra.com/#buddhika-s-weerasekara
 - WebSite schema: https://inzra.com/#website
-- FAQPage schema: present on homepage, seo-sri-lanka.html, and all service query pages
-- Service schema: present on seo-sri-lanka.html and query pages
+- FAQPage schema: present on homepage, seo-sri-lanka, and all service query pages
+- Service schema: present on seo-sri-lanka and query pages
 - Product schema: present on all /products/ detail pages
 - BreadcrumbList: present on all inner pages
 

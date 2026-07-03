@@ -1,0 +1,25 @@
+Options -MultiViews
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Keep the homepage canonical.
+RewriteCond %{THE_REQUEST} \s/+index\.html(?:[?\s]|$) [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+
+RewriteRule ^index/?$ / [R=301,L]
+
+# Redirect direct .html requests to extensionless URLs.
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html(?:[?\s]|$) [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# /products must map to products.html, even though /products/ is a real directory.
+RewriteRule ^products/?$ products.html [L]
+
+# Serve existing .html files for extensionless requests.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>

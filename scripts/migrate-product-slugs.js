@@ -61,7 +61,7 @@ for (const product of data) {
   const oldPath = path.join(productsDir, `${item}.html`);
   const newPath = path.join(productsDir, `${slug}.html`);
   const oldUrl = `${siteOrigin}/products/${encodeURIComponent(item)}.html`;
-  const newUrl = `${siteOrigin}/products/${slug}.html`;
+  const newUrl = `${siteOrigin}/products/${slug}`;
 
   if (!fs.existsSync(oldPath)) {
     skippedCount++;

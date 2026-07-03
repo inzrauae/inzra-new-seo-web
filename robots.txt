@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
-Disallow: /products-upload.html
-Disallow: /checkout.html
+Disallow: /products-upload
+Disallow: /checkout
 
 # AI crawlers — full access for GEO indexing
 User-agent: GPTBot

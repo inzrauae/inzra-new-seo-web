@@ -8,6 +8,14 @@ const fs = require('fs');
 const path = require('path');
 const root = process.cwd();
 
+function toPublicUrl(filePath) {
+  if (filePath === 'index.html') {
+    return 'https://inzra.com/';
+  }
+
+  return `https://inzra.com/${filePath.replace(/\.html$/, '')}`;
+}
+
 // ── 1. ADD BreadcrumbList + meta author to 9 query pages ─────────────────────
 const queryPages = [
   { file: 'seo-consultant-sri-lanka.html', label: 'SEO Consultant Sri Lanka' },
@@ -25,7 +33,7 @@ for (const { file, label } of queryPages) {
   const fp = path.join(root, file);
   if (!fs.existsSync(fp)) { console.log(`SKIP: ${file}`); continue; }
   let html = fs.readFileSync(fp, 'utf8');
-  const url = `https://inzra.com/${file}`;
+  const url = toPublicUrl(file);
   let changed = false;
 
   // Add meta author after twitter:image if not already present
@@ -45,7 +53,7 @@ for (const { file, label } of queryPages) {
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://inzra.com/" },
-      { "@type": "ListItem", "position": 2, "name": "SEO Sri Lanka", "item": "https://inzra.com/seo-sri-lanka.html" },
+      { "@type": "ListItem", "position": 2, "name": "SEO Sri Lanka", "item": "https://inzra.com/seo-sri-lanka" },
       { "@type": "ListItem", "position": 3, "name": "${label}", "item": "${url}" }
     ]
   }
@@ -95,7 +103,7 @@ function getPriority(url) {
       url.includes('seo-consultant-in-sri-lanka') || url.includes('ai-seo-specialist') ||
       url.includes('best-seo-specialist')) return '0.8';
   if (url.includes('seo-sri-lanka')) return '0.9';
-  if (url.includes('products.html') || url.includes('about.html') || url.includes('contact.html')) return '0.7';
+  if (/https:\/\/inzra\.com\/(?:products(?:\.html)?|about(?:\.html)?|contact(?:\.html)?)$/.test(url)) return '0.7';
   if (url.includes('/products/')) return '0.5';
   return '0.6';
 }

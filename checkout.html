@@ -6,13 +6,13 @@
   <title>Checkout | Inzra</title>
   <meta name="description" content="Secure direct checkout for Inzra products.">
   <meta name="robots" content="noindex, nofollow">
-  <link rel="canonical" href="https://inzra.com/checkout.html">
+  <link rel="canonical" href="https://inzra.com/checkout">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Checkout | Inzra",
-    "url": "https://inzra.com/checkout.html",
+    "url": "https://inzra.com/checkout",
     "isPartOf": {
       "@type": "WebSite",
       "name": "Inzra",
@@ -194,11 +194,11 @@
 <body>
   <main class="wrap">
     <nav class="site-nav" aria-label="Main menu">
-      <a href="index.html">Home</a>
-      <a href="index.html#services">Services</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="products.html">Products</a>
+      <a href="/">Home</a>
+      <a href="/#services">Services</a>
+      <a href="about">About</a>
+      <a href="contact">Contact</a>
+      <a href="products">Products</a>
     </nav>
     <header class="head">
       <h1>Checkout Ready</h1>
@@ -224,8 +224,8 @@
       <p id="status" class="status">Preparing checkout...</p>
       <div id="paypal-button-container"></div>
       <div class="actions">
-        <a class="btn primary" href="products.html">Back to Products</a>
-        <a class="btn soft" href="index.html">Home</a>
+        <a class="btn primary" href="products">Back to Products</a>
+        <a class="btn soft" href="/">Home</a>
       </div>
     </section>
     <footer class="site-foot">
@@ -348,7 +348,7 @@
       let clientId = getClientId();
 
       if (!clientId || clientId === "REPLACE_WITH_PAYPAL_CLIENT_ID" || clientId === "DEMO_LIVE_CLIENT_ID") {
-        setStatus("Add your PayPal Client ID in checkout.html to enable checkout buttons.", "error");
+        setStatus("Add your PayPal Client ID in checkout to enable checkout buttons.", "error");
         return;
       }
 

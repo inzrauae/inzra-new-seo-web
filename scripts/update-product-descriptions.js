@@ -167,7 +167,7 @@ function buildMetaBlock(product, description, keywords, reviews) {
   const price = Number(product.price || 0).toFixed(2);
   const rating = Number(product.rating || 4.9).toFixed(1);
   const reviewCount = Number(product.reviews || 0);
-  const pageUrl = `${siteOrigin}/products/${slug}.html`;
+  const pageUrl = `${siteOrigin}/products/${slug}`;
   const availability = Number(product.quantity || 0) > 0
     ? 'https://schema.org/InStock'
     : 'https://schema.org/OutOfStock';

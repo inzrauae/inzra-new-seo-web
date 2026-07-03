@@ -65,6 +65,19 @@ const pages = [
   }
 ];
 
+function toPublicPath(filePath) {
+  if (filePath === 'index.html') {
+    return '/';
+  }
+
+  return filePath.replace(/\.html$/, '');
+}
+
+function toAbsoluteUrl(filePath) {
+  const publicPath = toPublicPath(filePath);
+  return publicPath === '/' ? `${site}/` : `${site}/${publicPath}`;
+}
+
 function escapeHtml(text) {
   return String(text)
     .replace(/&/g, '&amp;')
@@ -169,13 +182,13 @@ function makeLinks(currentSlug) {
       if (p.slug === currentSlug) {
         return `<li><strong>${escapeHtml(label)}</strong></li>`;
       }
-      return `<li><a href="${escapeHtml(p.slug)}">${escapeHtml(label)}</a></li>`;
+      return `<li><a href="${escapeHtml(toPublicPath(p.slug))}">${escapeHtml(label)}</a></li>`;
     })
     .join('\n            ');
 }
 
 function buildPage(page) {
-  const url = `${site}/${page.slug}`;
+  const url = toAbsoluteUrl(page.slug);
   const keywordLabel = titleCaseKeyword(page.keyword);
   const relatedLinks = makeLinks(page.slug);
   const faqHtml = makeFaqHtml(page);
@@ -323,7 +336,7 @@ ${faqSchema}
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://inzra.com/" },
-      { "@type": "ListItem", "position": 2, "name": "SEO Sri Lanka", "item": "https://inzra.com/seo-sri-lanka.html" },
+      { "@type": "ListItem", "position": 2, "name": "SEO Sri Lanka", "item": "https://inzra.com/seo-sri-lanka" },
       { "@type": "ListItem", "position": 3, "name": "${escapeHtml(titleCaseKeyword(page.keyword))}", "item": "${escapeHtml(url)}" }
     ]
   }
@@ -333,18 +346,18 @@ ${faqSchema}
   <!-- SITE HEADER -->
   <header class="site-header">
     <nav class="site-nav wrap">
-      <a href="index.html" class="site-brand" aria-label="SEO Consultant Buddhika S Weerasekara">
+      <a href="/" class="site-brand" aria-label="SEO Consultant Buddhika S Weerasekara">
         <span class="site-brand-mark"><img src="logos/inzra%20logo.png" alt="Inzra SEO Consultant"></span>
       </a>
       <button class="site-menu-btn" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
       <ul class="site-nav-links" id="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="seo-sri-lanka.html#services" class="active">Services</a></li>
-        <li><a href="seo-sri-lanka.html#pricing">Pricing</a></li>
-        <li><a href="seo-sri-lanka.html#faq">FAQ</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="about">About Us</a></li>
+        <li><a href="seo-sri-lanka#services" class="active">Services</a></li>
+        <li><a href="seo-sri-lanka#pricing">Pricing</a></li>
+        <li><a href="seo-sri-lanka#faq">FAQ</a></li>
+        <li><a href="products">Products</a></li>
+        <li><a href="contact">Contact</a></li>
       </ul>
       <a class="site-call-pill" href="${escapeHtml(contactPhoneHref)}" aria-label="Call ${escapeHtml(contactPhoneDisplay)}">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.58 3.4 2 2 0 0 1 3.56 1.19h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 5.61 5.61l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.93z"/></svg>
@@ -382,8 +395,8 @@ ${faqSchema}
       </div>
 
       <div class="cta">
-        <a class="btn primary" href="contact.html">Request Audit</a>
-        <a class="btn soft" href="seo-sri-lanka.html">View SEO Sri Lanka Page</a>
+        <a class="btn primary" href="contact">Request Audit</a>
+        <a class="btn soft" href="seo-sri-lanka">View SEO Sri Lanka Page</a>
       </div>
     </section>
 
@@ -427,7 +440,7 @@ ${faqSchema}
     <div class="ft-inner wrap">
       <div class="ft-grid">
         <div>
-          <a href="index.html" class="site-brand" aria-label="Inzra SEO Consultant">
+          <a href="/" class="site-brand" aria-label="Inzra SEO Consultant">
             <span class="site-brand-mark"><img src="logos/inzra%20logo.png" alt="Inzra"></span>
           </a>
           <p class="ft-desc">Practical SEO consulting, technical execution, and GEO strategy for brands that want trust, visibility, and long-term growth in Sri Lanka and beyond.</p>
@@ -435,21 +448,21 @@ ${faqSchema}
         <div>
           <h3 class="ft-title">Company</h3>
           <ul class="ft-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="seo-sri-lanka.html">SEO Sri Lanka</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="about">About Us</a></li>
+            <li><a href="contact">Contact</a></li>
+            <li><a href="products">Products</a></li>
+            <li><a href="seo-sri-lanka">SEO Sri Lanka</a></li>
           </ul>
         </div>
         <div>
           <h3 class="ft-title">SEO Services</h3>
           <ul class="ft-links">
-            <li><a href="seo-consultant-sri-lanka.html">SEO Consultant Sri Lanka</a></li>
-            <li><a href="seo-expert-sri-lanka.html">SEO Expert Sri Lanka</a></li>
-            <li><a href="best-seo-specialist-sri-lanka.html">SEO Specialist Sri Lanka</a></li>
-            <li><a href="seo-sri-lanka.html">SEO Sri Lanka</a></li>
-            <li><a href="ai-seo-specialist-sri-lanka.html">AI SEO &amp; GEO</a></li>
+            <li><a href="seo-consultant-sri-lanka">SEO Consultant Sri Lanka</a></li>
+            <li><a href="seo-expert-sri-lanka">SEO Expert Sri Lanka</a></li>
+            <li><a href="best-seo-specialist-sri-lanka">SEO Specialist Sri Lanka</a></li>
+            <li><a href="seo-sri-lanka">SEO Sri Lanka</a></li>
+            <li><a href="ai-seo-specialist-sri-lanka">AI SEO &amp; GEO</a></li>
           </ul>
         </div>
         <div>
@@ -460,7 +473,7 @@ ${faqSchema}
           </div>
           <div class="ft-info-row">
             <span class="ft-icon">&#9993;</span>
-            <span class="ft-info-text"><a href="contact.html">Contact us online</a></span>
+            <span class="ft-info-text"><a href="contact">Contact us online</a></span>
           </div>
           <div class="ft-info-row">
             <span class="ft-icon">&#127759;</span>
@@ -474,7 +487,7 @@ ${faqSchema}
       </div>
       <div class="ft-bottom">
         <span>&copy; 2026 Inzra &ndash; ${escapeHtml(expertName)}. All rights reserved.</span>
-        <span><a href="about.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="contact.html">Terms &amp; Conditions</a></span>
+        <span><a href="about">Privacy Policy</a> &nbsp;|&nbsp; <a href="contact">Terms &amp; Conditions</a></span>
       </div>
     </div>
   </footer>

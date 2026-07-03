@@ -6,13 +6,13 @@
     <title>Product Details | Inzra</title>
     <meta name="description" content="Product details and purchase page for Inzra listings.">
         <meta name="robots" content="noindex, nofollow">
-    <link rel="canonical" href="https://inzra.com/product-details.html">
+    <link rel="canonical" href="https://inzra.com/product-details">
         <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "WebPage",
             "name": "Product Details | Inzra",
-            "url": "https://inzra.com/product-details.html",
+            "url": "https://inzra.com/product-details",
             "isPartOf": {
                 "@type": "WebSite",
                 "name": "Inzra",
@@ -221,11 +221,11 @@
 </head>
 <body>
     <div class="wrap topbar">
-        <a href="products.html" class="brand" aria-label="Inzra products">
+        <a href="products" class="brand" aria-label="Inzra products">
             <span class="brand-mark"><img src="logos/inzra%20logo.png" alt="Inzra logo"></span>
             Inzra Products
         </a>
-        <a href="products.html" class="back-link">Back to products</a>
+        <a href="products" class="back-link">Back to products</a>
     </div>
 
     <main class="wrap" id="app"></main>
@@ -273,8 +273,8 @@
                             <div class="stat"><strong>${Number(item.rating || 4.9).toFixed(1)} (${item.reviews || 0})</strong>Reviews</div>
                         </div>
                         <div class="actions">
-                            <a class="btn primary" href="checkout.html?item=${encodeURIComponent(item.itemNumber)}">Buy Now</a>
-                            <a class="btn soft" href="products.html">Browse More Products</a>
+                            <a class="btn primary" href="checkout?item=${encodeURIComponent(item.itemNumber)}">Buy Now</a>
+                            <a class="btn soft" href="products">Browse More Products</a>
                         </div>
                         <p class="note">This page is generated from your active catalog data. Price and stock may change as your catalog updates.</p>
                     </div>
