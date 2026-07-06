@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purchase Complete | Inzra</title>
+  <meta name="description" content="Order confirmation for completed Inzra purchases.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://inzra.com/checkout-success">
+  <style>
+    :root {
+      --ink: #111827;
+      --muted: #64748b;
+      --line: rgba(17, 24, 39, 0.1);
+      --gold: #d4a017;
+      --bg1: #fbfbfa;
+      --bg2: #f4efe3;
+      --bg3: #edf4f8;
+      --success: #166534;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Segoe UI, Arial, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(145deg, var(--bg1), var(--bg2) 52%, var(--bg3));
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+    }
+    .wrap {
+      width: min(760px, 100%);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.1);
+      overflow: hidden;
+    }
+    .head {
+      padding: 1.2rem;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(130deg, rgba(22, 101, 52, 0.1), rgba(255, 255, 255, 0));
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      line-height: 1.2;
+    }
+    .body {
+      padding: 1.2rem;
+      display: grid;
+      gap: 1rem;
+    }
+    .status {
+      margin: 0;
+      padding: 0.8rem 0.9rem;
+      border-radius: 12px;
+      border: 1px solid rgba(22, 101, 52, 0.15);
+      background: rgba(240, 253, 244, 0.95);
+      color: var(--success);
+      font-weight: 700;
+    }
+    .summary {
+      display: grid;
+      gap: 0.75rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem;
+      background: #fff;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: baseline;
+    }
+    .row span:first-child {
+      color: var(--muted);
+    }
+    .row strong {
+      color: var(--ink);
+      text-align: right;
+      word-break: break-word;
+    }
+    .note {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      text-decoration: none;
+      padding: 0.68rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    .btn.primary {
+      color: #fff;
+      background: linear-gradient(130deg, #845d00, var(--gold));
+    }
+    .btn.soft {
+      color: var(--ink);
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="head">
+      <h1>Purchase Complete</h1>
+    </header>
+    <section class="body">
+      <p class="status">Your payment was captured and your purchase was recorded successfully.</p>
+      <div class="summary">
+        <div class="row"><span>Order reference</span><strong id="orderRef">Pending</strong></div>
+        <div class="row"><span>Capture ID</span><strong id="captureRef">Pending</strong></div>
+        <div class="row"><span>Product</span><strong id="productTitle">Pending</strong></div>
+        <div class="row"><span>Item number</span><strong id="itemNumber">Pending</strong></div>
+        <div class="row"><span>Amount</span><strong id="amountValue">Pending</strong></div>
+        <div class="row"><span>Payer</span><strong id="payerName">Pending</strong></div>
+      </div>
+      <p class="note">Keep your order reference for support or manual fulfillment follow-up.</p>
+      <div class="actions">
+        <a class="btn primary" href="products">Back to Products</a>
+        <a class="btn soft" href="/">Home</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    function text(name, fallback) {
+      return params.get(name) || fallback;
+    }
+
+    document.getElementById("orderRef").textContent = text("order", "Not available");
+    document.getElementById("captureRef").textContent = text("capture", "Not available");
+    document.getElementById("productTitle").textContent = text("title", "Inzra Purchase");
+    document.getElementById("itemNumber").textContent = text("item", "Unknown");
+    document.getElementById("amountValue").textContent = text("amount", "0.00") + " USD";
+    document.getElementById("payerName").textContent = text("payer", "Customer");
+  </script>
+</body>
+</html>

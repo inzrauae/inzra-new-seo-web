@@ -220,7 +220,7 @@
           <strong id="total">$0.00</strong>
         </div>
       </div>
-      <p class="notice">Demo checkout preview: pricing and product info are sample data for client presentation.</p>
+      <p class="notice">Live PayPal payments require a valid live client ID. Sandbox mode is for testing only and will not send money to your real PayPal account.</p>
       <p id="status" class="status">Preparing checkout...</p>
       <div id="paypal-button-container"></div>
       <div class="actions">
@@ -229,13 +229,16 @@
       </div>
     </section>
     <footer class="site-foot">
-      <span>Demo checkout mode for client presentation and flow testing.</span>
+      <span>Use <strong>?env=sandbox</strong> only for test transactions. Live payments require real PayPal credentials.</span>
     </footer>
   </main>
 
   <script>
-    const PAYPAL_LIVE_CLIENT_ID = "DEMO_LIVE_CLIENT_ID";
+    const PAYPAL_LIVE_CLIENT_ID = "AaU0qyx3h4IX81O1XTbVjKb3-rKJj7Lxtl083QCZwbnnWmcOIEOucg4nuTdskJ7owIpXb-B7UKJsfI-Q";
     const PAYPAL_SANDBOX_CLIENT_ID = "sb";
+    const ORDER_API_BASE = (window.INZRA_ORDER_API_BASE || (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+      ? "http://127.0.0.1:8000"
+      : "https://api.inzra.com")).replace(/\/$/, "");
 
     const itemIdEl = document.getElementById("itemId");
     const itemTitleEl = document.getElementById("itemTitle");
@@ -245,7 +248,7 @@
 
     const itemId = new URLSearchParams(window.location.search).get("item");
     const envParam = new URLSearchParams(window.location.search).get("env");
-    let paypalEnv = envParam === "live" ? "live" : "sandbox";
+    let paypalEnv = envParam === "sandbox" ? "sandbox" : "live";
     let currentProduct = null;
 
     function getClientId() {
@@ -260,6 +263,82 @@
       statusEl.textContent = message;
       statusEl.className = "status";
       if (type) statusEl.classList.add(type);
+    }
+
+    function getOrderApiUrl(path) {
+      return `${ORDER_API_BASE}${path}`;
+    }
+
+    async function createPayPalOrder() {
+      const response = await fetch(getOrderApiUrl("/api/paypal/orders/create"), {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          itemNumber: currentProduct && currentProduct.itemNumber ? String(currentProduct.itemNumber) : ""
+        })
+      });
+
+      let result = null;
+      try {
+        result = await response.json();
+      } catch (_error) {
+        result = null;
+      }
+
+      if (!response.ok || !result || !result.ok || !result.id) {
+        const message = result && result.message ? result.message : "Could not create the PayPal order on the server.";
+        throw new Error(message);
+      }
+
+      return String(result.id);
+    }
+
+    async function finalizePurchase(orderId) {
+      const response = await fetch(getOrderApiUrl("/api/paypal/orders/capture"), {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          orderId: String(orderId || ""),
+          itemNumber: currentProduct && currentProduct.itemNumber ? String(currentProduct.itemNumber) : ""
+        })
+      });
+
+      let result = null;
+      try {
+        result = await response.json();
+      } catch (_error) {
+        result = null;
+      }
+
+      if (!response.ok || !result || !result.ok) {
+        const message = result && result.message ? result.message : "Could not record the order on the server.";
+        throw new Error(message);
+      }
+
+      return result;
+    }
+
+    function buildSuccessUrl(result, payer) {
+      const params = new URLSearchParams();
+      params.set("order", result.orderId || "");
+
+      if (result.captureId) params.set("capture", result.captureId);
+      if (currentProduct && currentProduct.itemNumber) params.set("item", String(currentProduct.itemNumber));
+      if (currentProduct && currentProduct.title) params.set("title", String(currentProduct.title));
+      if (currentProduct && currentProduct.price != null) params.set("amount", Number(currentProduct.price).toFixed(2));
+      if (payer) params.set("payer", payer);
+
+      return `checkout-success?${params.toString()}`;
+    }
+
+    function isLiveClientConfigured(clientId) {
+      return Boolean(clientId) && clientId !== "REPLACE_WITH_PAYPAL_LIVE_CLIENT_ID" && clientId !== "DEMO_LIVE_CLIENT_ID";
     }
 
     async function loadProduct() {
@@ -314,31 +393,30 @@
           shape: "rect",
           label: "pay"
         },
-        createOrder: function (_data, actions) {
-          return actions.order.create({
-            purchase_units: [
-              {
-                description: `${currentProduct.title} (Item ${currentProduct.itemNumber})`,
-                amount: {
-                  currency_code: "USD",
-                  value: Number(currentProduct.price || 0).toFixed(2)
-                }
-              }
-            ]
-          });
+        createOrder: function () {
+          return createPayPalOrder();
         },
-        onApprove: function (_data, actions) {
-          return actions.order.capture().then(function (details) {
-            const payer = details && details.payer && details.payer.name ? details.payer.name.given_name : "Customer";
-            setStatus(`Payment completed successfully. Thank you, ${payer}.`, "success");
-          });
+        onApprove: async function (data) {
+          try {
+            setStatus("Payment approved. Capturing your order...", "success");
+            const result = await finalizePurchase(data && data.orderID ? data.orderID : "");
+            window.location.href = buildSuccessUrl(result, result && result.payerName ? result.payerName : "Customer");
+          } catch (error) {
+            const orderReference = data && data.orderID ? data.orderID : "unknown";
+            setStatus(`Payment was approved, but capture or order recording failed. Reference: ${orderReference}. ${error.message}`, "error");
+          }
         },
         onError: function () {
           setStatus("PayPal checkout failed. Please try again.", "error");
         }
       }).render("#paypal-button-container");
 
-      setStatus("Checkout ready. Complete your payment using PayPal.");
+      if (paypalEnv === "sandbox") {
+        setStatus("Sandbox checkout ready. Test payments will not reach your live PayPal balance.", "error");
+        return;
+      }
+
+      setStatus("Live checkout ready. Complete your payment using PayPal.");
     }
 
     async function initCheckout() {
@@ -347,8 +425,8 @@
 
       let clientId = getClientId();
 
-      if (!clientId || clientId === "REPLACE_WITH_PAYPAL_CLIENT_ID" || clientId === "DEMO_LIVE_CLIENT_ID") {
-        setStatus("Add your PayPal Client ID in checkout to enable checkout buttons.", "error");
+      if (paypalEnv === "live" && !isLiveClientConfigured(clientId)) {
+        setStatus("Live PayPal is not configured. Replace PAYPAL_LIVE_CLIENT_ID in checkout.html with your real PayPal live client ID.", "error");
         return;
       }
 
@@ -356,20 +434,6 @@
         await loadPayPalSdk(clientId);
         renderPayPalButtons();
       } catch (error) {
-        if (paypalEnv === "live") {
-          try {
-            paypalEnv = "sandbox";
-            clientId = getClientId();
-            await loadPayPalSdk(clientId);
-            renderPayPalButtons();
-            setStatus("Live PayPal key failed to load on this domain. Switched to sandbox for testing. Add valid live credentials, then use ?env=live.", "error");
-            return;
-          } catch (fallbackError) {
-            setStatus(`Could not load PayPal SDK in live or sandbox mode. ${fallbackError.message}`, "error");
-            return;
-          }
-        }
-
         setStatus(`Could not load PayPal SDK (${paypalEnv}). ${error.message}`, "error");
       }
     }

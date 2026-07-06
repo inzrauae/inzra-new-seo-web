@@ -1099,6 +1099,20 @@
         }, { threshold: 0.18 });
 
         document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+
+        if (window.location.hash) {
+            const target = document.querySelector(window.location.hash);
+
+            if (target) {
+                window.addEventListener("load", () => {
+                    const topOffset = 110;
+                    const top = target.getBoundingClientRect().top + window.scrollY - topOffset;
+
+                    window.scrollTo({ top, behavior: "auto" });
+                    window.history.replaceState(null, "", window.location.pathname + window.location.search);
+                }, { once: true });
+            }
+        }
     </script>
 
   <!-- WhatsApp FAB -->
