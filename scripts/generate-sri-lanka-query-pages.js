@@ -237,8 +237,9 @@ function buildPage(page) {
     .site-header{position:sticky;top:0;z-index:100;background:#ffffff;box-shadow:0 2px 20px rgba(0,0,0,.08);border-bottom:2px solid #d4a017;}
     .site-nav{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;min-height:80px;}
     .site-brand{display:inline-flex;align-items:center;gap:14px;text-decoration:none;}
-    .site-brand-mark{height:42px;aspect-ratio:733/161;border-radius:8px;background:rgba(255,255,255,.97);border:1px solid rgba(255,255,255,.15);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:5px 10px;}
-    .site-brand-mark img{height:100%;width:auto;object-fit:contain;display:block;}
+    .site-brand-copy{display:flex;flex-direction:column;gap:2px;}
+    .site-brand-copy strong{display:block;color:#d4a017;font-size:1.4rem;font-weight:800;line-height:1;letter-spacing:.06em;}
+    .site-brand-copy small{display:block;color:#6b7280;font-size:.66rem;letter-spacing:.02em;line-height:1;white-space:nowrap;}
     .site-nav-links{display:flex;justify-content:center;align-items:center;gap:24px;list-style:none;margin:0;padding:0;}
     .site-nav-links a{color:#374151;text-decoration:none;font-size:.88rem;font-weight:600;letter-spacing:.01em;transition:color .18s;}
     .site-nav-links a:hover,.site-nav-links a.active{color:#b8881a;}
@@ -294,7 +295,7 @@ function buildPage(page) {
     .site-footer .ft-bottom a:hover{color:#ffffff;}
     @media(max-width:980px){.grid,.stack{grid-template-columns:1fr;} .site-footer .ft-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
     @media(max-width:860px){.site-nav{position:relative;grid-template-columns:auto auto 1fr;}.site-menu-btn{display:inline-block;}.site-nav-links{display:none;position:absolute;top:100%;left:0;right:0;z-index:200;margin-top:8px;padding:16px 18px;background:#ffffff;border-radius:12px;border:1px solid rgba(212,160,23,.3);box-shadow:0 8px 24px rgba(0,0,0,.1);flex-direction:column;align-items:flex-start;gap:12px;}.site-nav-links.open{display:flex;}}
-    @media(max-width:640px){.site-nav{min-height:66px;gap:12px;}.site-brand-mark{height:34px;}.site-call-pill{padding:10px 14px;font-size:.82rem;}.site-call-pill span:last-child{display:none;}.hero,.details,.faq,.links{padding:16px;}.site-footer .ft-grid{grid-template-columns:1fr;}.site-footer .ft-bottom{flex-direction:column;align-items:flex-start;}}
+    @media(max-width:640px){.site-nav{min-height:66px;gap:12px;}.site-brand-copy strong{font-size:1.05rem;}.site-brand-copy small{font-size:.56rem;}.site-call-pill{padding:10px 14px;font-size:.82rem;}.site-call-pill span:last-child{display:none;}.hero,.details,.faq,.links{padding:16px;}.site-footer .ft-grid{grid-template-columns:1fr;}.site-footer .ft-bottom{flex-direction:column;align-items:flex-start;}}
   </style>
   <script type="application/ld+json">
   {
@@ -347,7 +348,7 @@ ${faqSchema}
   <header class="site-header">
     <nav class="site-nav wrap">
       <a href="/" class="site-brand" aria-label="SEO Consultant Buddhika S Weerasekara">
-        <span class="site-brand-mark"><img src="logos/inzra%20logo.png" alt="Inzra SEO Consultant"></span>
+        <span class="site-brand-copy"><strong>INZRA</strong><small>by Applantics (PVT) LTD</small></span>
       </a>
       <button class="site-menu-btn" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
       <ul class="site-nav-links" id="menu">
@@ -441,7 +442,7 @@ ${faqSchema}
       <div class="ft-grid">
         <div>
           <a href="/" class="site-brand" aria-label="Inzra SEO Consultant">
-            <span class="site-brand-mark"><img src="logos/inzra%20logo.png" alt="Inzra"></span>
+            <span class="site-brand-copy"><strong>INZRA</strong><small>by Applantics (PVT) LTD</small></span>
           </a>
           <p class="ft-desc">Practical SEO consulting, technical execution, and GEO strategy for brands that want trust, visibility, and long-term growth in Sri Lanka and beyond.</p>
         </div>

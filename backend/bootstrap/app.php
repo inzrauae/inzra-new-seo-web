@@ -15,6 +15,10 @@ return Application::configure(basePath: dirname(__DIR__))
             'order.admin'   => \App\Http\Middleware\EnsureOrderAdminKey::class,
             'admin.session' => \App\Http\Middleware\EnsureAdminSession::class,
         ]);
+
+        $middleware->validateCsrfTokens(except: [
+            'api/paypal/orders/*',
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

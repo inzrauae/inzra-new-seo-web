@@ -68,24 +68,29 @@
             font-weight: 800;
         }
 
-        .brand-mark {
-            height: 36px;
-            aspect-ratio: 733 / 161;
-            border-radius: 999px;
-            border: 1px solid var(--line);
-            background: #fff;
-            padding: 0;
-            display: grid;
-            place-items: center;
-            overflow: hidden;
-            flex: 0 0 auto;
+        .brand-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
         }
 
-        .brand-mark img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+        .brand-copy strong {
             display: block;
+            color: var(--gold);
+            font-size: 1.15rem;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: 0.05em;
+        }
+
+        .brand-copy small {
+            display: block;
+            color: var(--ink-500);
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            line-height: 1;
+            white-space: nowrap;
         }
 
         .back-link {
@@ -222,8 +227,7 @@
 <body>
     <div class="wrap topbar">
         <a href="products" class="brand" aria-label="Inzra products">
-            <span class="brand-mark"><img src="logos/inzra%20logo.png" alt="Inzra logo"></span>
-            Inzra Products
+            <span class="brand-copy"><strong>INZRA</strong><small>by Applantics (PVT) LTD</small></span>
         </a>
         <a href="products" class="back-link">Back to products</a>
     </div>
