@@ -269,7 +269,7 @@
       return `${ORDER_API_BASE}${path}`;
     }
 
-    async function createPayPalOrder() {
+    async function createPayPalOrder(fundingSource) {
       const response = await fetch(getOrderApiUrl("/api/paypal/orders/create"), {
         method: "POST",
         headers: {
@@ -277,7 +277,8 @@
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          itemNumber: currentProduct && currentProduct.itemNumber ? String(currentProduct.itemNumber) : ""
+          itemNumber: currentProduct && currentProduct.itemNumber ? String(currentProduct.itemNumber) : "",
+          fundingSource: fundingSource || ""
         })
       });
 
@@ -393,8 +394,8 @@
           shape: "rect",
           label: "pay"
         },
-        createOrder: function () {
-          return createPayPalOrder();
+        createOrder: function (data) {
+          return createPayPalOrder(data && data.paymentSource ? data.paymentSource : "");
         },
         onApprove: async function (data) {
           try {

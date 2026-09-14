@@ -32,6 +32,7 @@ class PaypalOrderController extends Controller
 
         $validator = Validator::make($request->all(), [
             'itemNumber' => ['required', 'string', 'max:100'],
+            'fundingSource' => ['nullable', 'string', 'max:50'],
         ]);
 
         if ($validator->fails()) {
@@ -43,8 +44,10 @@ class PaypalOrderController extends Controller
         }
 
         try {
-            $product = $this->findProduct((string) $validator->validated()['itemNumber']);
-            $paypalOrder = $this->paypalRequest('POST', '/v2/checkout/orders', [
+            $validated = $validator->validated();
+            $product = $this->findProduct((string) $validated['itemNumber']);
+
+            $orderPayload = [
                 'intent' => 'CAPTURE',
                 'purchase_units' => [
                     [
@@ -56,15 +59,24 @@ class PaypalOrderController extends Controller
                         ],
                     ],
                 ],
-                'payment_source' => [
+            ];
+
+            // Only pin payment_source when the buyer clicked the PayPal wallet
+            // button. Forcing payment_source.paypal on every order also broke
+            // the "Debit or Credit Card" button, since PayPal then refuses to
+            // attach a card to an order already committed to the wallet flow.
+            if ((string) ($validated['fundingSource'] ?? '') === 'paypal') {
+                $orderPayload['payment_source'] = [
                     'paypal' => [
                         'experience_context' => [
                             'shipping_preference' => 'NO_SHIPPING',
                             'user_action' => 'PAY_NOW',
                         ],
                     ],
-                ],
-            ]);
+                ];
+            }
+
+            $paypalOrder = $this->paypalRequest('POST', '/v2/checkout/orders', $orderPayload);
 
             $orderId = (string) data_get($paypalOrder, 'id', '');
 
